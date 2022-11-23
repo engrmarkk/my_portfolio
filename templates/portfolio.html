@@ -38,13 +38,14 @@
     ></script>
 
     <title>Portfolio</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/owl.png') }}">
   </head>
 
   <!-- Body -->
   <body>
     <!-- Navbar -->
     <nav
-      class="navbar navbar-expand-lg navbar-dark bg-dark py-3 fixed-top"
+      class="navbar navbar-expand-lg navbar-dark py-3 fixed-top"
       id="navbar"
     >
       <div class="container">
@@ -68,10 +69,10 @@
               <a href="#about" class="nav-link">About</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Project</a>
+              <a href="#project" class="nav-link">Project</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Blog</a>
+              <a href="#blog" class="nav-link">Blog</a>
             </li>
             <li class="nav-item">
               <a href="#contact" class="nav-link">Contact Me</a>
@@ -85,43 +86,45 @@
 
     <section
       class="container d-flex flex-column flex-lg-row align-items-start mt-3 mt-lg-0 align-items-lg-center"
+      id="homepage"
     >
-      <div class="d-flex flex-column w-100">
-        <p style="font-size: 2.2rem; width: fit-content;" id="myname" class="fw-bold text-warning">
+      <div class="d-flex flex-column">
+        <p style="font-size: 2.5rem" id="myname" class="h1 text-warning">
           Hi, i'm Olanrewaju
         </p>
-        <p style="font-size: 1.2rem;" class="lead text-light">
+        <p style="font-size: 1.3rem; width: 90%" class="lead text-light">
           A software developer. I combine my software development experience to
           build projects using languagaes like Python, JavaScript and flask
           framework.
         </p>
         <p class="mt-2">
-          <a href=""
+          <a href="https://github.com/engrmarkk" target="_blank"
             ><i
-              class="fab fa-github bg-dark rounded-circle text-light p-2 h6"
+              class="fab fa-github bg-light rounded-circle text-dark p-2 h6"
               id="social"
             ></i
           ></a>
-          <a href=""
+          <a href="https://twitter.com/iamengrmark" target="_blank"
             ><i
               class="fab fa-twitter bg-primary text-light p-2 rounded-circle mx-2 h6"
               id="social"
             ></i
           ></a>
-          <a href=""
+          <a href="mailto:adeniyiboladale@yahoo.com" target="_blank"
             ><i
-              class="fab fa-google bg-danger text-light p-2 rounded-circle h6"
+              class="fab fa-yahoo text-light p-2 rounded-circle h6"
               id="social"
+              style="background: purple;"
             ></i
           ></a>
-          <a href=""
+          <a href="https://linkedin.com/in/iamengrmark" target="_blank"
             ><i
               class="fab fa-linkedin-in p-2 rounded-circle text-light mx-2 h6"
               id="social"
               style="background: #0072b1"
             ></i
           ></a>
-          <a href=""
+          <a href="https://hashnode.com/@engrmark" target="_blank"
             ><i
               class="fa-brands fa-hashnode text-light rounded-circle p-2 h6"
               id="social"
@@ -147,7 +150,7 @@
     </section>
 
     <!-- About me -->
-    <section class="" id="about" style="background: rgb(70, 68, 68)">
+    <section class="" id="about" style="background: #013550;">
       <h3 class="text-center py-5 text-warning" style="margin-top: 5.5rem">
         ABOUT ME
       </h3>
@@ -207,7 +210,7 @@
     </section>
 
     <!-- Skills -->
-    <section class="container px-5 px-lg-0" style="margin-top: 5rem">
+    <section class="container px-5 px-lg-0" style="margin-top: 5rem" id="skills">
       <h3 class="text-warning mt-2 text-center">SKILLS</h3>
 
       <div class="d-flex flex-column flex-lg-row w-100">
@@ -342,7 +345,7 @@
 
     <!-- Education and Experience -->
 
-    <section class="container px-5 px-lg-0" style="margin-top: 5rem">
+    <section class="container px-5 px-lg-0" style="margin-top: 5rem" id="edu">
       <h3 class="text-warning mt-2 text-center">EDUCATION AND EXPERIENCE</h3>
       <div class="d-flex flex-column flex-lg-row mt-5 justify-content-around">
         <div class="d-flex flex-column py-4">
@@ -431,7 +434,7 @@
             style="
               border: 1px solid rgb(251, 255, 0);
               width: 1px;
-              height: 27rem;
+              height: 25rem;
               position: absolute;
               margin-top: 6rem;
               z-index: -1;
@@ -464,13 +467,13 @@
 
     <!-- Project -->
 
-    <section class="container" style="margin-top: 5rem">
-      <h3 class="text-warning my-5 text-center">PROJECT</h3>
+    <section class="container" style="margin-top: 5rem" id="project">
+      <h3 class="text-warning my-4 text-center">PROJECT</h3>
       <div class="">
         <div class="row row-cols-lg-2 w-100 m-auto">
           <!-- Card -->
           <div class="p-3">
-            <div class="col-lg card p-3 bg-dark" style="min-height: 31rem">
+            <div class="col-lg card p-3 " style="background: #013550;">
               <img
                 src="{{ url_for('static', filename='images/Quote-Generator.png') }}"
                 alt="screenshot"
@@ -478,12 +481,12 @@
               />
               <hr />
               <p class="h5 text-light">Random Quote Generator</p>
-              <p class="text-muted">
+              <!-- <p class="text-muted">
                 This Random Quote Generator fetches quotes from an API, and
                 displays it randomly on the webpage, the next button gets you
                 another random quote while the tweet button allows you to tweet
                 a particular quote on twitter.
-              </p>
+              </p> -->
               <p>
                 <span class="badge badge-pill bg-warning text-dark">HTML</span>
                 <span class="badge badge-pill bg-warning text-dark">CSS</span>
@@ -509,7 +512,7 @@
           </div>
           <!-- .......card...... -->
           <div class="p-3">
-            <div class="col-lg card p-3 bg-dark" style="min-height: 31rem">
+            <div class="col-lg card p-3" style="background: #013550;">
               <img
                 src="{{ url_for('static', filename='images/question.png') }}"
                 alt="screenshot"
@@ -517,11 +520,11 @@
               />
               <hr />
               <p class="h5 text-light">A Quiz Platform</p>
-              <p class="text-muted">
+              <!-- <p class="text-muted">
                 This quiz platform allows you to answer 10 multiple choice
                 questions in a minute, after which your result is being
                 displayed to you.
-              </p>
+              </p> -->
               <p>
                 <span class="badge badge-pill bg-warning text-dark">HTML</span>
                 <span class="badge badge-pill bg-warning text-dark">CSS</span>
@@ -547,7 +550,7 @@
           </div>
           <!-- Card -->
           <div class="p-3">
-            <div class="col-lg card p-3 bg-dark" style="min-height: 31rem">
+            <div class="col-lg card p-3" style="background: #013550;">
               <img
                 src="{{ url_for('static', filename='images/Blog-Home.png') }}"
                 alt="screenshot"
@@ -555,11 +558,11 @@
               />
               <hr />
               <p class="h5 text-light">Blog Platform</p>
-              <p class="text-muted">
+              <!-- <p class="text-muted">
                 This a CRUD based project where an authenticated user can
                 Create, Read, Update and Delete a post, while the
                 unauthenticated user can only read the post from the blog
-              </p>
+              </p> -->
               <p>
                 <span class="badge badge-pill bg-warning text-dark">HTML</span>
                 <span class="badge badge-pill bg-warning text-dark">CSS</span>
@@ -595,7 +598,7 @@
           </div>
           <!-- Card -->
           <div class="p-3">
-            <div class="col-lg card p-3 bg-dark" style="min-height: 31rem">
+            <div class="col-lg card p-3" style="background: #013550;">
               <img
                 src="{{ url_for('static', filename='images/Country.png') }}"
                 alt="screenshot"
@@ -603,10 +606,10 @@
               />
               <hr />
               <p class="h5 text-light">Country Info</p>
-              <p class="text-muted">
+              <!-- <p class="text-muted">
                 This project displays any country's info, it get its info from
                 the API of an installed python package.
-              </p>
+              </p> -->
               <p>
                 <span class="badge badge-pill bg-warning text-dark">HTML</span>
                 <span class="badge badge-pill bg-warning text-dark">CSS</span>
@@ -637,13 +640,13 @@
 
     <!-- Blog -->
 
-    <section class="container" style="margin-top: 5rem">
-      <h3 class="text-warning my-5 text-center">BLOG</h3>
+    <section class="container" style="margin-top: 5rem" id="blog">
+      <h3 class="text-warning my-4 text-center">BLOG</h3>
       <div>
         <div class="row row-cols-lg-2 w-100 m-auto">
           <!-- Blog Card -->
           <div class="p-3">
-            <div class="col-lg card p-3 bg-dark">
+            <div class="col-lg card p-3" style="background: #013550;">
               <hr />
               <p class="h5 text-light"># Decision Making in Python</p>
               <hr style="border: 1px solid white" />
@@ -652,17 +655,18 @@
                 in python
               </p>
 
-              <div class="d-flex align-items-center justify-content-end" ><a
-                href="https://github.com/engrmarkk/randomQuoteGenerator"
-                class="text-light text-decoration-none"
-                style="width: fit-content;
-                "
-                ><i
-                  class="fas fa-link text-white"
+              <div class="d-flex align-items-center justify-content-end">
+                <a
+                  href="https://engrmark.hashnode.dev/decision-making-in-python"
+                  class="text-light text-decoration-none"
                   style="width: fit-content"
-                ></i
-                >&nbsp; Read Article....</a
-              ></div>
+                  ><i
+                    class="fas fa-link text-white"
+                    style="width: fit-content"
+                  ></i
+                  >&nbsp; Read Article....</a
+                >
+              </div>
             </div>
           </div>
           <!-- ......................................... -->
@@ -672,96 +676,131 @@
 
     <!-- Contact form -->
     <section class="container" style="margin-top: 5rem" id="contact">
-      <h3 class="text-warning text-center" style="margin: 5rem 0;">CONTACT</h3>
-      <div class="d-flex w-100 flex-column-reverse flex-lg-row align-items-lg-center">
-          <div class=" d-flex flex-column w-100 py-5 m-auto">
-            <!-- my details -->
-            
-                <div class="d-flex align-items-center ">
-                    <i class="far fa-envelope bg-warning rounded-circle p-2 h6"></i>
-                    <p class="text-white text fs-5 " style="margin-left: 1rem;">adeniyiboladale@yahoo.com</p>
-                
-              </div>
-              <div class="d-flex align-items-center mt-3 ">
-                <i class="far fas fa-phone bg-warning rounded-circle p-2 h6"></i>
-                <p class="text-white text fs-5 " style="margin-left: 1rem;">+234 814 891 8156</p>
-            </div>
-            <div class="d-flex align-items-center mt-3">
-                <i class="fas fa-location-arrow bg-warning rounded-circle p-2 h6"></i>
-                <p class="text-white text fs-5 " style="margin-left: 1rem;">40, Authority Avenue, Ile Iwe Bus Stop, Ikotun Egbe, Lagos State</p>
-            </div>
-              <hr
-                class=""
-                style="
-                  border: 1px solid rgb(251, 255, 0);
-                  width: 1px;
-                  height: 10rem;
-                  position: absolute;
-                  margin-top: .5rem;
-                  z-index: -1;
-                  margin-left: .9rem;
-                "
-              />
+      <h3 class="text-warning text-center" style="margin: 5rem 0">CONTACT</h3>
+      <div
+        class="d-flex w-100 flex-column-reverse flex-lg-row align-items-lg-center"
+      >
+        <div class="d-flex flex-column w-100 py-5 m-auto">
+          <!-- my details -->
 
-              <div class="mt-4" style="width: fit-content; margin: auto;">
-                <a href="" class="p-2" style="width: fit-content;"><i class="fab fa-facebook p-2 text-primary rounded-circle bg-white h5"></i></a>
-                <a href="" class="p-2" style="width: fit-content;"><i class="fab fa-whatsapp fw-bold p-2 text-success rounded-circle bg-white h5"></i></a>
-                <a href="" class="p-2" style="width: fit-content;"><i class="fab fa-twitter p-2 text-primary rounded-circle bg-white h5"></i></a>
-                <a href="" class="p-2" style="width: fit-content;"><i class="fab fa-google p-2 text-danger rounded-circle bg-white h5"></i></a>
-              </div>
+          <div class="d-flex align-items-center">
+            <i class="far fa-envelope bg-warning rounded-circle p-2 h6"></i>
+            <p class="text-white text fs-5" style="margin-left: 1rem">
+              adeniyiboladale@yahoo.com
+            </p>
           </div>
-          <div class=" m-auto bg-dark p-5 w-100 py-5">
-             <!-- Flash messages -->
-             {% with messages = get_flashed_messages(with_categories=true) %} {% if
-                messages %} {% for category, message in messages %}
-                <div
-                  class="alert-dismissible fade show mb-4 m-auto small alert alert-{{ category }}"
-                  role="alert"
-                  style="height: 3.5rem; transition: 0.6s"
-                >
-                {% if category=='success' %}
-                  <p class="small text-center"><i class="fa fas fas fa-check"></i>&nbsp;&nbsp;&nbsp;{{ message }}</p>
-                  {% else %}
-                  <p class="small text-center"><i class="fa fas fa-exclamation-triangle"></i>&nbsp;&nbsp;&nbsp;{{ message }}</p>
-                  {% endif %}
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="alert"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                {% endfor %} {% endif %} {% endwith %}
-            <form action="" method="post">
-                {{ form.hidden_tag() }}
-                <!-- Name Field -->
-                <div>
-                    {{ form.name.label(class='text-muted text fs-5') }} <br>
-                    {{ form.name(class='form-control bg-dark text-light', placeholder='Enter your name', required=False) }}
-                </div>
-                <!-- Email Field -->
-                <div class="mt-3">
-                    {{ form.email.label(class='text-muted text fs-5') }} <br>
-                    {{ form.email(class='form-control bg-dark text-light', placeholder='Enter your email', required=False) }}
-                </div>
-                <!-- Message Field -->
-                <div class="mt-3">
-                    {{ form.message.label(class='text-muted text fs-5') }} <br>
-                    <!-- If error -->
-                    {{ form.message(class='form-control bg-dark text-light', placeholder='Enter your message', required=False) }}
-                </div>
-                <!-- Submit Field -->
-                <div class="mt-4">{{ form.submit(class='btn btn-success w-100') }}</div>
-            </form>
+          <div class="d-flex align-items-center mt-3">
+            <i class="far fas fa-phone bg-warning rounded-circle p-2 h6"></i>
+            <p class="text-white text fs-5" style="margin-left: 1rem">
+              +234 814 891 8156
+            </p>
           </div>
+          <div class="d-flex align-items-center mt-3">
+            <i
+              class="fas fa-location-arrow bg-warning rounded-circle p-2 h6"
+            ></i>
+            <p class="text-white text fs-5" style="margin-left: 1rem">
+              40, Authority Avenue, Ile Iwe Bus Stop, Ikotun Egbe, Lagos State
+            </p>
+          </div>
+          <hr
+            class=""
+            style="
+              border: 1px solid rgb(251, 255, 0);
+              width: 1px;
+              height: 10rem;
+              position: absolute;
+              margin-top: 0.5rem;
+              z-index: -1;
+              margin-left: 0.9rem;
+            "
+          />
+
+          <div class="mt-4" style="width: fit-content; margin: auto">
+            <a href="" class="p-2" style="width: fit-content"
+              ><i
+                class="fab fa-facebook p-2 text-primary rounded-circle bg-white h5"
+              ></i
+            ></a>
+            <a href="" class="p-2" style="width: fit-content"
+              ><i
+                class="fab fa-whatsapp fw-bold p-2 text-success rounded-circle bg-white h5"
+              ></i
+            ></a>
+            <a href="" class="p-2" style="width: fit-content"
+              ><i
+                class="fab fa-twitter p-2 text-primary rounded-circle bg-white h5"
+              ></i
+            ></a>
+            <a href="" class="p-2" style="width: fit-content"
+              ><i
+                class="fab fa-google p-2 text-danger rounded-circle bg-white h5"
+              ></i
+            ></a>
+          </div>
+        </div>
+        <div class="m-auto p-5 w-100 py-5" style="background: #013550;">
+          <!-- Flash messages -->
+          {% with messages = get_flashed_messages(with_categories=true) %} {% if
+          messages %} {% for category, message in messages %}
+          <div
+            class="alert-dismissible fade show mb-4 m-auto small alert alert-{{ category }}"
+            role="alert"
+            style="height: 3.5rem; transition: 0.6s"
+          >
+            {% if category=='success' %}
+            <p class="small text-center">
+              <i class="fa fas fas fa-check"></i>&nbsp;&nbsp;&nbsp;{{ message }}
+            </p>
+            {% else %}
+            <p class="small text-center">
+              <i class="fa fas fa-exclamation-triangle"></i>&nbsp;&nbsp;&nbsp;{{
+              message }}
+            </p>
+            {% endif %}
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
+          {% endfor %} {% endif %} {% endwith %}
+          <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <!-- Name Field -->
+            <div>
+              {{ form.name.label(class='text-muted text fs-5') }} <br />
+              {{ form.name(class='form-control text-muted',
+              placeholder='Enter your name', required=False, style="background: #013550;") }}
+            </div>
+            <!-- Email Field -->
+            <div class="mt-3">
+              {{ form.email.label(class='text-muted text fs-5') }} <br />
+              {{ form.email(class='form-control text-muted',
+              placeholder='Enter your email', required=False, style="background: #013550;") }}
+            </div>
+            <!-- Message Field -->
+            <div class="mt-3">
+              {{ form.message.label(class='text-muted text fs-5') }} <br />
+              <!-- If error -->
+              {{ form.message(class='form-control text-muted',
+              placeholder='Enter your message', required=False, style="background: none;") }}
+            </div>
+            <!-- Submit Field -->
+            <div class="mt-4">
+              {{ form.submit(class='btn btn-success w-100') }}
+            </div>
+          </form>
+        </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="" style="margin-top: 5rem;">
-        <div class="text-light bg-dark text-center py-3">
-            Designed by Adeniyi Olanrewaju &copy; {{ date.strftime('%Y') }}
-        </div>
+    <footer class="" style="margin-top: 5rem">
+      <div class="text-light text-center py-3" style="background: #013550;">
+        Designed by Adeniyi Olanrewaju &copy; {{ date.strftime('%Y') }}
+      </div>
     </footer>
 
     <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
