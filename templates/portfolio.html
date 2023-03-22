@@ -1,875 +1,729 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-      crossorigin="anonymous"
-    />
 
-    <!-- font awesome -->
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
 
-    <!-- fontAwesome -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
+  <!-- font awesome -->
 
-    <!-- @@@@@@@@@@@@@@@@@@@@@@@ -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
-    />
+  <!-- fontAwesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
 
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}"
-    />
+  <!-- @@@@@@@@@@@@@@@@@@@@@@@ -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 
-    <!-- Js -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 
-    <script
-      src="{{ url_for('static', filename='javascript/script.js') }}"
-      defer
-    ></script>
+  <!-- Js -->
 
-    <title>Portfolio</title>
-    <link rel="icon" href="{{ url_for('static', filename='images/owl.png') }}">
-  </head>
+  <script src="{{ url_for('static', filename='javascript/script.js') }}" defer></script>
 
-  <!-- Body -->
-  <body>
-    <!-- Navbar -->
-    <nav
-      class="navbar navbar-expand-lg navbar-dark py-3 w-100 fixed-top"
-      id="navbar"
-    >
-      <div class="container">
-        <a href="#" class="navbar-brand">Olanrewaju</a>
+  <title>Portfolio</title>
+  <link rel="icon" href="{{ url_for('static', filename='images/owl.png') }}">
+</head>
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navmenu"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+<!-- Body -->
 
-        <div class="collapse navbar-collapse" id="navmenu">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a href="#" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="#about" class="nav-link">About</a>
-            </li>
-            <li class="nav-item">
-              <a href="#project" class="nav-link">Project</a>
-            </li>
-            <li class="nav-item">
-              <a href="#blog" class="nav-link">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a href="#contact" class="nav-link">Contact Me</a>
-            </li>
-          </ul>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark py-3 w-100 fixed-top" id="navbar">
+    <div class="container">
+      <a href="#" class="navbar-brand">Olanrewaju</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a href="#" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="#project" class="nav-link">Project</a>
+          </li>
+          <li class="nav-item">
+            <a href="#blog" class="nav-link">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">Contact Me</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- heading -->
+
+  <section class="container d-flex flex-column flex-lg-row align-items-start mt-3 mt-lg-0 align-items-lg-center"
+    id="homepage">
+    <div class="d-flex flex-column w-100">
+      <p style="font-size: 2rem" id="myname" class="fw-bold text-warning">
+        Hi, i'm Olanrewaju
+      </p>
+      <p style="font-size: 1.25rem;" class="lead text-light">
+        A software developer. I combine my software development experience to
+        build projects utilizing languages such as Python, JavaScript, using Flask and Django framework.
+      </p>
+      <p class="mt-2">
+        <a href="https://github.com/engrmarkk" target="_blank"><i
+            class="fab fa-github bg-light rounded-circle text-dark p-2 h6" id="social"></i></a>
+        <a href="https://twitter.com/iamengrmark" target="_blank"><i
+            class="fab fa-twitter bg-primary text-light p-2 rounded-circle mx-2 h6" id="social"></i></a>
+        <a href="mailto:adeniyiboladale@yahoo.com" target="_blank"><i
+            class="fab fa-yahoo text-light p-2 rounded-circle h6" id="social" style="background: purple;"></i></a>
+        <a href="https://linkedin.com/in/iamengrmark" target="_blank"><i
+            class="fab fa-linkedin-in p-2 rounded-circle text-light mx-2 h6" id="social"
+            style="background: #0072b1"></i></a>
+        <a href="https://hashnode.com/@engrmark" target="_blank"><i
+            class="fa-brands fa-hashnode text-light rounded-circle p-2 h6" id="social"
+            style="background: #2962ff"></i></a>
+      </p>
+      <a href="https://1drv.ms/w/s!AhbYPLs7a9WvhaoOaMYuJaYWfUd7LA?e=FReAjh" target="_blank"
+        class="btn btn-success p-1 mt-3 px-3" style="width: fit-content; font-size: 1.1rem">Download CV</a>
+    </div>
+    <div class="w-75 p-5 d-none d-lg-block">
+      <img src="{{ url_for('static', filename='images/mann.png') }}" class="rounded w-100" alt="avatar"
+        style="filter: saturate(70%)" />
+    </div>
+  </section>
+
+  <!-- About me -->
+  <section class="" id="about" style="background: #013550; margin: auto;">
+    <h3 class="text-center py-5 text-warning" style="margin-top: 4rem">
+      ABOUT ME
+    </h3>
+    <div class="container p-4">
+      <div class="d-flex flex-column flex-lg-row align-items-center">
+        <div class="" style="width: 90%;">
+          <img src="{{ url_for('static', filename='images/mine.jpg') }}" class="w-100 img-thumbnail rounded"
+            alt="my picture" />
+        </div>
+        <div class="d-flex flex-column px-lg-4 mt-2 mt-lg-2">
+          <h2 class="text-warning">
+            <span class="text-light">ADENIYI</span> OLANREWAJU
+          </h2>
+          <hr style="border: 1px solid white" />
+          <p class="text-light" style="font-size: 1rem">
+            I'm a motivated software engineer who adheres to the DRY (Don't Repeat Yourself) principles, writing clean and reusable code with a focus on simplicity and functionality to produce high-quality end products. 
+          </p>
+          <div class="bg-warning text-dark px-1 mt-2 fw-bold" style="width: fit-content">
+            MY GOALS ARE:
+          </div>
+          <p class="">
+          <div class="text-light py-1"><span class="bg-warning text-dark px-1 rounded">o</span>&nbsp;
+            To develop my software development skills</div>
+          <div class="text-light py-1"><span class="bg-warning text-dark px-1 rounded">o</span>&nbsp;
+            To be able to solve complex problems</div>
+          <div class="text-light py-1"><span class="bg-warning text-dark px-1 rounded">o</span>&nbsp;
+            To build projects that are beneficial to the public</div>
+          <div class="text-light py-1"><span class="bg-warning text-dark px-1 rounded">o</span>&nbsp;
+            To sharpen my ability to think and respond quickly to any challenge</div>
+          <div class="text-light py-1"><span class="bg-warning text-dark px-1 rounded">o</span>&nbsp;
+            To continuously learn and keep up with the latest tech developments.</div>
+          </p>
         </div>
       </div>
-    </nav>
+    </div>
+  </section>
 
-    <!-- heading -->
+  <!-- Skills -->
+  <section class="container px-5 px-lg-0" style="margin: 5rem auto auto auto" id="skills">
+    <h3 class="text-warning mt-2 text-center">SKILLS</h3>
 
-    <section
-      class="container d-flex flex-column flex-lg-row align-items-start mt-3 mt-lg-0 align-items-lg-center"
-      id="homepage"
-    >
-      <div class="d-flex flex-column w-100">
-        <p style="font-size: 2rem" id="myname" class="fw-bold text-warning">
-          Hi, i'm Olanrewaju
-        </p>
-        <p style="font-size: 1.25rem;" class="lead text-light">
-          A software developer. I combine my software development experience to
-          build projects utilizing languages such as Python, JavaScript, using Flask and Django framework.
-        </p>
-        <p class="mt-2">
-          <a href="https://github.com/engrmarkk" target="_blank"
-            ><i
-              class="fab fa-github bg-light rounded-circle text-dark p-2 h6"
-              id="social"
-            ></i
-          ></a>
-          <a href="https://twitter.com/iamengrmark" target="_blank"
-            ><i
-              class="fab fa-twitter bg-primary text-light p-2 rounded-circle mx-2 h6"
-              id="social"
-            ></i
-          ></a>
-          <a href="mailto:adeniyiboladale@yahoo.com" target="_blank"
-            ><i
-              class="fab fa-yahoo text-light p-2 rounded-circle h6"
-              id="social"
-              style="background: purple;"
-            ></i
-          ></a>
-          <a href="https://linkedin.com/in/iamengrmark" target="_blank"
-            ><i
-              class="fab fa-linkedin-in p-2 rounded-circle text-light mx-2 h6"
-              id="social"
-              style="background: #0072b1"
-            ></i
-          ></a>
-          <a href="https://hashnode.com/@engrmark" target="_blank"
-            ><i
-              class="fa-brands fa-hashnode text-light rounded-circle p-2 h6"
-              id="social"
-              style="background: #2962ff"
-            ></i
-          ></a>
-        </p>
-        <a
-          href="https://1drv.ms/w/s!AhbYPLs7a9WvhaoOaMYuJaYWfUd7LA?e=FReAjh" target="_blank"
-          class="btn btn-success p-1 mt-3 px-3"
-          style="width: fit-content; font-size: 1.1rem"
-          >Download CV</a
-        >
-      </div>
-      <div class="w-75 p-5 d-none d-lg-block">
-        <img
-          src="{{ url_for('static', filename='images/mann.png') }}"
-          class="rounded w-100"
-          alt="avatar"
-          style="filter: saturate(70%)"
-        />
-      </div>
-    </section>
-
-    <!-- About me -->
-    <section class="" id="about" style="background: #013550; margin: auto;">
-      <h3 class="text-center py-5 text-warning" style="margin-top: 4rem">
-        ABOUT ME
-      </h3>
-      <div class="container p-4">
-        <div class="d-flex flex-column flex-lg-row align-items-center">
-          <div class="w-100">
-            <img
-              src="{{ url_for('static', filename='images/mine.jpg') }}"
-              class="w-100 img-thumbnail rounded"
-              alt="my picture"
-            />
+    <div class="d-flex flex-column flex-lg-row w-100">
+      <div class="d-flex flex-column w-100 p-lg-3">
+        <span class="fw-bold text-muted" style="font-size: 1.1rem">HTML</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
+            aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%">
+            85%
           </div>
-          <div class="d-flex flex-column px-lg-4 mt-2 mt-lg-2">
-            <h2 class="text-warning">
-              <span class="text-light">ADENIYI</span> OLANREWAJU
-            </h2>
+        </div>
+        <br />
+        <span class="fw-bold text-muted" style="font-size: 1.1rem">CSS</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
+            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+            75%
+          </div>
+        </div>
+        <br />
+        <span class="fw-bold text-muted" style="font-size: 1.1rem">BOOTSTRAP</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
+            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+            75%
+          </div>
+        </div>
+        <br />
+        <span class="fw-bold text-muted" style="font-size: 1.1rem">JAVASCRIPT</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
+            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+            50%
+          </div>
+        </div>
+        <br />
+      </div>
+      <div class="d-flex flex-column w-100 p-lg-3">
+        <span class="fw-bold text-muted" style="font-size: 1.1rem">PYTHON</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
+            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+            80%
+          </div>
+        </div>
+        <br />
+        <span class="fw-bold text-muted" style="font-size: 1.1rem">FLASK</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
+            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+            80%
+          </div>
+        </div>
+        <br />
+        <span class="fw-bold text-muted" style="font-size: 1.1rem">DATABASES</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
+            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+            80%
+          </div>
+        </div>
+        <br />
+        <span class="fw-bold text-muted" style="font-size: 1.1rem">DJANGO</span>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
+            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+            60%
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row"></div>
+  </section>
+
+  <!-- Education and Experience -->
+
+  <section class="container px-5 px-lg-0" style="margin: 5rem auto auto auto" id="edu">
+    <h3 class="text-warning mt-2 text-center">EDUCATION</h3>
+    <div class="d-flex flex-column flex-lg-row mt-3 justify-content-around">
+      <div class="d-flex flex-column py-4">
+        <!-- <h5 class="text-light mt-2 text-center badge badge-pill bg-success p-2" style="width: fit-content">
+          EDUCATION
+        </h5> -->
+        <!-- Institution 1 -->
+        <div class="d-flex mt-5">
+          <p><i class="fas fa-check-circle text-warning"></i></p>
+          <div style="margin-left: 2rem">
+            <p>
+              <span class="text-warning"><i class="fas fa-university"></i>&nbsp; Institution</span><br />
+              <span class="text-light"> Altschool Africa </span>
+            </p>
+            <p>
+              <span class="text-warning"><i class="fa-sharp fa-solid fa-user-graduate"></i>&nbsp; Course</span><br />
+              <span class="text-light"> Software Development </span>
+            </p>
+            <p>
+              <span class="text-warning"><i class="fa-regular fa-calendar-days"></i>&nbsp; Duration</span><br />
+              <span class="text-light"> 2022 - 2023 </span>
+            </p>
+          </div>
+        </div>
+        <hr class="" style="
+              border: 1px solid rgb(251, 255, 0);
+              width: 1px;
+              height: 10.6rem;
+              position: absolute;
+              margin-top: 3.5rem;
+              z-index: -1;
+              margin-left: 0.45rem;
+            " />
+        <!-- Institution 2 -->
+        <!-- <div class="d-flex mt-5">
+          <p><i class="fas fa-check-circle text-warning"></i></p>
+          <div style="margin-left: 2rem">
+            <p>
+              <span class="text-warning">Institution:</span><br />
+              <span class="text-light"> Ekiti State University </span>
+            </p>
+            <p>
+              <span class="text-warning">Course:</span><br />
+              <span class="text-light"> Mechanical Engineering </span>
+            </p>
+            <p>
+              <span class="text-warning">Duration:</span><br />
+              <span class="text-light"> 2011 - 2018 </span>
+            </p>
+          </div>
+        </div> -->
+      </div>
+      <div class="d-flex flex-column py-4">
+        <!-- <h5 class="text-light mt-2 text-center badge badge-pill bg-success p-2" style="width: fit-content">
+          EXPERIENCE
+        </h5> -->
+        <!-- Institution 1 -->
+
+        <div class="d-flex mt-5">
+          <p><i class="fas fa-check-circle text-warning"></i></p>
+          <div style="margin-left: 2rem">
+            <p>
+              <span class="text-warning"><i class="fas fa-university"></i>&nbsp; Institution</span><br />
+              <span class="text-light"> Ekiti State University </span>
+            </p>
+            <p>
+              <span class="text-warning"><i class="fa-sharp fa-solid fa-user-graduate"></i>&nbsp; Course</span><br />
+              <span class="text-light"> Mechanical Engineering </span>
+            </p>
+            <p>
+              <span class="text-warning"><i class="fa-regular fa-calendar-days"></i>&nbsp; Duration</span><br />
+              <span class="text-light"> 2011 - 2018 </span>
+            </p>
+          </div>
+        </div>
+
+
+        <!-- <div class="d-flex mt-5">
+          <p><i class="fas fa-check-circle text-warning"></i></p>
+          <div style="margin-left: 2rem">
+            <p>
+              <span class="text-warning">Company:</span><br />
+              <span class="text-light"> Transerve Disc Technology </span>
+            </p>
+            <p>
+              <span class="text-warning">Position Held:</span><br />
+              <span class="text-light"> Replication Engineer </span>
+            </p>
+            <p>
+              <span class="text-warning">Duration:</span><br />
+              <span class="text-light"> 2021 - 2022 </span>
+            </p>
+          </div>
+        </div> -->
+        <hr class="" style="
+              border: 1px solid rgb(251, 255, 0);
+              width: 1px;
+              height: 10.6rem;
+              position: absolute;
+              margin-top: 3.5rem;
+              z-index: -1;
+              margin-left: 0.45rem;
+            " />
+        <!-- Institution 2 -->
+        <!-- <div class="d-flex mt-5">
+          <p><i class="fas fa-check-circle text-warning"></i></p>
+          <div style="margin-left: 2rem">
+            <p>
+              <span class="text-warning">Company:</span><br />
+              <span class="text-light">
+                Unity Community School, Ishiagu, Ebonyi state
+              </span>
+            </p>
+            <p>
+              <span class="text-warning">Position Held:</span><br />
+              <span class="text-light"> Mathematics Teacher </span>
+            </p>
+            <p>
+              <span class="text-warning">Duration:</span><br />
+              <span class="text-light"> 2018 - 2019 </span>
+            </p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Project -->
+
+  <section class="container" style="margin: 5rem auto auto auto" id="project">
+    <h3 class="text-warning my-4 text-center">PROJECTS</h3>
+    <div class="">
+      <div class="row row-cols-lg-2 w-100 m-auto">
+
+
+        <!-- Card -->
+        <div class="p-3">
+          <div class="col-lg card p-3" style="background: #013550;">
+            <img src="{{ url_for('static', filename='images/sms.webp') }}" alt="screenshot" class="rounded" style="height: 14rem;
+                width: 100%;
+                " />
+            <hr />
+            <p class="text-light" style="font-size: 1.2rem;">Academia API &nbsp
+              <a href="https://academia.herokuapp.com/" target="_blank" style="font-size: medium;">
+              <i class="fa-sharp fa-solid fa-globe text-white"></i></a>
+            </p>
+            <p class="text-muted">
+              Academia API is an API that empowers developers to create custom applications for managing enrollment, registration, grading, and GPA calculation in educational settings. It also simplifies administrative processes for educational institutions and improves academic outcomes by enabling easier management of student data.
+            </p>
+            <p>
+              <span class="badge badge-pill bg-warning text-dark">PYTHON</span>
+              <span class="badge badge-pill bg-warning text-dark">FLASK</span>
+              <span class="badge badge-pill bg-warning text-dark">FLASK SMOREST</span>
+              <span class="badge badge-pill bg-warning text-dark">SQLITE</span>
+            </p>
+            <a href="https://github.com/engrmarkk/academia-api" style="
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  margin-top: 12rem;
+                  margin-right: 2rem;
+                "><i class="fab fa-github h1 text-white bg-dark rounded-circle p-2" style="width: fit-content"></i></a>
+          </div>
+        </div>
+
+
+        <!-- Card -->
+        <div class="p-3">
+          <div class="col-lg card p-3" style="background: #013550;">
+            <img src="{{ url_for('static', filename='images/easytransact.webp') }}" alt="screenshot" class="rounded"
+              style="height: 14rem;
+                width: 100%;
+                " />
+            <hr />
+            <p class="text-light" style="font-size: 1.2rem;">EasyTransact
+              &nbsp
+              <a href="https://easytransact.me/" target="_blank" style="font-size: medium;">
+              <i class="fa-sharp fa-solid fa-globe text-white"></i></a>
+            </p>
+            <p class="text-muted">
+              EasyTransact is a secure digital wallet platform for sending, receiving, and saving money. Its virtual credit cards and account statements make managing funds easy, and users can earn rewards through a referral scheme. With strong security features, EasyTransact ensures the safety of payments and personal information.
+
+            </p>
+            <p>
+              <span class="badge badge-pill bg-warning text-dark">HTML</span>
+              <span class="badge badge-pill bg-warning text-dark">CSS</span>
+              <span class="badge badge-pill bg-warning text-dark">BOOTSTRAP</span>
+              <span class="badge badge-pill bg-warning text-dark">JAVASCRIPT</span>
+              <span class="badge badge-pill bg-warning text-dark">PYTHON</span>
+              <span class="badge badge-pill bg-warning text-dark">FLASK</span>
+              <span class="badge badge-pill bg-warning text-dark">SQLITE</span>
+            </p>
+            <a href="https://github.com/engrmarkk/wallet_platform" style="
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  margin-top: 12rem;
+                  margin-right: 2rem;
+                "><i class="fab fa-github h1 text-white bg-dark rounded-circle p-2" style="width: fit-content"></i></a>
+          </div>
+        </div>
+
+
+        <!-- Card -->
+        <div class="p-3">
+          <div class="col-lg card p-3 " style="background: #013550;">
+            <img src="{{ url_for('static', filename='images/Quote-Generator.webp') }}" alt="screenshot" class="rounded"
+              style="height: 14rem;
+      width: 100%;
+      " />
+            <hr />
+            <p class="text-light" style="font-size: 1.2rem;">Random Quote Generator
+              &nbsp
+              <a href="https://Quote-Gen.engrmark.repl.co" target="_blank" style="font-size: medium;">
+              <i class="fa-sharp fa-solid fa-globe text-white"></i></a>
+            </p>
+            <p class="text-muted">
+              The project uses JavaScript's fetch function with async/await to obtain quotes from an API. The project then displays a randomly selected quote on the screen, allowing users to request a new quote or share the current one on social media. The use of async/await allows for efficient handling of asynchronous data, making the project more scalable and maintainable. 
+    </p>
+            <p>
+              <span class="badge badge-pill bg-warning text-dark">HTML</span>
+              <span class="badge badge-pill bg-warning text-dark">CSS</span>
+              <span class="badge badge-pill bg-warning text-dark">JAVASCRIPT</span>
+            </p>
+            <a href="https://github.com/engrmarkk/randomQuoteGenerator" style="
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 12rem;
+        margin-right: 2rem;
+      "><i class="fab fa-github h1 text-dark bg-light rounded-circle p-2" style="width: fit-content"></i></a>
+          </div>
+        </div>
+
+
+                <!-- Card -->
+                <div class="p-3">
+                  <div class="col-lg card p-3" style="background: #013550;">
+                    <img src="{{ url_for('static', filename='images/Blog-Home.webp') }}" alt="screenshot" class="rounded" style="height: 14rem;
+                        width: 100%;
+                        " />
+                    <hr />
+                    <p class="text-light" style="font-size: 1.2rem;">Blog Platform</p>
+                    <p class="text-muted">
+                      A blog platform with complete CRUD capability and reliable authentication and authorisation procedures to protect your data. It's ideal for community-driven blogs because it allows for private messaging between users. The platform's user-friendly layout and configurable features make it simple for anyone to establish a high-quality blog. The platform  includes everything you need to manage your content and engage with your readers.
+                      </p>
+                    <p>
+                      <span class="badge badge-pill bg-warning text-dark">HTML</span>
+                      <span class="badge badge-pill bg-warning text-dark">CSS</span>
+                      <span class="badge badge-pill bg-warning text-dark">BOOTSTRAP</span>
+                      <span class="badge badge-pill bg-warning text-dark">JAVASCRIPT</span>
+                      <span class="badge badge-pill bg-warning text-dark">PYTHON</span>
+                      <span class="badge badge-pill bg-warning text-dark">FLASK</span>
+                      <span class="badge badge-pill bg-warning text-dark">SQLITE</span>
+                    </p>
+                    <a href="https://github.com/engrmarkk/My_Blog_Project" style="
+                          position: absolute;
+                          top: 0;
+                          right: 0;
+                          margin-top: 12rem;
+                          margin-right: 2rem;
+                        "><i class="fab fa-github h1 text-white bg-dark rounded-circle p-2" style="width: fit-content"></i></a>
+                  </div>
+                </div>
+
+
+
+        <!-- .......card...... -->
+        <div class="p-3">
+          <div class="col-lg card p-3" style="background: #013550;">
+            <img src="{{ url_for('static', filename='images/question.webp') }}" alt="screenshot" class="rounded" style="height: 14rem;
+                width: 100%;
+                " />
+            <hr />
+            <p class="text-light" style="font-size: 1.2rem;">A Quiz Platform
+              &nbsp
+              <a href="https://quiz-1.engrmark.repl.co" target="_blank" style="font-size: medium;">
+              <i class="fa-sharp fa-solid fa-globe text-white"></i></a>
+            </p>
+            <p class="text-muted">
+              This quiz platform project challenges users to answer 10 simple questions in just one minute. 
+              A timer is set to help track progress and ensure timely completion. 
+              If the user is unable to finish before the one-minute mark, the quiz displays their score. Upon completion, the quiz shows the final score along with the user's answers. This project provides a fun and engaging way for users to test their knowledge on a particular topic under time pressure.
+              </p>
+            <p>
+              <span class="badge badge-pill bg-warning text-dark">HTML</span>
+              <span class="badge badge-pill bg-warning text-dark">CSS</span>
+              <span class="badge badge-pill bg-warning text-dark">JAVASCRIPT</span>
+            </p>
+            <a href="https://github.com/engrmarkk/QUIZ_PLATFORM" style="
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  margin-top: 12rem;
+                  margin-right: 2rem;
+                "><i class="fab fa-github h1 text-dark bg-light rounded-circle p-2" style="width: fit-content"></i></a>
+          </div>
+        </div>
+
+        <!-- Card -->
+        <div class="p-3">
+          <div class="col-lg card p-3" style="background: #013550;">
+            <img src="{{ url_for('static', filename='images/Country.webp') }}" alt="screenshot" class="rounded" style="height: 14rem;
+                width: 100%;
+                " />
+            <hr />
+            <p class=" text-light" style="font-size: 1.2rem;">Country Info
+              &nbsp
+              <a href="http://countryin.herokuapp.com/" target="_blank" style="font-size: medium;">
+              <i class="fa-sharp fa-solid fa-globe text-white"></i></a>
+            </p>
+            <p class="text-muted">
+              The Country Info Project project that provides detailed information about any country in the world. Users can search for a specific country, and the application will display various details about that country, such as its capital city, population, language, currency, and more. The application uses reliable sources to obtain the latest and most accurate information about each country. With the Country Info Project, users can quickly and easily access all the essential information they need about any country in the world.
+              </p>
+            <p>
+              <span class="badge badge-pill bg-warning text-dark">HTML</span>
+              <span class="badge badge-pill bg-warning text-dark">CSS</span>
+              <span class="badge badge-pill bg-warning text-dark">PYTHON</span>
+              <span class="badge badge-pill bg-warning text-dark">FLASK</span>
+            </p>
+            <a href="https://github.com/engrmarkk/country-Info" style="
+                  position: absolute;
+                  top: 0;
+                  right: 0;
+                  margin-top: 12rem;
+                  margin-right: 2rem;
+                "><i class="fab fa-github h1 text-dark bg-light rounded-circle p-2" style="width: fit-content"></i></a>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+
+  <section class="container" style="margin: 5rem auto auto auto" id="blog">
+    <h3 class="text-warning my-4 text-center">BLOG</h3>
+    <div>
+      <div class="row row-cols-lg-2 w-100 m-auto">
+        <!-- Blog Card -->
+        <div class="p-3">
+          <div class="col-lg card p-3" style="background: #013550;">
+            <hr />
+            <p class="h5 text-light"># Decision Making in Python</p>
             <hr style="border: 1px solid white" />
-            <p class="text-light" style="font-size: 1rem">
-              I am an energetic and highly motivated individual who has cultivated a responsible attitude towards any task or situation I am presented with. I am adept at working with others to achieve objectives with excellence.
+            <p class="text-muted">
+              This article provides an overview of how to utilize IF, ELIF, and ELSE statements in Python programming.
             </p>
-            <div
-              class="bg-warning text-dark px-1 mt-2 fw-bold"
-              style="width: fit-content"
-            >
-              MY GOALS ARE:
+
+            <div class="d-flex align-items-center justify-content-end">
+              <a href="https://engrmark.hashnode.dev/decision-making-in-python" target="_blank"
+                class="text-light text-decoration-none" style="width: fit-content"><i class="fas fa-link text-white"
+                  style="width: fit-content"></i>&nbsp; Read Article....</a>
+            </div>
           </div>
-            <p class="">
-              <div class="text-light py-1"
-                ><span class="bg-warning text-dark px-1 rounded">o</span>&nbsp;
-                To develop my software development skills</div
-              >
-              <div class="text-light py-1"
-                ><span class="bg-warning text-dark px-1 rounded">o</span>&nbsp;
-                To be able to solve complex problems</div
-              >
-              <div class="text-light py-1"
-                ><span class="bg-warning text-dark px-1 rounded">o</span>&nbsp;
-                To build projects that are beneficial to the public</div
-              >
-              <div class="text-light py-1"
-                ><span class="bg-warning text-dark px-1 rounded">o</span>&nbsp;
-                To  sharpen my ability to think and respond quickly to any challenge</div
-              >
-              <div class="text-light py-1"
-                ><span class="bg-warning text-dark px-1 rounded">o</span>&nbsp;
-                To ultimately secure a well-paying job in the tech industry.</div
-              >
+        </div>
+        <!-- ......................................... -->
+
+        <!-- Blog Card 2 -->
+        <div class="p-3">
+          <div class="col-lg card p-3" style="background: #013550;">
+            <hr />
+            <p class="h5 text-light"># A Simple Flask Blog</p>
+            <hr style="border: 1px solid white" />
+            <p class="text-muted">
+              This article discusses how to construct a Flask blog that performs CRUD operations.
             </p>
+
+            <div class="d-flex align-items-center justify-content-end">
+              <a href="https://engrmark.hashnode.dev/a-simple-flask-blog" target="_blank"
+                class="text-light text-decoration-none" style="width: fit-content"><i class="fas fa-link text-white"
+                  style="width: fit-content"></i>&nbsp; Read Article....</a>
+            </div>
           </div>
         </div>
+        <!-- ..................................... -->
+
+        <!-- Blog Card 3 -->
+        <div class="p-3">
+          <div class="col-lg card p-3" style="background: #013550;">
+            <hr />
+            <p class="h5 text-light"># Python Cheat Sheet</p>
+            <hr style="border: 1px solid white" />
+            <p class="text-muted">
+              This article provides a comprehensive Python cheat sheet, outlining the essential syntax for efficient
+              programming.
+            </p>
+
+            <div class="d-flex align-items-center justify-content-end">
+              <a href="https://engrmark.hashnode.dev/python-cheat-sheet" target="_blank"
+                class="text-light text-decoration-none" style="width: fit-content"><i class="fas fa-link text-white"
+                  style="width: fit-content"></i>&nbsp; Read Article....</a>
+            </div>
+          </div>
+        </div>
+        <!-- ..................................... -->
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Skills -->
-    <section class="container px-5 px-lg-0" style="margin: 5rem auto auto auto" id="skills">
-      <h3 class="text-warning mt-2 text-center">SKILLS</h3>
+  <!-- Contact form -->
+  <section class="container" style="margin: 5rem auto auto auto" id="contact">
+    <h3 class="text-warning text-center" style="margin: 5rem 0">CONTACT</h3>
+    <div class="d-flex w-100 flex-column-reverse flex-lg-row align-items-lg-center">
+      <div class="d-flex flex-column w-100 py-5 m-auto">
+        <!-- my details -->
 
-      <div class="d-flex flex-column flex-lg-row w-100">
-        <div class="d-flex flex-column w-100 p-lg-3">
-          <span class="fw-bold text-muted" style="font-size: 1.1rem">HTML</span>
-          <div class="progress">
-            <div
-              class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-              role="progressbar"
-              aria-valuenow="85"
-              aria-valuemin="0"
-              aria-valuemax="100"
-              style="width: 85%"
-            >
-              85%
-            </div>
-          </div>
-          <br />
-          <span class="fw-bold text-muted" style="font-size: 1.1rem">CSS</span>
-          <div class="progress">
-            <div
-              class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-              role="progressbar"
-              aria-valuenow="75"
-              aria-valuemin="0"
-              aria-valuemax="100"
-              style="width: 75%"
-            >
-              75%
-            </div>
-          </div>
-          <br />
-          <span class="fw-bold text-muted" style="font-size: 1.1rem"
-            >BOOTSTRAP</span
-          >
-          <div class="progress">
-            <div
-              class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-              role="progressbar"
-              aria-valuenow="75"
-              aria-valuemin="0"
-              aria-valuemax="100"
-              style="width: 75%"
-            >
-              75%
-            </div>
-          </div>
-          <br />
-          <span class="fw-bold text-muted" style="font-size: 1.1rem"
-            >JAVASCRIPT</span
-          >
-          <div class="progress">
-            <div
-              class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-              role="progressbar"
-              aria-valuenow="50"
-              aria-valuemin="0"
-              aria-valuemax="100"
-              style="width: 50%"
-            >
-              50%
-            </div>
-          </div>
-          <br />
+        <div class="d-flex align-items-center">
+          <i class="far fa-envelope bg-warning rounded-circle p-2 h6"></i>
+          <p class="text-white text" style="margin-left: 1rem; font-size: 1.1rem;">
+            adeniyiboladale@yahoo.com
+          </p>
         </div>
-        <div class="d-flex flex-column w-100 p-lg-3">
-          <span class="fw-bold text-muted" style="font-size: 1.1rem"
-            >PYTHON</span
-          >
-          <div class="progress">
-            <div
-              class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-              role="progressbar"
-              aria-valuenow="80"
-              aria-valuemin="0"
-              aria-valuemax="100"
-              style="width: 80%"
-            >
-              80%
-            </div>
-          </div>
-          <br />
-          <span class="fw-bold text-muted" style="font-size: 1.1rem"
-            >FLASK</span
-          >
-          <div class="progress">
-            <div
-              class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-              role="progressbar"
-              aria-valuenow="80"
-              aria-valuemin="0"
-              aria-valuemax="100"
-              style="width: 80%"
-            >
-              80%
-            </div>
-          </div>
-          <br />
-          <span class="fw-bold text-muted" style="font-size: 1.1rem"
-            >DATABASES</span
-          >
-          <div class="progress">
-            <div
-              class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-              role="progressbar"
-              aria-valuenow="80"
-              aria-valuemin="0"
-              aria-valuemax="100"
-              style="width: 80%"
-            >
-              80%
-            </div>
-          </div>
-          <br />
-          <span class="fw-bold text-muted" style="font-size: 1.1rem">DJANGO</span>
-          <div class="progress">
-            <div
-              class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-              role="progressbar"
-              aria-valuenow="60"
-              aria-valuemin="0"
-              aria-valuemax="100"
-              style="width: 60%"
-            >
-              60%
-            </div>
-          </div>
+        <div class="d-flex align-items-center mt-3">
+          <i class="far fas fa-phone bg-warning rounded-circle p-2 h6"></i>
+          <p class="text-white text" style="margin-left: 1rem; font-size: 1.1rem;">
+            +234 814 891 8156
+          </p>
         </div>
-      </div>
-      <div class="row"></div>
-    </section>
-
-    <!-- Education and Experience -->
-
-    <section class="container px-5 px-lg-0" style="margin: 5rem auto auto auto" id="edu">
-      <h3 class="text-warning mt-2 text-center">EDUCATION AND EXPERIENCE</h3>
-      <div class="d-flex flex-column flex-lg-row mt-5 justify-content-around">
-        <div class="d-flex flex-column py-4">
-          <h5
-            class="text-light mt-2 text-center badge badge-pill bg-success p-2"
-            style="width: fit-content"
-          >
-            EDUCATION
-          </h5>
-          <!-- Institution 1 -->
-          <div class="d-flex mt-5">
-            <p><i class="fas fa-check-circle text-warning"></i></p>
-            <div style="margin-left: 2rem">
-              <p>
-                <span class="text-warning">Institution:</span><br />
-                <span class="text-light"> Altschool Africa </span>
-              </p>
-              <p>
-                <span class="text-warning">Course:</span><br />
-                <span class="text-light"> Software Development </span>
-              </p>
-              <p>
-                <span class="text-warning">Duration:</span><br />
-                <span class="text-light"> 2022 - 2023 </span>
-              </p>
-            </div>
-          </div>
-          <hr
-            class=""
-            style="
+        <div class="d-flex align-items-center mt-3">
+          <i class="fas fa-location-arrow bg-warning rounded-circle p-2 h6"></i>
+          <p class="text-white text" style="margin-left: 1rem; font-size: 1.1rem;">
+          Lagos State, Nigeria
+          </p>
+        </div>
+        <hr class="" style="
               border: 1px solid rgb(251, 255, 0);
               width: 1px;
-              height: 25rem;
-              position: absolute;
-              margin-top: 6rem;
-              z-index: -1;
-              margin-left: 0.45rem;
-            "
-          />
-          <!-- Institution 2 -->
-          <div class="d-flex mt-5">
-            <p><i class="fas fa-check-circle text-warning"></i></p>
-            <div style="margin-left: 2rem">
-              <p>
-                <span class="text-warning">Institution:</span><br />
-                <span class="text-light"> Ekiti State University </span>
-              </p>
-              <p>
-                <span class="text-warning">Course:</span><br />
-                <span class="text-light"> Mechanical Engineering </span>
-              </p>
-              <p>
-                <span class="text-warning">Duration:</span><br />
-                <span class="text-light"> 2011 - 2018 </span>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="d-flex flex-column py-4">
-          <h5
-            class="text-light mt-2 text-center badge badge-pill bg-success p-2"
-            style="width: fit-content"
-          >
-            EXPERIENCE
-          </h5>
-          <!-- Institution 1 -->
-          <div class="d-flex mt-5">
-            <p><i class="fas fa-check-circle text-warning"></i></p>
-            <div style="margin-left: 2rem">
-              <p>
-                <span class="text-warning">Company:</span><br />
-                <span class="text-light"> Transerve Disc Technology </span>
-              </p>
-              <p>
-                <span class="text-warning">Position Held:</span><br />
-                <span class="text-light"> Replication Engineer </span>
-              </p>
-              <p>
-                <span class="text-warning">Duration:</span><br />
-                <span class="text-light"> 2021 - 2022 </span>
-              </p>
-            </div>
-          </div>
-          <hr
-            class=""
-            style="
-              border: 1px solid rgb(251, 255, 0);
-              width: 1px;
-              height: 25rem;
-              position: absolute;
-              margin-top: 6rem;
-              z-index: -1;
-              margin-left: 0.45rem;
-            "
-          />
-          <!-- Institution 2 -->
-          <div class="d-flex mt-5">
-            <p><i class="fas fa-check-circle text-warning"></i></p>
-            <div style="margin-left: 2rem">
-              <p>
-                <span class="text-warning">Company:</span><br />
-                <span class="text-light">
-                  Unity Community School, Ishiagu, Ebonyi state
-                </span>
-              </p>
-              <p>
-                <span class="text-warning">Position Held:</span><br />
-                <span class="text-light"> Mathematics Teacher </span>
-              </p>
-              <p>
-                <span class="text-warning">Duration:</span><br />
-                <span class="text-light"> 2018 - 2019 </span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Project -->
-
-    <section class="container" style="margin: 5rem auto auto auto" id="project">
-      <h3 class="text-warning my-4 text-center">PROJECT</h3>
-      <div class="">
-        <div class="row row-cols-lg-2 w-100 m-auto">
-          <!-- Card -->
-          <div class="p-3">
-            <div class="col-lg card p-3 " style="background: #013550;">
-              <img
-                src="{{ url_for('static', filename='images/Quote-Generator.webp') }}"
-                alt="screenshot"
-                class="rounded"
-                style="height: 14rem;
-                width: 100%;
-                "
-              />
-              <hr />
-              <p class="text-light" style="font-size: 1.2rem;">Random Quote Generator</p>
-              <!-- <p class="text-muted">
-                This Random Quote Generator fetches quotes from an API, and
-                displays it randomly on the webpage, the next button gets you
-                another random quote while the tweet button allows you to tweet
-                a particular quote on twitter.
-              </p> -->
-              <p>
-                <span class="badge badge-pill bg-warning text-dark">HTML</span>
-                <span class="badge badge-pill bg-warning text-dark">CSS</span>
-                <span class="badge badge-pill bg-warning text-dark"
-                  >JAVASCRIPT</span
-                >
-              </p>
-              <a
-                href="https://github.com/engrmarkk/randomQuoteGenerator"
-                style="
-                  position: absolute;
-                  top: 0;
-                  right: 0;
-                  margin-top: 12rem;
-                  margin-right: 2rem;
-                "
-                ><i
-                  class="fab fa-github h1 text-dark bg-light rounded-circle p-2"
-                  style="width: fit-content"
-                ></i
-              ></a>
-            </div>
-          </div>
-          <!-- .......card...... -->
-          <div class="p-3">
-            <div class="col-lg card p-3" style="background: #013550;">
-              <img
-                src="{{ url_for('static', filename='images/question.webp') }}"
-                alt="screenshot"
-                class="rounded"
-                style="height: 14rem;
-                width: 100%;
-                "
-              />
-              <hr />
-              <p class="text-light" style="font-size: 1.2rem;">A Quiz Platform</p>
-              <!-- <p class="text-muted">
-                This quiz platform allows you to answer 10 multiple choice
-                questions in a minute, after which your result is being
-                displayed to you.
-              </p> -->
-              <p>
-                <span class="badge badge-pill bg-warning text-dark">HTML</span>
-                <span class="badge badge-pill bg-warning text-dark">CSS</span>
-                <span class="badge badge-pill bg-warning text-dark"
-                  >JAVASCRIPT</span
-                >
-              </p>
-              <a
-                href="https://github.com/engrmarkk/QUIZ_PLATFORM"
-                style="
-                  position: absolute;
-                  top: 0;
-                  right: 0;
-                  margin-top: 12rem;
-                  margin-right: 2rem;
-                "
-                ><i
-                  class="fab fa-github h1 text-dark bg-light rounded-circle p-2"
-                  style="width: fit-content"
-                ></i
-              ></a>
-            </div>
-          </div>
-          <!-- Card -->
-          <div class="p-3">
-            <div class="col-lg card p-3" style="background: #013550;">
-              <img
-                src="{{ url_for('static', filename='images/Blog-Home.webp') }}"
-                alt="screenshot"
-                class="rounded"
-                style="height: 14rem;
-                width: 100%;
-                "
-              />
-              <hr />
-              <p class="text-light" style="font-size: 1.2rem;">Blog Platform</p>
-              <!-- <p class="text-muted">
-                This a CRUD based project where an authenticated user can
-                Create, Read, Update and Delete a post, while the
-                unauthenticated user can only read the post from the blog
-              </p> -->
-              <p>
-                <span class="badge badge-pill bg-warning text-dark">HTML</span>
-                <span class="badge badge-pill bg-warning text-dark">CSS</span>
-                <span class="badge badge-pill bg-warning text-dark"
-                  >BOOTSTRAP</span
-                >
-                <span class="badge badge-pill bg-warning text-dark"
-                  >JAVASCRIPT</span
-                >
-                <span class="badge badge-pill bg-warning text-dark"
-                  >PYTHON</span
-                >
-                <span class="badge badge-pill bg-warning text-dark">FLASK</span>
-                <span class="badge badge-pill bg-warning text-dark"
-                  >SQLITE</span
-                >
-              </p>
-              <a
-                href="https://github.com/engrmarkk/My_Blog_Project"
-                style="
-                  position: absolute;
-                  top: 0;
-                  right: 0;
-                  margin-top: 12rem;
-                  margin-right: 2rem;
-                "
-                ><i
-                  class="fab fa-github h1 text-white bg-dark rounded-circle p-2"
-                  style="width: fit-content"
-                ></i
-              ></a>
-            </div>
-          </div>
-          <!-- Card -->
-          <div class="p-3">
-            <div class="col-lg card p-3" style="background: #013550;">
-              <img
-                src="{{ url_for('static', filename='images/Country.webp') }}"
-                alt="screenshot"
-                class="rounded"
-                style="height: 14rem;
-                width: 100%;
-                "
-              />
-              <hr />
-              <p class=" text-light" style="font-size: 1.2rem;">Country Info</p>
-              <!-- <p class="text-muted">
-                This project displays any country's info, it get its info from
-                the API of an installed python package.
-              </p> -->
-              <p>
-                <span class="badge badge-pill bg-warning text-dark">HTML</span>
-                <span class="badge badge-pill bg-warning text-dark">CSS</span>
-                <span class="badge badge-pill bg-warning text-dark"
-                  >PYTHON</span
-                >
-                <span class="badge badge-pill bg-warning text-dark">FLASK</span>
-              </p>
-              <a
-                href="https://github.com/engrmarkk/country-Info"
-                style="
-                  position: absolute;
-                  top: 0;
-                  right: 0;
-                  margin-top: 12rem;
-                  margin-right: 2rem;
-                "
-                ><i
-                  class="fab fa-github h1 text-dark bg-light rounded-circle p-2"
-                  style="width: fit-content"
-                ></i
-              ></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Blog -->
-
-    <section class="container" style="margin: 5rem auto auto auto" id="blog">
-      <h3 class="text-warning my-4 text-center">BLOG</h3>
-      <div>
-        <div class="row row-cols-lg-2 w-100 m-auto">
-          <!-- Blog Card -->
-          <div class="p-3">
-            <div class="col-lg card p-3" style="background: #013550;">
-              <hr />
-              <p class="h5 text-light"># Decision Making in Python</p>
-              <hr style="border: 1px solid white" />
-              <p class="text-muted">
-                This article provides an overview of how to utilize IF, ELIF, and ELSE statements in Python programming.
-              </p>
-
-              <div class="d-flex align-items-center justify-content-end">
-                <a
-                  href="https://engrmark.hashnode.dev/decision-making-in-python"
-                  target="_blank"
-                  class="text-light text-decoration-none"
-                  style="width: fit-content"
-                  ><i
-                    class="fas fa-link text-white"
-                    style="width: fit-content"
-                  ></i
-                  >&nbsp; Read Article....</a
-                >
-              </div>
-            </div>
-          </div>
-          <!-- ......................................... -->
-
-          <!-- Blog Card 2 -->
-          <div class="p-3">
-            <div class="col-lg card p-3" style="background: #013550;">
-              <hr />
-              <p class="h5 text-light"># A Simple Flask Blog</p>
-              <hr style="border: 1px solid white" />
-              <p class="text-muted">
-                This article discusses how to construct a Flask blog that performs CRUD operations.
-              </p>
-
-              <div class="d-flex align-items-center justify-content-end">
-                <a
-                  href="https://engrmark.hashnode.dev/a-simple-flask-blog"
-                  target="_blank"
-                  class="text-light text-decoration-none"
-                  style="width: fit-content"
-                  ><i
-                    class="fas fa-link text-white"
-                    style="width: fit-content"
-                  ></i
-                  >&nbsp; Read Article....</a
-                >
-              </div>
-            </div>
-          </div>
-          <!-- ..................................... -->
-
-          <!-- Blog Card 3 -->
-          <div class="p-3">
-            <div class="col-lg card p-3" style="background: #013550;">
-              <hr />
-              <p class="h5 text-light"># Python Cheat Sheet</p>
-              <hr style="border: 1px solid white" />
-              <p class="text-muted">
-                This article provides a comprehensive Python cheat sheet, outlining the essential syntax for efficient programming.
-              </p>
-
-              <div class="d-flex align-items-center justify-content-end">
-                <a
-                  href="https://engrmark.hashnode.dev/python-cheat-sheet"
-                  target="_blank"
-                  class="text-light text-decoration-none"
-                  style="width: fit-content"
-                  ><i
-                    class="fas fa-link text-white"
-                    style="width: fit-content"
-                  ></i
-                  >&nbsp; Read Article....</a
-                >
-              </div>
-            </div>
-          </div>
-          <!-- ..................................... -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact form -->
-    <section class="container" style="margin: 5rem auto auto auto" id="contact">
-      <h3 class="text-warning text-center" style="margin: 5rem 0">CONTACT</h3>
-      <div
-        class="d-flex w-100 flex-column-reverse flex-lg-row align-items-lg-center"
-      >
-        <div class="d-flex flex-column w-100 py-5 m-auto">
-          <!-- my details -->
-
-          <div class="d-flex align-items-center">
-            <i class="far fa-envelope bg-warning rounded-circle p-2 h6"></i>
-            <p class="text-white text" style="margin-left: 1rem; font-size: 1.1rem;">
-              adeniyiboladale@yahoo.com
-            </p>
-          </div>
-          <div class="d-flex align-items-center mt-3">
-            <i class="far fas fa-phone bg-warning rounded-circle p-2 h6"></i>
-            <p class="text-white text" style="margin-left: 1rem; font-size: 1.1rem;">
-              +234 814 891 8156
-            </p>
-          </div>
-          <div class="d-flex align-items-center mt-3">
-            <i
-              class="fas fa-location-arrow bg-warning rounded-circle p-2 h6"
-            ></i>
-            <p class="text-white text" style="margin-left: 1rem; font-size: 1.1rem;">
-              40, Authority Avenue, Ile Iwe Bus Stop, Ikotun Egbe, Lagos State
-            </p>
-          </div>
-          <hr
-            class=""
-            style="
-              border: 1px solid rgb(251, 255, 0);
-              width: 1px;
-              height: 10rem;
+              height: 8.8rem;
               position: absolute;
               margin-top: 0.5rem;
               z-index: -1;
               margin-left: 0.9rem;
-            "
-          />
+            " />
 
-          <div class="mt-4" style="width: fit-content; margin: auto">
-            <a href="https://facebook.com/iamengrmark" class="p-2" target="_blank" style="width: fit-content"
-              ><i
-                class="fab fa-facebook p-2 text-primary rounded-circle bg-white h5"
-              ></i
-            ></a>
-            <a href="https://wa.link/v67k3y" class="p-2" target="_blank" style="width: fit-content"
-              ><i
-                class="fab fa-whatsapp fw-bold p-2 text-success rounded-circle bg-white h5"
-              ></i
-            ></a>
-            <a href="https://twitter.com/iamengrmark" class="p-2" target="_blank" style="width: fit-content"
-              ><i
-                class="fab fa-twitter p-2 text-primary rounded-circle bg-white h5"
-              ></i
-            ></a>
-            <a href="mailto:atmme1993@yahoo.com" class="p-2" target="_blank" style="width: fit-content"
-              ><i
-                class="fab fa-google p-2 text-danger rounded-circle bg-white h5"
-              ></i
-            ></a>
-          </div>
-        </div>
-        <div class="m-auto p-5 w-100 py-5" style="background: #013550;">
-          <!-- Flash messages -->
-          {% with messages = get_flashed_messages(with_categories=true) %} {% if
-          messages %} {% for category, message in messages %}
-          <div
-            class="alert-dismissible fade show mb-4 m-auto small alert alert-{{ category }}"
-            role="alert"
-            style="height: 3.5rem; transition: 0.6s"
-          >
-            {% if category=='success' %}
-            <p class="small text-center">
-              <i class="fa fas fas fa-check"></i>&nbsp;&nbsp;&nbsp;{{ message }}
-            </p>
-            {% else %}
-            <p class="small text-center">
-              <i class="fa fas fa-exclamation-triangle"></i>&nbsp;&nbsp;&nbsp;{{
-              message }}
-            </p>
-            {% endif %}
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="alert"
-              aria-label="Close"
-            ></button>
-          </div>
-          {% endfor %} {% endif %} {% endwith %}
-          <form action="" method="post">
-            {{ form.hidden_tag() }}
-            <!-- Name Field -->
-            <div>
-              {{ form.name.label(class='text-muted text fs-5') }} <br />
-              {{ form.name(class='form-control text-muted',
-              placeholder='Enter your name', required=False, style="background: #013550;") }}
-            </div>
-            <!-- Email Field -->
-            <div class="mt-3">
-              {{ form.email.label(class='text-muted text fs-5') }} <br />
-              {{ form.email(class='form-control text-muted',
-              placeholder='Enter your email', required=False, style="background: #013550;") }}
-            </div>
-            <!-- Message Field -->
-            <div class="mt-3">
-              {{ form.message.label(class='text-muted text fs-5') }} <br />
-              <!-- If error -->
-              {{ form.message(class='form-control text-muted',
-              placeholder='Enter your message', required=False, style="background: none;") }}
-            </div>
-            <!-- Submit Field -->
-            <div class="mt-4">
-              {{ form.submit(class='btn btn-success w-100') }}
-            </div>
-          </form>
+        <div class="mt-4" style="width: fit-content; margin: auto">
+          <a href="https://facebook.com/iamengrmark" class="p-2" target="_blank" style="width: fit-content"><i
+              class="fab fa-facebook p-2 text-primary rounded-circle bg-white h5"></i></a>
+          <a href="https://wa.link/v67k3y" class="p-2" target="_blank" style="width: fit-content"><i
+              class="fab fa-whatsapp fw-bold p-2 text-success rounded-circle bg-white h5"></i></a>
+          <a href="https://twitter.com/iamengrmark" class="p-2" target="_blank" style="width: fit-content"><i
+              class="fab fa-twitter p-2 text-primary rounded-circle bg-white h5"></i></a>
+          <a href="mailto:atmme1993@yahoo.com" class="p-2" target="_blank" style="width: fit-content"><i
+              class="fab fa-google p-2 text-danger rounded-circle bg-white h5"></i></a>
         </div>
       </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="" style="margin: 5rem auto auto auto">
-      <div class="text-light text-center py-3 px-2" style="background: #013550;">
-        Designed by Adeniyi Olanrewaju &copy; {{ date.strftime('%Y') }}
+      <div class="m-auto p-5 w-100 py-5" style="background: #013550;">
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %} {% for category, message in messages %}
+        <div class="alert-dismissible fade show mb-4 m-auto small alert alert-{{ category }}" role="alert"
+          style="height: 3.5rem; transition: 0.6s">
+          {% if category=='success' %}
+          <p class="small text-center">
+            <i class="fa fas fas fa-check"></i>&nbsp;&nbsp;&nbsp;{{ message }}
+          </p>
+          {% else %}
+          <p class="small text-center">
+            <i class="fa fas fa-exclamation-triangle"></i>&nbsp;&nbsp;&nbsp;{{
+            message }}
+          </p>
+          {% endif %}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %} {% endif %} {% endwith %}
+        <form action="" method="post">
+          {{ form.hidden_tag() }}
+          <!-- Name Field -->
+          <div>
+            {{ form.name.label(class='text-muted text fs-5') }} <br />
+            {{ form.name(class='form-control text-muted',
+            placeholder='Enter your name', required=False, style="background: #013550;") }}
+          </div>
+          <!-- Email Field -->
+          <div class="mt-3">
+            {{ form.email.label(class='text-muted text fs-5') }} <br />
+            {{ form.email(class='form-control text-muted',
+            placeholder='Enter your email', required=False, style="background: #013550;") }}
+          </div>
+          <!-- Message Field -->
+          <div class="mt-3">
+            {{ form.message.label(class='text-muted text fs-5') }} <br />
+            <!-- If error -->
+            {{ form.message(class='form-control text-muted',
+            placeholder='Enter your message', required=False, style="background: none;") }}
+          </div>
+          <!-- Submit Field -->
+          <div class="mt-4">
+            {{ form.submit(class='btn btn-success w-100') }}
+          </div>
+        </form>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+  <!-- Footer -->
+  <footer class="" style="margin: 5rem auto auto auto">
+    <div class="text-light text-center py-3 px-2" style="background: #013550;">
+      Designed by Adeniyi Olanrewaju &copy; {{ date.strftime('%Y') }}
+    </div>
+  </footer>
 
-    <!-- BOOTSTRAP -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+  <!-- BOOTSTRAP -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
