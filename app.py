@@ -30,7 +30,7 @@ def portfolio():
         msg.body = f'{message}\nMy email address is: {email}'
         mail.send(msg)
         flash('Message Sent', 'success')
-        return redirect(url_for('portfolio'))
+        return render_template('portfolio.html', form=form, date=datetime.utcnow())
     return render_template('portfolio.html', form=form, date=datetime.utcnow())
 
 
