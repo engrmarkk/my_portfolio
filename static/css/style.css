@@ -105,5 +105,9 @@ body::before {
   #myname{
     font-size: 1.5rem
   }
+
+  h2.name{
+    text-align: center;
+  }
 }
 
