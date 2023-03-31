@@ -47,6 +47,10 @@ body::before {
   margin-top: 3rem;
 }
 
+.lanre{
+  font-size: 1.1rem;
+}
+
 
 /* The typing effect */
 @keyframes typing {
@@ -91,6 +95,10 @@ body::before {
     grid-template-columns: repeat(3, 1fr);
     padding: 0 20px;
 
+  }
+
+  .lanre{
+    font-size: .9rem;
   }
 }
 
