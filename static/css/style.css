@@ -37,6 +37,7 @@ body::before {
   letter-spacing: 0em; /* Adjust as needed */
   animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
   width: fit-content;
+  font-size: 2rem
 }
 
 .grid-container {
@@ -99,6 +100,10 @@ body::before {
 
   .lanre{
     font-size: .9rem;
+  }
+
+  #myname{
+    font-size: 1.5rem
   }
 }
 
