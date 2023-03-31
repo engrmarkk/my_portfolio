@@ -39,6 +39,15 @@ body::before {
   width: fit-content;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 15px;
+  padding: 0 250px;
+  margin-top: 3rem;
+}
+
+
 /* The typing effect */
 @keyframes typing {
   from {
@@ -76,3 +85,12 @@ body::before {
     opacity: 1;
   }
 }
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 20px;
+
+  }
+}
+
