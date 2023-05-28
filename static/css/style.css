@@ -3,21 +3,85 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&display=swap'); */
 
 * {
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  /* font-family: "Montserrat", sans-serif; */
+  font-family: "Bilbo Swash Caps", cursive;
+
 }
 
 body {
-  background: #002538;
+  /* background: #002538; */
+  background: linear-gradient(to bottom right, #262627, #010102);
 }
 
 nav {
-  background: #011e2c;
+  /* background: #011e2c; */
+  background: linear-gradient(to bottom right, #262627, #010102);
 }
 
 body::before {
   display: block;
   content: "";
   height: 5rem;
+}
+
+.usethis{
+  background: linear-gradient(
+    135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)
+  );
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  /* border-radius: 32px; */
+  height: 5rem; 
+  width: 5rem;
+}
+
+.forminput{
+  background: linear-gradient(
+    135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)
+  );
+  border: none;
+}
+
+.forminput:focus{
+  border: 3px solid #302f2f;
+  outline: none !important;
+  background: none;
+  box-shadow: none !important;
+}
+
+.my-form{
+  background: linear-gradient(
+    135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)
+  );
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  /* border-radius: 32px; */
+}
+
+.blog-card{
+  background: linear-gradient(
+    135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)
+  );
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  /* border-radius: 32px; */
+}
+
+.project-card{
+  background: linear-gradient(
+    135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)
+  );
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 #social:hover {
@@ -52,6 +116,15 @@ body::before {
   font-size: 1.1rem;
 }
 
+footer div{
+  background: linear-gradient(
+    135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)
+  );
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  
+}
 
 /* The typing effect */
 @keyframes typing {
