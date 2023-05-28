@@ -202,5 +202,17 @@ footer div{
   h2.name{
     text-align: center;
   }
+
+  .hr{
+    display: none !important;
+  }
+
+  #edu{
+    padding: 10px !important;
+  }
+
+  .ex{
+    border: none !important;
+  }
 }
 
