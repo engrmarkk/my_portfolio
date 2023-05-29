@@ -23,7 +23,8 @@ nav {
   /* background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%); */
   /* background: rgb(10, 26, 34); */
   /* background: linear-gradient(to bottom right, #17202e, #0b1f29); */
-  background: #302f2f;
+  background: #000000;
+  border-bottom: 1px solid rgb(20, 20, 20);
 }
 
 body::before {
