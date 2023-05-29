@@ -11,12 +11,17 @@
 
 body {
   /* background: #002538; */
-  background: linear-gradient(to bottom right, #262627, #010102);
+  /* background: linear-gradient(to bottom right, #262627, #010102); */
+  /* background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%); */
+  background: radial-gradient(circle at -8.9% 51.2%, rgb(32, 17, 3) 0%, rgb(39, 21, 5) 15.9%, rgb(43, 31, 19) 15.9%, rgb(54, 51, 46) 24.4%, rgb(19, 30, 37) 24.5%, rgb(19, 30, 37) 66%);
 }
 
 nav {
   /* background: #011e2c; */
-  background: linear-gradient(to bottom right, #262627, #010102);
+  /* background: linear-gradient(to bottom right, #262627, #010102); */
+  /* background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%); */
+  /* background: rgb(10, 26, 34); */
+  background: linear-gradient(to bottom right, #2b3c55, #0b1f29)
 }
 
 body::before {
