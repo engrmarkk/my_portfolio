@@ -5,8 +5,12 @@ from form import ContactForm
 import os
 from dotenv import load_dotenv
 
-
+# Load .env file
 load_dotenv()
+
+# Check if the environment variables are loaded
+print(os.getenv("EMAIL_USER"), "EMAIL_USER directly after load_dotenv")
+print(os.getenv("EMAIL_PASS"), "EMAIL_PASS directly after load_dotenv")
 
 app = Flask(__name__)
 
@@ -19,8 +23,10 @@ app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
 
-print(os.environ.get("EMAIL_USER"), "emamil user")
-print(os.environ.get("EMAIL_PASS"), "email pass")
+# Final check if the variables are loaded in app.config
+print(app.config['MAIL_USERNAME'], "MAIL_USERNAME in app.config")
+print(app.config['MAIL_PASSWORD'], "MAIL_PASSWORD in app.config")
+
 
 
 @app.route('/', methods=["GET", "POST"])
