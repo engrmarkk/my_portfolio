@@ -9,10 +9,6 @@ from dotenv import load_dotenv
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(dotenv_path=dotenv_path)
 
-# Check if the environment variables are loaded
-print(os.getenv("EMAIL_USER"), "EMAIL_USER directly after load_dotenv")
-print(os.getenv("EMAIL_PASS"), "EMAIL_PASS directly after load_dotenv")
-
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'lkdhhjw6u3o8udk'
@@ -23,11 +19,6 @@ app.config['MAIL_PASSWORD'] = os.environ.get("EMAIL_PASS")
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
-
-# Final check if the variables are loaded in app.config
-print(app.config['MAIL_USERNAME'], "MAIL_USERNAME in app.config")
-print(app.config['MAIL_PASSWORD'], "MAIL_PASSWORD in app.config")
-
 
 
 @app.route('/', methods=["GET", "POST"])
