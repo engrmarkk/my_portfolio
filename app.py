@@ -19,6 +19,9 @@ app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
 
+print(os.environ.get("EMAIL_USER"), "emamil user")
+print(os.environ.get("EMAIL_PASS"), "email pass")
+
 
 @app.route('/', methods=["GET", "POST"])
 def portfolio():
