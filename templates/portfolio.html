@@ -24,6 +24,21 @@
 
   <title>Portfolio</title>
   <link rel="icon" href="{{ url_for('static', filename='images/owl.png') }}">
+
+  <style>
+    .nav-link {
+  color: #ffc107; /* Bootstrap's warning color */
+}
+
+.nav-link.active {
+  background-color: #ffc107 !important; /* Bootstrap's warning color */
+  color: rgb(0, 0, 0) !important;
+}
+
+.nav-link:not(.active):hover {
+  color: white !important;
+}
+  </style>
 </head>
 
 <!-- Body -->
@@ -245,229 +260,232 @@
         <i class="fa-brands fa-github h1 text-white"></i>
       </div>
       <div class="card px-5 py-2 d-flex justify-content-center align-items-center usethis">
-        <i class="fa-solid fa-database h1 text-white"></i>
+        <img src="{{ url_for('static', filename='images/sqlite.svg') }}" alt="" style="fill: white; filter: brightness(0) invert(1);" width="60" height="60.98" viewBox="0 0 512 179">
+      </div>
+      <div class="card px-5 py-2 d-flex justify-content-center align-items-center usethis">
+        <i class="fa-brands fa-docker h1 text-white"></i>
+      </div>
+      <div class="card px-5 py-2 d-flex justify-content-center align-items-center usethis">
+        <img src="{{ url_for('static', filename='images/postgresql_plain_wordmark_logo_icon_146390.ico') }}" alt="" style="fill: white; filter: brightness(0) invert(1);" width="60" height="60.98" viewBox="0 0 512 179">
+      </div>
+      <div class="card px-5 py-2 d-flex justify-content-center align-items-center usethis">
+        <img src="{{ url_for('static', filename='images/mysql.ico') }}" alt="" style="fill: white; filter: brightness(0) invert(1);" width="60" height="60.98" viewBox="0 0 512 179">
+      </div>
+      <div class="card px-5 py-2 d-flex justify-content-center align-items-center usethis">
+        <img src="{{ url_for('static', filename='images/mongo.svg') }}" alt="" style="fill: white; filter: brightness(0) invert(1);" width="70" height="60.98" viewBox="0 0 512 179">
+      </div>
+      <div class="card px-5 py-2 d-flex justify-content-center align-items-center usethis">
+        <img src="{{ url_for('static', filename='images/redis.ico') }}" alt="" style="fill: white; filter: brightness(0) invert(1);" width="55" height="55.98" viewBox="0 0 512 179">
       </div>
     </div>
 
   </section>
 
-  <!-- Education and Experience -->
-
-  <section class="container px-5 px-lg-0" style="margin: 5rem auto auto auto" id="edu">
-    <h3 class="text-warning mt-2 text-center">EDUCATION</h3>
-    <div class="d-flex flex-column flex-lg-row mt-3 justify-content-around">
-      <div class="d-flex flex-column py-4">
-        <!-- <h5 class="text-light mt-2 text-center badge badge-pill bg-success p-2" style="width: fit-content">
-          EDUCATION
-        </h5> -->
-        <!-- Institution 1 -->
-        <div class="d-flex mt-5">
-          <p><i class="fas fa-check-circle text-warning hr"></i></p>
-          <div style="margin-left: 2rem">
-            <p>
-              <span class="text-warning"><i class="fas fa-university"></i>&nbsp; Institution</span><br />
-              <span class="text-light"> Altschool Africa, School of Engineering</span>
-            </p>
-            <p>
-              <span class="text-warning"><i class="fa-sharp fa-solid fa-user-graduate"></i>&nbsp; Course</span><br />
-              <span class="text-light"> Software Development</span>
-            </p>
-            <p>
-              <span class="text-warning"><i class="fa-regular fa-calendar-days"></i>&nbsp; Duration</span><br />
-              <span class="text-light"> 2022 - 2023 </span>
-            </p>
+  <section>
+    <div class="container" style="margin-top: 6rem;">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Nav tabs -->
+          <div class="">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-experience-tab" data-bs-toggle="pill" data-bs-target="#experience" type="button" role="tab" aria-controls="pills-experience" aria-selected="true">EXPERIENCE</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-education-tab" data-bs-toggle="pill" data-bs-target="#education" type="button" role="tab" aria-controls="pills-education" aria-selected="false">EDUCATION</button>
+              </li>
+            </ul>
+  
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane fade show active" id="experience">
+                <!-- images in cards -->
+                <div class="row g-2">
+                  <!-- Experience 1 -->
+                  <div class="col-md-6">
+                    <div class="card tabs_card">
+                      <div class="card-body">
+                        <div class="d-flex flex-column py-4 w-100">
+                          <!-- Institution 1 -->
+                          <div class="d-flex mt-2 ex">
+                            <div style="margin-left: 2rem">
+                              <p>
+                                <span class="text-warning"><i class="fa-sharp fa-solid fa-briefcase"></i>&nbsp; Company</span><br />
+                                <span class="text-light"> SPEEDPAY FINANCE LIMIITED</span>
+                              </p>
+                              <p>
+                                <span class="text-warning"><i class="fa-regular fa-calendar-days"></i>&nbsp; Duration</span><br />
+                                <span class="text-light"> 2023 </span>
+                              </p>
+                              <p>
+                                <span class="text-warning"><i class="fa-sharp fa-solid fa-user-tie"></i>&nbsp; Position</span><br />
+                                <span class="text-muted">JUNIOR SOFTWARE DEVELOPER</span>
+                              </p>
+                              <p>
+                                <span class="text-light">
+                                  <ul class="text-light" style="font-size: .9rem;">
+                                    <li>Developed and maintained web applications using the Django and Django Rest framework.</li>
+                                    <li>Designed and developed databases and integrated them with Django's built-in ORM.</li>
+                                    <li>Conducted testing and debugging of software applications to ensure reliability and scalability.</li>
+                                    <li>Collaborated with cross-functional teams to ensure project goals and deadlines were met.</li>
+                                  </ul>
+                                </span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end -->
+                  <div class="col-md-6">
+                    <div class="card tabs_card">
+                      <div class="card-body">
+                        <div class="d-flex flex-column py-4 w-100">
+                          <!-- Institution 1 -->
+                          <div class="d-flex mt-2 ex">
+                            <div style="margin-left: 2rem">
+                              <p>
+                                <span class="text-warning"><i class="fa-sharp fa-solid fa-briefcase"></i>&nbsp; Company</span><br />
+                                <span class="text-light"> CODEWAVE</span>
+                              </p>
+                              <p>
+                                <span class="text-warning"><i class="fa-regular fa-calendar-days"></i>&nbsp; Duration</span><br />
+                                <span class="text-light"> 2021 - 2022 </span>
+                              </p>
+                              <p>
+                                <span class="text-warning"><i class="fa-sharp fa-solid fa-user-tie"></i>&nbsp; Position</span><br />
+                                <span class="text-muted">JUNIOR SOFTWARE DEVELOPER</span>
+                              </p>
+                              <p>
+                                <span class="text-light">
+                                  <ul class="text-light" style="font-size: .9rem;">
+                                    <li>Developed and maintained web applications using the Django and Django Rest framework.</li>
+                                    <li>Designed and developed databases and integrated them with Django's built-in ORM.</li>
+                                    <li>Conducted testing and debugging of software applications to ensure reliability and scalability.</li>
+                                    <li>Collaborated with cross-functional teams to ensure project goals and deadlines were met.</li>
+                                  </ul>
+                                </span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="col-md-6">
+                    <div class="card tabs_card">
+                      <div class="card-body">
+                        <div class="d-flex flex-column mt-2 w-100">
+                          <!-- Institution 1 -->
+                          <div class="d-flex my-3 ex">
+                            <div style="margin-left: 2rem">
+                              <p>
+                                <span class="text-warning"><i class="fa-sharp fa-solid fa-briefcase"></i>&nbsp; Company</span><br />
+                                <span class="text-light"> J-TECH INNOVATIONS</span>
+                              </p>
+                              <p>
+                                <span class="text-warning"><i class="fa-regular fa-calendar-days"></i>&nbsp; Duration</span><br />
+                                <span class="text-light"> 2020 - 2021 </span>
+                              </p>
+                              <p>
+                                <span class="text-warning"><i class="fa-sharp fa-solid fa-user-tie"></i>&nbsp; Position</span><br />
+                                <span class="text-muted">DESKTOP SUPPORT TECHNICIAN</span>
+                              </p>
+                              <p>
+                                <span class="text-light">
+                                  <ul class="text-light" style="font-size: .9rem;">
+                                    <li>Configured and maintained desktop and laptop computers for optimal performance.</li>
+                                    <li>Installed and maintained printers and other peripherals.</li>
+                                    <li>Conducted regular system maintenance to ensure smooth operation and prevent downtime.</li>
+                                    <li>Troubleshot and resolved technical issues related to operating systems, software applications, and hardware components.</li>
+                                  </ul>
+                                </span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                </div>
+              </div>
+  
+              <!-- switch tab -->
+              <div role="tabpanel" class="tab-pane fade" id="education">
+                <!-- images in cards -->
+                <div class="row g-2">
+                  <div class="col-md-6">
+                    <div class="card tabs_card">
+                      <div class="card-body">
+                        <div class="d-flex flex-column py-4">
+                          <!-- <h5 class="text-light mt-2 text-center badge badge-pill bg-success p-2" style="width: fit-content">
+                            EDUCATION
+                          </h5> -->
+                          <!-- Institution 1 -->
+                          <div class="d-flex mt-2">
+                            <div style="margin-left: 2rem">
+                              <p>
+                                <span class="text-warning"><i class="fas fa-university"></i>&nbsp; Institution</span><br />
+                                <span class="text-light"> Altschool Africa, School of Engineering</span>
+                              </p>
+                              <p>
+                                <span class="text-warning"><i class="fa-sharp fa-solid fa-user-graduate"></i>&nbsp; Course</span><br />
+                                <span class="text-light"> Software Development</span>
+                              </p>
+                              <p>
+                                <span class="text-warning"><i class="fa-regular fa-calendar-days"></i>&nbsp; Duration</span><br />
+                                <span class="text-light"> 2022 - 2023 </span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="col-md-6">
+                    <div class="card tabs_card">
+                      <div class="card-body">
+                        <div class="d-flex flex-column py-4">
+                          <!-- <h5 class="text-light mt-2 text-center badge badge-pill bg-success p-2" style="width: fit-content">
+                            EXPERIENCE
+                          </h5> -->
+                          <!-- Institution 1 -->
+                  
+                          <div class="d-flex mt-2">
+                            <div style="margin-left: 2rem">
+                              <p>
+                                <span class="text-warning"><i class="fas fa-university"></i>&nbsp; Institution</span><br />
+                                <span class="text-light"> Ekiti State University, Ado Ekiti, Ekiti State</span>
+                              </p>
+                              <p>
+                                <span class="text-warning"><i class="fa-sharp fa-solid fa-user-graduate"></i>&nbsp; Course</span><br />
+                                <span class="text-light"> Mechanical Engineering </span>
+                              </p>
+                              <p>
+                                <span class="text-warning"><i class="fa-regular fa-calendar-days"></i>&nbsp; Duration</span><br />
+                                <span class="text-light"> 2011 - 2018 </span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                </div>
+              </div>
+              <!-- end -->
+            </div>
           </div>
         </div>
-        <hr class="hr" style="
-              border: 1px solid rgb(251, 255, 0);
-              width: 1px;
-              height: 10.6rem;
-              position: absolute;
-              margin-top: 3.5rem;
-              z-index: -1;
-              margin-left: 0.45rem;
-            " />
-        <!-- Institution 2 -->
-        <!-- <div class="d-flex mt-5">
-          <p><i class="fas fa-check-circle text-warning"></i></p>
-          <div style="margin-left: 2rem">
-            <p>
-              <span class="text-warning">Institution:</span><br />
-              <span class="text-light"> Ekiti State University </span>
-            </p>
-            <p>
-              <span class="text-warning">Course:</span><br />
-              <span class="text-light"> Mechanical Engineering </span>
-            </p>
-            <p>
-              <span class="text-warning">Duration:</span><br />
-              <span class="text-light"> 2011 - 2018 </span>
-            </p>
-          </div>
-        </div> -->
-      </div>
-      <div class="d-flex flex-column py-4">
-        <!-- <h5 class="text-light mt-2 text-center badge badge-pill bg-success p-2" style="width: fit-content">
-          EXPERIENCE
-        </h5> -->
-        <!-- Institution 1 -->
-
-        <div class="d-flex mt-5">
-          <p><i class="fas fa-check-circle text-warning hr"></i></p>
-          <div style="margin-left: 2rem">
-            <p>
-              <span class="text-warning"><i class="fas fa-university"></i>&nbsp; Institution</span><br />
-              <span class="text-light"> Ekiti State University, Ado Ekiti, Ekiti State</span>
-            </p>
-            <p>
-              <span class="text-warning"><i class="fa-sharp fa-solid fa-user-graduate"></i>&nbsp; Course</span><br />
-              <span class="text-light"> Mechanical Engineering </span>
-            </p>
-            <p>
-              <span class="text-warning"><i class="fa-regular fa-calendar-days"></i>&nbsp; Duration</span><br />
-              <span class="text-light"> 2011 - 2018 </span>
-            </p>
-          </div>
-        </div>
-
-
-        <!-- <div class="d-flex mt-5">
-          <p><i class="fas fa-check-circle text-warning"></i></p>
-          <div style="margin-left: 2rem">
-            <p>
-              <span class="text-warning">Company:</span><br />
-              <span class="text-light"> Transerve Disc Technology </span>
-            </p>
-            <p>
-              <span class="text-warning">Position Held:</span><br />
-              <span class="text-light"> Replication Engineer </span>
-            </p>
-            <p>
-              <span class="text-warning">Duration:</span><br />
-              <span class="text-light"> 2021 - 2022 </span>
-            </p>
-          </div>
-        </div> -->
-        <hr class="hr" style="
-              border: 1px solid rgb(251, 255, 0);
-              width: 1px;
-              height: 10.6rem;
-              position: absolute;
-              margin-top: 3.5rem;
-              z-index: -1;
-              margin-left: 0.45rem;
-            " />
-        <!-- Institution 2 -->
-        <!-- <div class="d-flex mt-5">
-          <p><i class="fas fa-check-circle text-warning"></i></p>
-          <div style="margin-left: 2rem">
-            <p>
-              <span class="text-warning">Company:</span><br />
-              <span class="text-light">
-                Unity Community School, Ishiagu, Ebonyi state
-              </span>
-            </p>
-            <p>
-              <span class="text-warning">Position Held:</span><br />
-              <span class="text-light"> Mathematics Teacher </span>
-            </p>
-            <p>
-              <span class="text-warning">Duration:</span><br />
-              <span class="text-light"> 2018 - 2019 </span>
-            </p>
-          </div>
-        </div> -->
       </div>
     </div>
   </section>
-
-<!-- Experience -->
-  <section class="container px-5 px-lg-0" style="margin: 5rem auto auto auto" id="edu">
-    <h3 class="text-warning mt-2 text-center">EXPERIENCE</h3>
-    <div class="d-flex flex-column flex-lg-row my-3 justify-content-around" style="gap: 1rem;">
-      <div class="d-flex flex-column py-4 w-100">
-        <!-- Institution 1 -->
-        <div class="d-flex mt-5 ex" style="border-left: 2px yellow solid;">
-          <!-- <p><i class="fas fa-check-circle text-warning"></i></p> -->
-          <div style="margin-left: 2rem">
-            <p>
-              <span class="text-warning"><i class="fa-sharp fa-solid fa-briefcase"></i>&nbsp; Company</span><br />
-              <span class="text-light"> CODEWAVE</span>
-            </p>
-                        <p>
-              <span class="text-warning"><i class="fa-regular fa-calendar-days"></i>&nbsp; Duration</span><br />
-              <span class="text-light"> 2021 - 2022 </span>
-            </p>
-            <p>
-              <span class="text-warning"><i class="fa-sharp fa-solid fa-user-tie"></i>&nbsp; Position</span><br />
-              <span class="text-muted">JUNIOR SOFTWARE DEVELOPER</span>
-            </p>
-            <p>
-              <!-- <span class="text-warning"><i class="fa-sharp fa-solid fa-bars-progress"></i>&nbsp; Task</span><br /> -->
-              <span class="text-light">
-                <ul class="text-light" style="font-size: .9rem;">
-                  <li>Developed and maintained web applications using the Django and Django Rest framework.</li>
-                  <li>Designed and developed databases and integrated them with Django's built-in ORM.</li>
-                  <li>Conducted testing and debugging of software applications to ensure reliability and scalability.</li>
-                  <li>Collaborated with cross-functional teams to ensure project goals and deadlines were met.</li>
-                </ul>
-              </span>
-            </p>
-          </div>
-        </div>
-        <!-- <hr class="" style="
-              border: 1px solid rgb(251, 255, 0);
-              width: 1px;
-              height: 10.6rem;
-              position: absolute;
-              margin-top: 3.5rem;
-              z-index: -1;
-              margin-left: 0.45rem;
-            " /> -->
-      </div>
-
-
-      <div class="d-flex flex-column mt-5 w-100">
-        <!-- Institution 1 -->
-        <div class="d-flex my-3 ex" style="border-left: 2px yellow solid;">
-          <!-- <p><i class="fas fa-check-circle text-warning"></i></p> -->
-          <div style="margin-left: 2rem">
-            <p>
-              <span class="text-warning"><i class="fa-sharp fa-solid fa-briefcase"></i>&nbsp; Company</span><br />
-              <span class="text-light"> J-TECH INNOVATIONS</span>
-            </p>
-                        <p>
-              <span class="text-warning"><i class="fa-regular fa-calendar-days"></i>&nbsp; Duration</span><br />
-              <span class="text-light"> 2020 - 2021 </span>
-            </p>
-            <p>
-              <span class="text-warning"><i class="fa-sharp fa-solid fa-user-tie"></i>&nbsp; Position</span><br />
-              <span class="text-muted">DESKTOP SUPPORT TECHNICIAN</span>
-            </p>
-            <p>
-              <!-- <span class="text-warning"><i class="fa-sharp fa-solid fa-bars-progress"></i>&nbsp; Task</span><br /> -->
-              <span class="text-light">
-                <ul class="text-light" style="font-size: .9rem;">
-                  <li>Configured and maintained desktop and laptop computers for optimal performance.</li>
-                  <li>Installed and maintained printers and other peripherals.</li>
-                  <li>Conducted regular system maintenance to ensure smooth operation and prevent downtime.</li>
-                  <li>Troubleshot and resolved technical issues related to operating systems, software applications, and hardware components.</li>
-                </ul>
-              </span>
-            </p>
-          </div>
-        </div>
-        <!-- <hr class="" style="
-              border: 1px solid rgb(251, 255, 0);
-              width: 1px;
-              height: 10.6rem;
-              position: absolute;
-              margin-top: 3.5rem;
-              z-index: -1;
-              margin-left: 0.45rem;
-            " /> -->
-      </div>
-    </div>
+  
   </section>
 
 
