@@ -102,7 +102,7 @@
             ></i></a>
       </p>
       <a href="https://drive.google.com/drive/folders/1vf5Ihmh4_yvz_H4XIiedoEOw42xOM8ar?usp=drive_link" target="_blank"
-        class="btn btn-success p-1 mt-3 px-3 cv-btn" style="width: fit-content; font-size: 1rem">Download CV</a>
+        class="btn btn-success p-1 mt-3 px-3 cv-btn shadow-none" style="width: fit-content; font-size: 1rem">Download CV</a>
     </div>
     <div class="w-75 p-5 d-none d-lg-block">
       <img src="{{ url_for('static', filename='images/program.png') }}" class="rounded w-100" alt="avatar"
@@ -148,82 +148,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Skills -->
-  <!-- <section class="container px-5 px-lg-0" style="margin: 5rem auto auto auto" id="skills">
-    <h3 class="text-warning mt-2 text-center">SKILLS</h3>
-
-    <div class="d-flex flex-column flex-lg-row w-100">
-      <div class="d-flex flex-column w-100 p-lg-3">
-        <span class="fw-bold text-muted" style="font-size: 1.1rem">HTML</span>
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
-            aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%">
-            85%
-          </div>
-        </div>
-        <br />
-        <span class="fw-bold text-muted" style="font-size: 1.1rem">CSS</span>
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
-            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
-            75%
-          </div>
-        </div>
-        <br />
-        <span class="fw-bold text-muted" style="font-size: 1.1rem">BOOTSTRAP</span>
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
-            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
-            75%
-          </div>
-        </div>
-        <br />
-        <span class="fw-bold text-muted" style="font-size: 1.1rem">JAVASCRIPT</span>
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
-            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
-            50%
-          </div>
-        </div>
-        <br />
-      </div>
-      <div class="d-flex flex-column w-100 p-lg-3">
-        <span class="fw-bold text-muted" style="font-size: 1.1rem">PYTHON</span>
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
-            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-            80%
-          </div>
-        </div>
-        <br />
-        <span class="fw-bold text-muted" style="font-size: 1.1rem">FLASK</span>
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
-            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-            80%
-          </div>
-        </div>
-        <br />
-        <span class="fw-bold text-muted" style="font-size: 1.1rem">DATABASES</span>
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
-            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-            80%
-          </div>
-        </div>
-        <br />
-        <span class="fw-bold text-muted" style="font-size: 1.1rem">DJANGO</span>
-        <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
-            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-            60%
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row"></div>
-  </section> -->
 
   <!-- Stacks -->
   <section class="container px-5 px-lg-0" style="margin: 5rem auto auto auto" id="skills">
@@ -303,7 +227,7 @@
                 <div class="row g-2">
                   <!-- Experience 1 -->
                   <div class="col-md-6">
-                    <div class="card tabs_card">
+                    <div class="card tabs_card" style="height: 30rem; overflow-y: scroll;">
                       <div class="card-body">
                         <div class="d-flex flex-column py-4 w-100">
                           <!-- Institution 1 -->
@@ -319,15 +243,21 @@
                               </p>
                               <p>
                                 <span class="text-warning"><i class="fa-sharp fa-solid fa-user-tie"></i>&nbsp; Position</span><br />
-                                <span class="text-muted">JUNIOR SOFTWARE DEVELOPER</span>
+                                <span class="text-muted">BACKEND DEVELOPER</span>
                               </p>
                               <p>
                                 <span class="text-light">
                                   <ul class="text-light" style="font-size: .9rem;">
-                                    <li>Developed and maintained web applications using the Django and Django Rest framework.</li>
-                                    <li>Designed and developed databases and integrated them with Django's built-in ORM.</li>
-                                    <li>Conducted testing and debugging of software applications to ensure reliability and scalability.</li>
-                                    <li>Collaborated with cross-functional teams to ensure project goals and deadlines were met.</li>
+                                    <li>Developed and enhanced APIs for web applications using the Flask and Django Rest Framework, while also
+                                      seamlessly integrating third-party APIs into the system for expanded functionality and improved features.
+                                      Utilized Docker for containerization to ensure consistent environments across development, testing, and
+                                      production.</li>
+                                    <li>Built APIs using AWS Serverless Lambda architecture, demonstrating proficiency in creating scalable
+                                      and efficient solutions with serverless technology and microservices.</li>
+                                    <li>Conducting thorough testing and documentation of APIs using Postman, ensuring their reliability and
+                                      efficiency for a robust and well-documented system.</li>
+                                    <li>Collaborate with front-end developers to ensure seamless integration and alignment between the
+                                      backend and front-end components, communicating effectively for a smooth development process.</li>
                                   </ul>
                                 </span>
                               </p>
@@ -339,7 +269,7 @@
                   </div>
                   <!-- end -->
                   <div class="col-md-6">
-                    <div class="card tabs_card">
+                    <div class="card tabs_card" style="height: 30rem; overflow-y: scroll;">
                       <div class="card-body">
                         <div class="d-flex flex-column py-4 w-100">
                           <!-- Institution 1 -->
@@ -355,7 +285,7 @@
                               </p>
                               <p>
                                 <span class="text-warning"><i class="fa-sharp fa-solid fa-user-tie"></i>&nbsp; Position</span><br />
-                                <span class="text-muted">JUNIOR SOFTWARE DEVELOPER</span>
+                                <span class="text-muted">SOFTWARE DEVELOPER</span>
                               </p>
                               <p>
                                 <span class="text-light">
@@ -375,7 +305,7 @@
                   </div>
   
                   <div class="col-md-6">
-                    <div class="card tabs_card">
+                    <div class="card tabs_card" style="height: 30rem; overflow-y: scroll;">
                       <div class="card-body">
                         <div class="d-flex flex-column mt-2 w-100">
                           <!-- Institution 1 -->
@@ -505,8 +435,8 @@
                 " />
             <hr />
             <p class="text-warning" style="font-size: 1.2rem;">ReachOut2Me API &nbsp
-              <a href="https://reachout2me.herokuapp.com/" target="_blank" style="font-size: medium;">
-              <i class="fa-sharp fa-solid fa-globe text-white"></i></a>
+              <!-- <a href="https://reachout2me.herokuapp.com/" target="_blank" style="font-size: medium;">
+              <i class="fa-sharp fa-solid fa-globe text-white"></i></a> -->
             </p>
             <p class="text-light" style="font-size: .9rem;">
               ReachOut2Me is a RESTful API developed with Django Rest Framework, designed to enhance social reach and engagement. 
@@ -538,8 +468,8 @@
                 " />
             <hr />
             <p class="text-warning" style="font-size: 1.2rem;">Academia API &nbsp
-              <a href="https://academia.herokuapp.com/" target="_blank" style="font-size: medium;">
-              <i class="fa-sharp fa-solid fa-globe text-white"></i></a>
+              <!-- <a href="https://academia.herokuapp.com/" target="_blank" style="font-size: medium;">
+              <i class="fa-sharp fa-solid fa-globe text-white"></i></a> -->
             </p>
             <p class="text-light" style="font-size: .9rem;">
               Academia API simplifies educational tasks such as enrollment, registration, grading, and GPA calculation with custom applications. 
@@ -571,7 +501,7 @@
             <hr />
             <p class="text-warning" style="font-size: 1.2rem;">EasyTransact
               &nbsp
-              <a href="https://easytransact.me/" target="_blank" style="font-size: medium;">
+              <a href="https://easytrans.onrender.com" target="_blank" style="font-size: medium;">
               <i class="fa-sharp fa-solid fa-globe text-white"></i></a>
             </p>
             <p class="text-light" style="font-size: .9rem;">
@@ -702,8 +632,8 @@
             <hr />
             <p class=" text-warning" style="font-size: 1.2rem;">Country Info
               &nbsp
-              <a href="http://countryin.herokuapp.com/" target="_blank" style="font-size: medium;">
-              <i class="fa-sharp fa-solid fa-globe text-white"></i></a>
+              <!-- <a href="http://countryin.herokuapp.com/" target="_blank" style="font-size: medium;">
+              <i class="fa-sharp fa-solid fa-globe text-white"></i></a> -->
             </p>
             <p class="text-light" style="font-size: .9rem;">
               The Country Info Project project that provides detailed information about any country in the world. 
