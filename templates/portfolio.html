@@ -18,12 +18,24 @@
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 
-  <!-- Js -->
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
+  <!-- Js -->
   <script src="{{ url_for('static', filename='javascript/script.js') }}" defer></script>
 
-  <title>Portfolio</title>
+  <title>Olanrewaju - Software Developer Portfolio</title>
+  <meta name="description" content="Professional portfolio of Olanrewaju, a skilled software developer specializing in Python, JavaScript, Flask, Django, and modern web technologies.">
+  <meta name="keywords" content="software developer, Python, JavaScript, Flask, Django, web development, portfolio">
+  <meta name="author" content="Olanrewaju">
+  <meta property="og:title" content="Olanrewaju - Software Developer Portfolio">
+  <meta property="og:description" content="Professional portfolio showcasing web development projects and skills">
+  <meta property="og:type" content="website">
   <link rel="icon" href="{{ url_for('static', filename='images/owl.png') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
   <style>
     .nav-link {
@@ -47,7 +59,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark py-3 w-100 fixed-top" id="navbar">
     <div class="container">
-      <a href="#" class="navbar-brand">Olanrewaju</a>
+      <a href="#homepage" class="navbar-brand">Olanrewaju</a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
         <span class="navbar-toggler-icon"></span>
@@ -56,7 +68,7 @@
       <div class="collapse navbar-collapse" id="navmenu">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a href="#" class="nav-link">Home</a>
+            <a href="#homepage" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
             <a href="#about" class="nav-link">About</a>
@@ -77,10 +89,10 @@
 
   <!-- heading -->
 
-  <section class="container d-flex flex-column flex-lg-row align-items-start mt-3 mt-lg-0 align-items-lg-center"
+  <section class="container d-flex flex-column flex-lg-row align-items-center justify-content-between reveal"
     id="homepage">
     <div class="d-flex flex-column w-100">
-      <p id="myname" class="fw-bold text-warning">
+      <p id="myname" class="fw-bold text-warning text-gradient">
         Hi, I'm Olanrewaju
       </p>
       <p class="text-muted lanre">
@@ -101,29 +113,29 @@
             ></i></a>
       </p>
       <a href="https://drive.google.com/drive/folders/1vf5Ihmh4_yvz_H4XIiedoEOw42xOM8ar?usp=drive_link" target="_blank"
-        class="btn btn-success p-1 mt-3 px-3 cv-btn shadow-none" style="width: fit-content; font-size: 1rem">Download CV</a>
+        class="btn btn-success p-1 mt-3 px-3 cv-btn shadow-none interactive" id="download_cv" style="width: fit-content; font-size: 1rem">Download CV</a>
     </div>
-    <div class="w-75 p-5 d-none d-lg-block">
-      <img src="{{ url_for('static', filename='images/program.png') }}" class="rounded w-100" alt="avatar"
-         />
-    </div>
+          <div class="w-75 p-5 d-none d-lg-block">
+        <img src="{{ url_for('static', filename='images/program.png') }}" class="rounded w-100 header-image" alt="avatar"
+           />
+      </div>
   </section>
 
   <!-- About me -->
-  <section class="sect" id="about">
+  <section class="sect reveal" id="about">
     <h3 class="text-center py-3 text-warning" style="margin-top: 4rem">
       ABOUT ME
     </h3>
     <div class="container p-4">
-      <div class="d-flex flex-column flex-lg-row align-items-center">
-        <div class="" style="width: 90%;">
-          <img src="https://res.cloudinary.com/duwyopabr/image/upload/v1725114291/markk_pkfcix.jpg" class="w-100 img-thumbnail rounded"
-            alt="my picture" />
-        </div>
-        <div class="d-flex flex-column px-lg-4 mt-2 mt-lg-2">
-          <h2 class="text-warning name">
-            <span class="text-light">ADENIYI</span> OLANREWAJU
-          </h2>
+              <div class="d-flex flex-column flex-lg-row align-items-center">
+          <div class="about-image-container" style="width: 90%;">
+            <img src="https://res.cloudinary.com/duwyopabr/image/upload/v1725114291/markk_pkfcix.jpg" class="w-100 img-thumbnail rounded about-image"
+              alt="my picture" />
+          </div>
+                  <div class="d-flex flex-column px-lg-4 mt-2 mt-lg-2">
+            <h2 class="text-warning name">
+              <span class="text-light">ADENIYI</span> <span class="text-gradient">OLANREWAJU</span>
+            </h2>
           <hr style="border: 1px solid white" />
           <p class="text-light" style="font-size: .9rem">
             I'm a motivated software engineer who adheres to the DRY (Don't Repeat Yourself) principles, writing clean and reusable code with a focus on simplicity and functionality to produce high-quality end products. 
@@ -149,7 +161,7 @@
   </section>
 
   <!-- Stacks -->
-  <section class="container px-5 px-lg-0" style="margin: 5rem auto auto auto" id="skills">
+  <section class="container px-5 px-lg-0 reveal" style="margin: 5rem auto auto auto" id="skills">
     <h3 class="text-warning mt-2 text-center">STACKS</h3>
     <div class="w-100 grid-container" style="
     align-items: center;
@@ -204,7 +216,7 @@
 
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="container" style="margin-top: 6rem;">
       <div class="row">
         <div class="col-md-12">
@@ -437,7 +449,7 @@
 
   <!-- Project -->
 
-  <section class="container" style="margin: 5rem auto auto auto" id="project">
+  <section class="container reveal" style="margin: 5rem auto auto auto" id="project">
     <h3 class="text-warning my-4 text-center">PROJECTS</h3>
     <div class="">
       <div class="row row-cols-lg-2 w-100 m-auto">
@@ -678,7 +690,7 @@
 
   <!-- Blog -->
 
-  <section class="container" style="margin: 5rem auto auto auto" id="blog">
+  <section class="container reveal" style="margin: 5rem auto auto auto" id="blog">
     <h3 class="text-warning my-4 text-center">BLOG</h3>
     <div>
       <div class="row row-cols-lg-2 w-100 m-auto">
@@ -801,7 +813,7 @@
   </section>
 
   <!-- Contact form -->
-  <section class="container" style="margin: 5rem auto auto auto" id="contact">
+  <section class="container reveal" style="margin: 5rem auto auto auto" id="contact">
     <h3 class="text-warning text-center" style="margin: 5rem 0">CONTACT</h3>
     <div class="d-flex w-100 flex-column-reverse flex-lg-row align-items-lg-center">
       <div class="d-flex flex-column w-100 py-5 m-auto">
@@ -846,49 +858,30 @@
               class="fab fa-google p-3 text-muted rounded-circle border h5"></i></a>
         </div>
       </div>
-      <div class="m-auto p-5 w-100 py-5 my-form">
-        <!-- Flash messages -->
-        {% with messages = get_flashed_messages(with_categories=true) %} {% if
-        messages %} {% for category, message in messages %}
-        <div class="alert-dismissible fade show mb-4 m-auto small alert alert-{{ category }}" role="alert"
-          style="height: 3.5rem; transition: 0.6s">
-          {% if category=='success' %}
-          <p class="small text-center">
-            <i class="fa fas fas fa-check"></i>&nbsp;&nbsp;&nbsp;{{ message }}
-          </p>
-          {% else %}
-          <p class="small text-center">
-            <i class="fa fas fa-exclamation-triangle"></i>&nbsp;&nbsp;&nbsp;{{
-            message }}
-          </p>
-          {% endif %}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        {% endfor %} {% endif %} {% endwith %}
+      <div class="m-auto p-5 w-100 py-5 my-form" style="position: relative; z-index: 10;">
         <form action="" method="post">
           {{ form.hidden_tag() }}
           <!-- Name Field -->
           <div>
             {{ form.name.label(class='text-light text') }} <br />
             {{ form.name(class='form-control text-muted forminput',
-            placeholder='Enter your name', required=False,) }}
+            placeholder='Enter your name', required=False) }}
           </div>
           <!-- Email Field -->
           <div class="mt-3">
             {{ form.email.label(class='text-light text ') }} <br />
             {{ form.email(class='form-control text-muted forminput',
-            placeholder='Enter your email', required=False,) }}
+            placeholder='Enter your email', required=False) }}
           </div>
           <!-- Message Field -->
           <div class="mt-3">
             {{ form.message.label(class='text-light text ') }} <br />
-            <!-- If error -->
             {{ form.message(class='form-control text-muted forminput',
-            placeholder='Enter your message', required=False,) }}
+            placeholder='Enter your message', required=False) }}
           </div>
           <!-- Submit Field -->
           <div class="mt-4">
-            {{ form.submit(class='btn btn-success w-100 shadow-none') }}
+            {{ form.submit(class='btn btn-success w-100 shadow-none', value='Send Message') }}
           </div>
         </form>
       </div>
