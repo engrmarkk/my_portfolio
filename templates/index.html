@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olanrewaju — Software Developer</title>
+  <meta name="description" content="Professional portfolio of Olanrewaju, a skilled software developer specializing in Python, JavaScript, Flask, Django, and modern web technologies.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['DM Sans', 'sans-serif'],
+            mono: ['DM Mono', 'monospace'],
+          },
+          colors: {
+            ink: '#0a0a0f',
+            'ink-2': '#111118',
+            'ink-3': '#1a1a24',
+            gold: '#c9a84c',
+            'gold-light': '#e8c96a',
+            'gold-dim': '#7a6030',
+            cream: '#f0e8d5',
+            'cream-dim': '#a89878',
+            mist: '#2a2a38',
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.7s ease forwards',
+            'fade-in': 'fadeIn 0.5s ease forwards',
+            'slide-right': 'slideRight 0.8s ease forwards',
+            'line-grow': 'lineGrow 1.2s ease forwards',
+          },
+          keyframes: {
+            fadeUp: {
+              '0%': { opacity: 0, transform: 'translateY(30px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' },
+            },
+            fadeIn: {
+              '0%': { opacity: 0 },
+              '100%': { opacity: 1 },
+            },
+            slideRight: {
+              '0%': { opacity: 0, transform: 'translateX(-40px)' },
+              '100%': { opacity: 1, transform: 'translateX(0)' },
+            },
+            lineGrow: {
+              '0%': { width: '0%' },
+              '100%': { width: '100%' },
+            },
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: #0a0a0f;
+      color: #f0e8d5;
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Noise overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #0a0a0f; }
+    ::-webkit-scrollbar-thumb { background: #c9a84c; border-radius: 2px; }
+
+    /* Nav */
+    .nav-link {
+      position: relative;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #a89878;
+      transition: color 0.3s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #c9a84c;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover { color: #c9a84c; }
+    .nav-link:hover::after { width: 100%; }
+
+    /* Gold gradient text */
+    .gold-text {
+      background: linear-gradient(135deg, #c9a84c 0%, #e8c96a 50%, #c9a84c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Section reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Skill tag */
+    .skill-tag {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      padding: 4px 12px;
+      border: 1px solid #7a6030;
+      color: #c9a84c;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .skill-tag:hover {
+      background: #c9a84c22;
+      border-color: #c9a84c;
+    }
+
+    /* Project card */
+    .project-card {
+      background: #111118;
+      border: 1px solid #1a1a24;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .project-card:hover {
+      border-color: #7a6030;
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .project-card:hover::before { opacity: 1; }
+
+    /* Stack card */
+    .stack-item {
+      background: #111118;
+      border: 1px solid #1a1a24;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      transition: all 0.3s;
+      aspect-ratio: 1;
+    }
+    .stack-item:hover {
+      border-color: #7a6030;
+      background: #1a1a24;
+    }
+    .stack-item i, .stack-item svg, .stack-item img {
+      filter: brightness(0.6) sepia(1) saturate(2) hue-rotate(5deg);
+      transition: filter 0.3s;
+    }
+    .stack-item:hover i,
+    .stack-item:hover svg,
+    .stack-item:hover img {
+      filter: brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(0.85);
+    }
+
+    /* Timeline */
+    .timeline-dot {
+      width: 8px;
+      height: 8px;
+      background: #c9a84c;
+      border-radius: 50%;
+      position: absolute;
+      left: -4px;
+      top: 8px;
+      flex-shrink: 0;
+    }
+
+    /* Blog card */
+    .blog-card {
+      background: #111118;
+      border: 1px solid #1a1a24;
+      transition: all 0.3s;
+    }
+    .blog-card:hover {
+      border-color: #7a6030;
+      background: #1a1a24;
+    }
+
+    /* Input styling */
+    .form-input {
+      background: #111118;
+      border: 1px solid #1a1a24;
+      color: #f0e8d5;
+      outline: none;
+      transition: border-color 0.3s;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+    }
+    .form-input::placeholder { color: #4a4a5a; }
+    .form-input:focus { border-color: #c9a84c; }
+
+    textarea.form-input { resize: vertical; min-height: 130px; }
+
+    /* Large decorative number */
+    .section-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 6rem;
+      color: #1a1a24;
+      position: absolute;
+      top: -2rem;
+      right: 0;
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* Horizontal rule gold */
+    .gold-rule {
+      height: 1px;
+      background: linear-gradient(90deg, #c9a84c, transparent);
+    }
+
+    /* Tab button */
+    .tab-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid #1a1a24;
+      color: #a89878;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .tab-btn.active {
+      background: #c9a84c;
+      color: #0a0a0f;
+      border-color: #c9a84c;
+    }
+    .tab-btn:hover:not(.active) {
+      border-color: #7a6030;
+      color: #c9a84c;
+    }
+
+    /* Glowing dot */
+    .glow-dot {
+      width: 6px; height: 6px;
+      background: #c9a84c;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #c9a84c, 0 0 16px #c9a84c44;
+      display: inline-block;
+    }
+
+    /* Hero gradient blob */
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="fixed top-0 left-0 right-0 z-50" style="background: rgba(10,10,15,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid #1a1a24;">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#hero" class="font-display font-bold text-lg tracking-tight gold-text">OA</a>
+      <ul class="hidden md:flex items-center gap-8">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#blog" class="nav-link">Blog</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="https://drive.google.com/drive/folders/1vf5Ihmh4_yvz_H4XIiedoEOw42xOM8ar" target="_blank"
+         class="hidden md:flex items-center gap-2 font-mono text-xs tracking-widest uppercase border border-gold-dim text-gold px-4 py-2 hover:bg-gold hover:text-ink transition-all duration-300">
+        Resume <i class="fas fa-arrow-down text-xs"></i>
+      </a>
+      <!-- Mobile menu toggle -->
+      <button id="mobileToggle" class="md:hidden text-cream-dim hover:text-gold transition-colors">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-mist px-6 py-4 flex flex-col gap-4">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#blog" class="nav-link">Blog</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="https://drive.google.com/drive/folders/1vf5Ihmh4_yvz_H4XIiedoEOw42xOM8ar" target="_blank"
+         class="flex items-center gap-2 font-mono text-xs tracking-widest uppercase border border-gold-dim text-gold px-4 py-2 w-fit hover:bg-gold hover:text-ink transition-all duration-300">
+        Resume <i class="fas fa-arrow-down text-xs"></i>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="hero" class="min-h-screen flex items-center relative overflow-hidden pt-20">
+    <!-- Background blobs -->
+    <div class="hero-blob w-96 h-96 opacity-10" style="background: #c9a84c; top: 10%; right: 5%;"></div>
+    <div class="hero-blob w-64 h-64 opacity-5" style="background: #4c6ec9; bottom: 15%; left: -5%;"></div>
+
+    <div class="max-w-6xl mx-auto px-6 w-full py-20">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="font-mono text-xs tracking-widest text-gold uppercase mb-6 flex items-center gap-3">
+            <span class="glow-dot"></span> Available for opportunities
+          </p>
+          <h1 class="font-display font-black leading-tight mb-6" style="font-size: clamp(3rem, 6vw, 5.5rem);">
+            <span class="text-cream">Hello,</span><br>
+            <span class="text-cream">I'm </span><span class="gold-text">Olanrewaju</span>
+          </h1>
+          <div class="gold-rule w-24 mb-6"></div>
+          <p class="text-cream-dim text-lg leading-relaxed mb-10 max-w-xl" style="font-weight: 300;">
+            Behind every great product is great architecture. I build that architecture, crafting scalable backend systems with <span class="text-cream">Python, Flask, Django, and FastAPI,</span> designed to grow as fast as your ideas.
+          </p>
+          <div class="flex flex-wrap items-center gap-4 mb-10">
+            <a href="#projects" class="bg-gold text-ink font-mono text-xs tracking-widest uppercase px-7 py-3 hover:bg-gold-light transition-all duration-300 font-bold">
+              View Work
+            </a>
+            <a href="#contact" class="border border-mist text-cream-dim font-mono text-xs tracking-widest uppercase px-7 py-3 hover:border-gold-dim hover:text-gold transition-all duration-300">
+              Get in Touch
+            </a>
+          </div>
+          <!-- Social links -->
+          <div class="flex items-center gap-5">
+            <a href="https://github.com/engrmarkk" target="_blank" class="text-cream-dim hover:text-gold transition-colors text-lg"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com/iamengrmark" target="_blank" class="text-cream-dim hover:text-gold transition-colors text-lg"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com/in/iamengrmark" target="_blank" class="text-cream-dim hover:text-gold transition-colors text-lg"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://hashnode.com/@engrmark" target="_blank" class="text-cream-dim hover:text-gold transition-colors text-lg"><i class="fa-brands fa-hashnode"></i></a>
+            <a href="mailto:adeniyiboladale@yahoo.com" target="_blank" class="text-cream-dim hover:text-gold transition-colors text-lg"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <!-- Right: Stats + Image -->
+        <div class="flex flex-col gap-6">
+          <!-- Photo placeholder -->
+          <div class="relative">
+            <div class="absolute inset-0 -bottom-3 -right-3 border border-gold-dim"></div>
+            <img src="https://res.cloudinary.com/duwyopabr/image/upload/v1725114291/markk_pkfcix.jpg"
+                 alt="Olanrewaju Adeniyi"
+                 class="w-full object-cover object-top relative z-10"
+                 style="max-height: 480px; filter: grayscale(20%) contrast(1.05);" />
+          </div>
+          <!-- Stats row -->
+          <div class="grid grid-cols-3 gap-3">
+            <div class="bg-ink-2 border border-mist p-4 text-center">
+              <p class="font-display font-bold text-3xl gold-text">4+</p>
+              <p class="font-mono text-xs text-cream-dim tracking-wider mt-1">Years Exp.</p>
+            </div>
+            <div class="bg-ink-2 border border-mist p-4 text-center">
+              <p class="font-display font-bold text-3xl gold-text">100%</p>
+              <p class="font-mono text-xs text-cream-dim tracking-wider mt-1">Clean Code</p>
+            </div>
+            <div class="bg-ink-2 border border-mist p-4 text-center">
+              <p class="font-display font-bold text-3xl gold-text">7+</p>
+              <p class="font-mono text-xs text-cream-dim tracking-wider mt-1">Stacks</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+      <span class="font-mono text-xs text-cream-dim tracking-widest">scroll</span>
+      <div style="width:1px; height:40px; background: linear-gradient(to bottom, #c9a84c, transparent);"></div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about" class="py-28 reveal">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-end gap-6 mb-16">
+        <div>
+          <p class="font-mono text-xs tracking-widest text-gold uppercase mb-2">01 — About</p>
+          <h2 class="font-display font-bold text-5xl text-cream">Who I Am</h2>
+        </div>
+        <div class="gold-rule flex-1 mb-3"></div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <h3 class="font-display text-2xl text-cream mb-6 font-bold">
+            <span class="text-cream-dim">ADENIYI</span> <span class="gold-text">OLANREWAJU</span>
+          </h3>
+          <p class="text-cream-dim leading-relaxed mb-6" style="font-weight: 300;">
+            I'm a motivated software engineer who adheres to the DRY (Don't Repeat Yourself) principles, writing clean and reusable code with a focus on simplicity and functionality to produce high-quality end products.
+          </p>
+          <p class="text-cream-dim leading-relaxed mb-8" style="font-weight: 300;">
+            With a background in Mechanical Engineering from Ekiti State University, I transitioned into software development — bringing an engineer's mindset for precision, problem-solving, and systems thinking to every project.
+          </p>
+          <h4 class="font-mono text-xs tracking-widest text-gold uppercase mb-5">My Goals</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="glow-dot mt-2 flex-shrink-0"></span>
+              <span class="text-cream-dim" style="font-weight: 300;">To develop my software development skills continuously</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="glow-dot mt-2 flex-shrink-0"></span>
+              <span class="text-cream-dim" style="font-weight: 300;">To be able to solve complex problems with elegant solutions</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="glow-dot mt-2 flex-shrink-0"></span>
+              <span class="text-cream-dim" style="font-weight: 300;">To build projects that are genuinely beneficial to the public</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="glow-dot mt-2 flex-shrink-0"></span>
+              <span class="text-cream-dim" style="font-weight: 300;">To sharpen my ability to think and respond quickly to any challenge</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="glow-dot mt-2 flex-shrink-0"></span>
+              <span class="text-cream-dim" style="font-weight: 300;">To keep up with the latest tech developments and best practices</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Experience / Education Tabs -->
+        <div>
+          <div class="flex gap-0 mb-8">
+            <button class="tab-btn active" data-tab="experience">Experience</button>
+            <button class="tab-btn" data-tab="education">Education</button>
+          </div>
+
+          <!-- Experience Tab -->
+          <div id="tab-experience" class="tab-content space-y-6">
+            <!-- Job 1 -->
+            <div class="bg-ink-2 border border-mist p-6 relative pl-8">
+              <div class="timeline-dot"></div>
+              <div class="absolute left-0 top-0 bottom-0 w-px bg-mist" style="left: 3px; top: 20px;"></div>
+              <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
+                <h4 class="font-display font-bold text-cream text-lg">Backend Developer</h4>
+                <span class="font-mono text-xs text-gold border border-gold-dim px-2 py-1">2023</span>
+              </div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-3">Speedpay Finance Limited</p>
+              <ul class="space-y-2">
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight: 300;"><span class="text-gold mt-1 flex-shrink-0">—</span> Developed and enhanced APIs using Flask & Django Rest Framework; integrated Docker for containerization.</li>
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight: 300;"><span class="text-gold mt-1 flex-shrink-0">—</span> Built APIs using AWS Serverless Lambda architecture for scalable microservices.</li>
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight: 300;"><span class="text-gold mt-1 flex-shrink-0">—</span> Conducted thorough testing and documentation using Postman.</li>
+              </ul>
+            </div>
+
+            <!-- Job 2 -->
+            <div class="bg-ink-2 border border-mist p-6 relative pl-8">
+              <div class="timeline-dot"></div>
+              <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
+                <h4 class="font-display font-bold text-cream text-lg">Software Developer</h4>
+                <span class="font-mono text-xs text-gold border border-gold-dim px-2 py-1">2021 – 2022</span>
+              </div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-3">Codewave</p>
+              <ul class="space-y-2">
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight: 300;"><span class="text-gold mt-1 flex-shrink-0">—</span> Built and maintained web applications using Django and Django Rest Framework.</li>
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight: 300;"><span class="text-gold mt-1 flex-shrink-0">—</span> Designed databases and integrated them with Django's ORM.</li>
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight: 300;"><span class="text-gold mt-1 flex-shrink-0">—</span> Collaborated with cross-functional teams to meet project deadlines.</li>
+              </ul>
+            </div>
+
+            <!-- Job 3 -->
+            <div class="bg-ink-2 border border-mist p-6 relative pl-8">
+              <div class="timeline-dot"></div>
+              <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
+                <h4 class="font-display font-bold text-cream text-lg">Desktop Support Technician</h4>
+                <span class="font-mono text-xs text-gold border border-gold-dim px-2 py-1">2020 – 2021</span>
+              </div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-3">J-Tech Innovations</p>
+              <ul class="space-y-2">
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight: 300;"><span class="text-gold mt-1 flex-shrink-0">—</span> Configured and maintained desktop and laptop computers for optimal performance.</li>
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight: 300;"><span class="text-gold mt-1 flex-shrink-0">—</span> Troubleshot technical issues related to OS, software, and hardware.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Education Tab -->
+          <div id="tab-education" class="tab-content space-y-6 hidden">
+            <!-- Edu 1 -->
+            <div class="bg-ink-2 border border-mist p-6 relative pl-8">
+              <div class="timeline-dot"></div>
+              <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
+                <h4 class="font-display font-bold text-cream text-lg">Software Development</h4>
+                <span class="font-mono text-xs text-gold border border-gold-dim px-2 py-1">2022 – 2023</span>
+              </div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-3">Altschool Africa, School of Engineering</p>
+              <ul class="space-y-2">
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight: 300;"><span class="text-gold mt-1 flex-shrink-0">—</span> Completed coursework in algorithms, Flask, APIs, and front-end development.</li>
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight: 300;"><span class="text-gold mt-1 flex-shrink-0">—</span> Participated in group projects to develop and deploy web applications collaboratively.</li>
+              </ul>
+            </div>
+
+            <!-- Edu 2 -->
+            <div class="bg-ink-2 border border-mist p-6 relative pl-8">
+              <div class="timeline-dot"></div>
+              <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
+                <h4 class="font-display font-bold text-cream text-lg">B.Eng. Mechanical Engineering</h4>
+                <span class="font-mono text-xs text-gold border border-gold-dim px-2 py-1">2011 – 2018</span>
+              </div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-3">Ekiti State University, Ado Ekiti</p>
+              <ul class="space-y-2">
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight: 300;"><span class="text-gold mt-1 flex-shrink-0">—</span> Obtained Bachelor's degree in Mechanical Engineering.</li>
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight: 300;"><span class="text-gold mt-1 flex-shrink-0">—</span> Final year project: Designing and developing a hydropower turbine.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS ===================== -->
+  <section id="skills" class="py-28 reveal" style="background: #0d0d14;">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-end gap-6 mb-16">
+        <div>
+          <p class="font-mono text-xs tracking-widest text-gold uppercase mb-2">02 — Stack</p>
+          <h2 class="font-display font-bold text-5xl text-cream">Technologies</h2>
+        </div>
+        <div class="gold-rule flex-1 mb-3"></div>
+      </div>
+
+      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
+        <!-- Python -->
+        <div class="stack-item group">
+          <div class="flex flex-col items-center gap-2">
+            <i class="fa-brands fa-python text-3xl text-cream-dim group-hover:text-gold transition-colors"></i>
+            <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">Python</span>
+          </div>
+        </div>
+        <!-- JavaScript -->
+        <div class="stack-item group">
+          <div class="flex flex-col items-center gap-2">
+            <i class="fa-brands fa-js text-3xl text-cream-dim group-hover:text-gold transition-colors"></i>
+            <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">JavaScript</span>
+          </div>
+        </div>
+        <!-- HTML -->
+        <div class="stack-item group">
+          <div class="flex flex-col items-center gap-2">
+            <i class="fa-brands fa-html5 text-3xl text-cream-dim group-hover:text-gold transition-colors"></i>
+            <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">HTML5</span>
+          </div>
+        </div>
+        <!-- CSS -->
+        <div class="stack-item group">
+          <div class="flex flex-col items-center gap-2">
+            <i class="fa-brands fa-css3-alt text-3xl text-cream-dim group-hover:text-gold transition-colors"></i>
+            <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">CSS3</span>
+          </div>
+        </div>
+        <!-- Django -->
+        <div class="stack-item group">
+          <div class="flex flex-col items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="text-cream-dim group-hover:text-gold transition-colors" width="32" height="32" viewBox="0 0 512 179" style="fill:currentColor;"><path d="M386.892 41.423c12.001 0 23.093 1.271 36.548 3.998l-9.588 20.198c-7.455-1.455-.597-.195-6.23-.74v2.91l.362 11.816l.18 15.274c.182 3.817.182 7.636.365 11.454v7.637c0 24.001-2 35.273-8 44.545c-8.727 13.638-23.819 20.365-45.273 20.365c-10.91 0-20.363-1.636-30.183-5.455v-25.818h.002c9.82 5.09 19.637 7.453 30 7.453c18.363 0 26.182-7.453 26.182-25.273v-.545c-5.454 2.726-10.91 3.818-18.181 3.818c-24.546 0-40.185-16.182-40.185-41.818c0-31.821 23.093-49.82 64-49.82ZM132.91 43.24v64.909c0 22.365-1.637 33.091-6.545 42.365c-4.547 8.91-10.548 14.545-22.91 20.728l-26.001-12.364c12.364-5.818 18.363-10.907 22.181-18.729c4.001-8 5.275-17.273 5.275-41.636V43.241h28Zm333.998-2.364c28 0 45.092 17.638 45.092 46.183c0 29.275-17.817 47.638-46.183 47.638c-28.002 0-45.275-17.637-45.275-46c.002-29.458 17.821-47.82 46.366-47.82Zm-279.993.365c14.364 0 23.818 3.817 28 11.272c2.363 4.182 3.09 9.636 3.09 21.274v56.908c-12.547 1.818-28.364 3.092-40 3.092c-23.454 0-34.002-8.185-34.002-26.365c0-19.638 14-28.728 48.366-31.638v-6.182c0-5.09-2.545-6.907-9.637-6.907c-10.363 0-22 2.908-32.91 8.546V49.604c12.366-5.816 24.183-8.362 37.093-8.362ZM88.365 0v129.607c-14.363 2.727-24.91 3.818-36.363 3.818C17.818 133.425 0 117.97 0 88.333c0-28.546 18.91-47.09 48.183-47.09c4.545 0 8 .362 12.182 1.453V0h28Zm187.278 41.242c14.364 0 24.728 3.272 30.912 9.636c5.818 5.999 7.635 12.544 7.635 26.546v54.909h-28.001V78.515c0-10.727-3.636-14.729-13.636-14.729c-3.818 0-7.272.364-12.91 2v66.547h-28V47.604c16.545-4.363 30.181-6.362 44-6.362Zm-82.001 52.909c-18.547 1.818-24.547 4.728-24.547 12c0 5.454 3.456 8 11.092 8c4.182 0 8-.363 13.455-1.272V94.151Zm272.904-30.728c-11.093 0-17.459 8.91-17.459 24.363c.002 15.456 6.366 24.365 17.273 24.365c10.73 0 17.094-8.91 17.094-24.365c0-15.272-6.183-24.363-16.908-24.363Zm-415.635.363c-14.182 0-22.365 8.728-22.365 24c0 14.91 7.82 23.092 22.183 23.092c3.09 0 5.636-.182 9.636-.726V65.24c-3.273-1.09-6-1.454-9.454-1.454Zm310.71 4.18c-6.725 3.82-10.182 10.73-10.182 20.547c0 14.002 6.911 22.001 19.274 22.001c3.818 0 6.91-.728 10.545-1.818v-9.635c0-3.273-.18-6.911-.18-10.728l-.181-12.909l-.183-9.273v-2.183h-2.91c-5.453-.182-11.817 1.272-16.182 3.999ZM132.91.15v28.728h-28V.149h28Z"/></svg>
+            <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">Django</span>
+          </div>
+        </div>
+        <div class="stack-item group">
+        <div class="flex flex-col items-center gap-2">
+          <svg viewBox="0 0 24 24" width="32" height="32" style="fill:currentColor;" class="text-cream-dim group-hover:text-gold transition-colors">
+            <path d="M12 0C5.375 0 0 5.375 0 12c0 6.627 5.375 12 12 12 6.626 0 12-5.373 12-12 0-6.625-5.374-12-12-12zm-.624 21.62v-7.528H7.19L13.203 2.38v7.528h4.029L11.376 21.62z"/>
+          </svg>
+          <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">FastAPI</span>
+        </div>
+      </div>
+        <!-- Flask/Python (reuse) -->
+        <div class="stack-item group">
+          <div class="flex flex-col items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="text-cream-dim group-hover:text-gold transition-colors" width="32" height="32" viewBox="0 0 256 329" style="fill:currentColor;"><path d="M76.501 203.351c-9.75-7.67-20.153-15.02-27.26-25.377c-14.961-18.264-26.477-39.405-34.35-61.625c-4.76-14.45-6.39-29.941-12.53-43.83c-6.414-10.091 1.105-21.114 12.157-24.32c4.917-.948 13.568-5.59 3.125-2.268c-9.364 6.866-10.266-6.24-.666-7.07c6.552-.869 8.964-6.23 6.721-11.056c-7.036-4.59 17.055-9.626 4.932-16.473c-12.62-13.62 17.66-16.242 10.188-.771c-1.786 11.895 21.166-2.185 15.836 11.554c5.415 6.599 20.272 1.505 19.899 10.757c7.886.542 10.593 7.173 17.988 7.683c7.677 3.466 21.58 6.192 24.188 14.837c-7.61 6.023-25.227-12.443-26.078 4.232c2.302 24.638 1.715 50.017 10.726 73.478c4.262 14.204 14.6 25.385 23.931 36.45c8.933 10.834 21.03 18.466 33.363 24.887c10.815 5.1 22.475 8.48 34.265 10.606c4.78-3.656 13.221-17.25 20.675-11.522c.36 6.449-14.796 13.471-.711 12.758c8.278-2.498 14.013 6.394 20.826-1.629c6.278 7.436 26.09-4.747 21.625 10.45c-6.042 3.898-14.85 1.543-20.898 6.906c-9.972-4.983-17.912 4.453-28.956 3.263c-12.26 2.196-24.738 3.08-37.167 3.098c-20.396-1.609-41.222-2.288-60.624-9.39c-10.933-3.176-21.598-9.402-31.205-15.628Z"/></svg>
+            <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">Flask</span>
+          </div>
+        </div>
+        <div class="stack-item group">
+    <div class="flex flex-col items-center gap-2">
+      <i class="fa-brands fa-node-js text-3xl text-cream-dim group-hover:text-gold transition-colors"></i>
+      <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">Node.js</span>
+    </div>
+  </div>
+  <!-- Express.js -->
+  <div class="stack-item group">
+    <div class="flex flex-col items-center gap-2">
+      <svg viewBox="0 0 24 24" width="32" height="32" style="fill:currentColor;" class="text-cream-dim group-hover:text-gold transition-colors">
+        <path d="M24 18.588a1.529 1.529 0 01-1.895-.72l-3.45-4.771-.5-.667-4.003 5.444a1.466 1.466 0 01-1.802.708l5.158-6.92-4.798-6.251a1.595 1.595 0 011.9.666l3.576 4.83 3.596-4.81a1.435 1.435 0 011.788-.668L21.708 7.9l-2.522 3.283a.666.666 0 000 .994l4.804 6.412zM.002 11.576l.42-2.075c1.154-4.103 5.858-5.81 9.094-3.27 1.895 1.489 2.368 3.597 2.275 5.973H1.116C.943 16.447 4.005 19.009 7.92 17.7a4.078 4.078 0 002.582-2.876c.207-.666.548-.78 1.174-.588a5.417 5.417 0 01-2.589 3.957 6.272 6.272 0 01-7.306-.933 6.575 6.575 0 01-1.64-3.284.666.666 0 00-.139-.182v-2.218zm1.114-.227c1.98 0 3.91.007 5.339-.005a.724.724 0 00.612-.35c.572-1.464.117-3.26-1.035-4.286C4.57 5.719 2.258 6.44 1.116 11.349z"/>
+      </svg>
+      <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">Express.js</span>
+    </div>
+  </div>
+  <!-- Tailwind CSS -->
+      <div class="stack-item group">
+        <div class="flex flex-col items-center gap-2">
+          <svg viewBox="0 0 24 24" width="32" height="32" style="fill:currentColor;" class="text-cream-dim group-hover:text-gold transition-colors">
+            <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/>
+          </svg>
+          <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">Tailwind</span>
+        </div>
+      </div>
+      <!-- Prisma -->
+      <div class="stack-item group">
+        <div class="flex flex-col items-center gap-2">
+          <svg viewBox="0 0 24 24" width="32" height="32" style="fill:currentColor;" class="text-cream-dim group-hover:text-gold transition-colors">
+            <path d="M21.807 18.285L13.553.756a1.324 1.324 0 00-1.129-.754 1.31 1.31 0 00-1.206.626l-9.17 14.789a1.314 1.314 0 00.069 1.476l4.738 6.06a1.315 1.315 0 001.435.451l12.57-3.757a1.315 1.315 0 00.947-1.362zm-2.321.613l-10.243 3.063a.438.438 0 01-.484-.15L4.86 16.8a.44.44 0 01-.023-.493l7.471-12.054a.438.438 0 01.397-.206.44.44 0 01.375.252l6.82 14.492a.438.438 0 01-.414.607z"/>
+          </svg>
+          <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">Prisma</span>
+        </div>
+      </div>
+        <!-- Docker -->
+        <div class="stack-item group">
+          <div class="flex flex-col items-center gap-2">
+            <i class="fa-brands fa-docker text-3xl text-cream-dim group-hover:text-gold transition-colors"></i>
+            <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">Docker</span>
+          </div>
+        </div>
+        <!-- Kubernetes -->
+        <div class="stack-item group">
+          <div class="flex flex-col items-center gap-2">
+            <svg viewBox="0 -10.44 722.846 722.846" width="32" height="32" style="fill:currentColor;" class="text-cream-dim group-hover:text-gold transition-colors">
+              <path d="M361.408 99.307c-8.077.001-14.626 7.276-14.625 16.25 0 .138.028.27.03.406-.011 1.22-.07 2.689-.03 3.75.192 5.176 1.32 9.138 2 13.907 1.23 10.206 2.26 18.667 1.625 26.531-.62 2.965-2.803 5.677-4.75 7.562l-.344 6.188a190.337 190.337 0 00-26.438 4.062c-37.974 8.623-70.67 28.184-95.562 54.594a245.167 245.167 0 01-5.281-3.75c-2.612.353-5.25 1.159-8.688-.844-6.545-4.405-12.506-10.486-19.719-17.812-3.305-3.504-5.698-6.841-9.625-10.219-.891-.767-2.252-1.804-3.25-2.594-3.07-2.447-6.69-3.724-10.187-3.843-4.496-.154-8.824 1.604-11.656 5.156-5.036 6.315-3.424 15.968 3.593 21.562.071.057.147.101.219.157.964.781 2.145 1.783 3.031 2.437 4.167 3.077 7.973 4.652 12.125 7.094 8.747 5.402 15.999 9.88 21.75 15.281 2.246 2.394 2.639 6.613 2.938 8.438l4.687 4.187c-25.093 37.764-36.707 84.41-29.843 131.938l-6.125 1.781c-1.615 2.085-3.896 5.365-6.282 6.344-7.525 2.37-15.994 3.24-26.218 4.312-4.8.4-8.943.161-14.032 1.125-1.12.212-2.68.619-3.906.906l-.125.032c-.067.015-.155.048-.219.062-8.62 2.083-14.157 10.006-12.375 17.813 1.783 7.808 10.203 12.556 18.875 10.687.063-.014.154-.017.219-.031.098-.022.184-.07.281-.094 1.21-.265 2.724-.56 3.782-.843 5.003-1.34 8.626-3.308 13.125-5.032 9.676-3.47 17.691-6.37 25.5-7.5 3.26-.255 6.697 2.012 8.406 2.969l6.375-1.094c14.67 45.483 45.414 82.245 84.344 105.313l-2.657 6.375c.958 2.475 2.014 5.824 1.3 8.27-2.838 7.36-7.7 15.13-13.237 23.792-2.681 4.002-5.425 7.108-7.844 11.688-.579 1.096-1.316 2.78-1.875 3.937-3.759 8.043-1.002 17.305 6.219 20.782 7.266 3.497 16.284-.192 20.187-8.25.006-.012.026-.02.031-.032.004-.009-.004-.022 0-.03.556-1.143 1.344-2.645 1.813-3.72 2.072-4.747 2.762-8.815 4.219-13.406 3.87-9.72 5.995-19.919 11.322-26.274 1.459-1.74 3.837-2.41 6.303-3.07l3.312-6c33.938 13.027 71.927 16.523 109.875 7.907a189.77 189.77 0 0025.094-7.563c.93 1.651 2.661 4.826 3.125 5.625 2.506.815 5.24 1.236 7.469 4.531 3.985 6.81 6.71 14.865 10.031 24.594 1.457 4.591 2.178 8.66 4.25 13.406.472 1.082 1.256 2.605 1.812 3.75 3.895 8.085 12.943 11.787 20.22 8.282 7.219-3.478 9.979-12.74 6.218-20.782-.559-1.158-1.327-2.841-1.906-3.937-2.42-4.58-5.163-7.655-7.844-11.656-5.537-8.662-10.13-15.858-12.969-23.22-1.187-3.796.2-6.157 1.125-8.624-.554-.635-1.739-4.22-2.437-5.906 40.457-23.889 70.298-62.022 84.312-106.063 1.893.298 5.182.88 6.25 1.094 2.2-1.45 4.222-3.344 8.188-3.031 7.808 1.129 15.823 4.03 25.5 7.5 4.498 1.723 8.121 3.723 13.125 5.062 1.057.283 2.572.547 3.781.813.097.023.183.071.281.093.066.015.156.017.219.032 8.672 1.866 17.094-2.88 18.875-10.688 1.78-7.807-3.754-15.732-12.375-17.812-1.254-.286-3.032-.77-4.25-1-5.09-.964-9.231-.727-14.031-1.125-10.225-1.072-18.694-1.943-26.219-4.313-3.068-1.19-5.251-4.841-6.313-6.344l-5.906-1.718c3.062-22.155 2.237-45.212-3.062-68.282-5.349-23.284-14.8-44.58-27.407-63.343 1.515-1.378 4.377-3.911 5.188-4.657.237-2.624.033-5.375 2.75-8.281 5.751-5.4 13.003-9.879 21.75-15.281 4.152-2.443 7.99-4.017 12.156-7.094.942-.696 2.23-1.798 3.219-2.594 7.015-5.596 8.63-15.248 3.594-21.562-5.037-6.314-14.797-6.91-21.813-1.313-.998.791-2.353 1.823-3.25 2.594-3.926 3.378-6.351 6.714-9.656 10.219-7.213 7.326-13.174 13.438-19.719 17.844-2.836 1.65-6.99 1.08-8.875.968l-5.562 3.969c-31.72-33.26-74.905-54.525-121.406-58.656-.13-1.949-.3-5.471-.344-6.532-1.904-1.821-4.204-3.376-4.781-7.312-.637-7.864.426-16.325 1.656-26.531.679-4.769 1.807-8.73 2-13.907.044-1.176-.027-2.884-.031-4.156-.001-8.974-6.548-16.25-14.625-16.25zm-18.313 113.438l-4.344 76.718-.312.157c-.292 6.863-5.94 12.343-12.875 12.343-2.841 0-5.463-.912-7.594-2.468l-.125.062-62.906-44.594c19.333-19.01 44.063-33.06 72.562-39.53a154.125 154.125 0 0115.594-2.688zm36.656 0c33.274 4.092 64.045 19.159 87.625 42.25l-62.5 44.312-.218-.093c-5.548 4.051-13.364 3.046-17.688-2.375a12.807 12.807 0 01-2.812-7.47l-.063-.03zM232.126 283.62l57.438 51.375-.063.312c5.185 4.507 5.95 12.328 1.625 17.75a12.892 12.892 0 01-6.687 4.406l-.063.25-73.625 21.25c-3.747-34.265 4.329-67.573 21.375-95.343zm258.157.03c8.534 13.833 14.996 29.283 18.843 46.032 3.801 16.548 4.755 33.067 3.188 49.031l-74-21.312-.063-.313c-6.626-1.81-10.699-8.551-9.156-15.312a12.786 12.786 0 014.094-6.844l-.031-.156 57.125-51.125zm-140.657 55.313h23.532l14.625 18.282-5.25 22.812-21.125 10.156-21.188-10.187-5.25-22.813zm75.438 62.563c1-.05 1.995.04 2.969.219l.125-.157 76.156 12.875c-11.146 31.314-32.473 58.44-60.969 76.594l-29.562-71.406.093-.125c-2.715-6.31.002-13.71 6.25-16.719 1.6-.77 3.271-1.197 4.938-1.281zm-127.906.312c5.811.082 11.024 4.116 12.375 10.032.632 2.77.324 5.513-.72 7.937l.22.281-29.25 70.688c-27.348-17.549-49.13-43.824-60.782-76.063l75.5-12.812.125.156c.845-.155 1.701-.23 2.532-.219zm63.78 30.97a12.764 12.764 0 016.032 1.28c2.56 1.233 4.537 3.174 5.781 5.5h.282l37.218 67.25a154.256 154.256 0 01-14.875 4.157c-28.464 6.463-56.838 4.504-82.53-4.25l37.124-67.125h.063a12.91 12.91 0 0110.906-6.813z"/>
+            </svg>
+            <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">Kubernetes</span>
+          </div>
+        </div>
+        <!-- Git -->
+        <div class="stack-item group">
+          <div class="flex flex-col items-center gap-2">
+            <i class="fa-brands fa-git-alt text-3xl text-cream-dim group-hover:text-gold transition-colors"></i>
+            <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">Git</span>
+          </div>
+        </div>
+        <!-- GitHub -->
+        <div class="stack-item group">
+          <div class="flex flex-col items-center gap-2">
+            <i class="fa-brands fa-github text-3xl text-cream-dim group-hover:text-gold transition-colors"></i>
+            <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">GitHub</span>
+          </div>
+        </div>
+        <!-- Bootstrap -->
+        <div class="stack-item group">
+          <div class="flex flex-col items-center gap-2">
+            <i class="fa-brands fa-bootstrap text-3xl text-cream-dim group-hover:text-gold transition-colors"></i>
+            <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">Bootstrap</span>
+          </div>
+        </div>
+        <!-- PostgreSQL -->
+        <div class="stack-item group">
+          <div class="flex flex-col items-center gap-2">
+            <i class="fas fa-database text-3xl text-cream-dim group-hover:text-gold transition-colors"></i>
+            <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">PostgreSQL</span>
+          </div>
+        </div>
+        <!-- MongoDB -->
+        <div class="stack-item group">
+          <div class="flex flex-col items-center gap-2">
+            <i class="fas fa-leaf text-3xl text-cream-dim group-hover:text-gold transition-colors"></i>
+            <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">MongoDB</span>
+          </div>
+        </div>
+        <!-- Redis -->
+        <div class="stack-item group">
+          <div class="flex flex-col items-center gap-2">
+            <i class="fas fa-server text-3xl text-cream-dim group-hover:text-gold transition-colors"></i>
+            <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">Redis</span>
+          </div>
+        </div>
+        <!-- MySQL -->
+        <div class="stack-item group">
+          <div class="flex flex-col items-center gap-2">
+            <i class="fas fa-table text-3xl text-cream-dim group-hover:text-gold transition-colors"></i>
+            <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">MySQL</span>
+          </div>
+        </div>
+        <!-- AWS -->
+        <div class="stack-item group">
+          <div class="flex flex-col items-center gap-2">
+            <i class="fab fa-aws text-3xl text-cream-dim group-hover:text-gold transition-colors"></i>
+            <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">AWS Lambda</span>
+          </div>
+        </div>
+        <!-- REST API -->
+        <div class="stack-item group">
+          <div class="flex flex-col items-center gap-2">
+            <i class="fas fa-code text-3xl text-cream-dim group-hover:text-gold transition-colors"></i>
+            <span class="font-mono text-xs text-cream-dim group-hover:text-gold transition-colors" style="font-size:0.6rem;">REST APIs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section id="projects" class="py-28 reveal">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-end gap-6 mb-16">
+        <div>
+          <p class="font-mono text-xs tracking-widest text-gold uppercase mb-2">03 — Projects</p>
+          <h2 class="font-display font-bold text-5xl text-cream">Selected Work</h2>
+        </div>
+        <div class="gold-rule flex-1 mb-3"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- Project 1: ReachOut2Me -->
+        <div class="project-card p-5 flex flex-col gap-4">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-1">API / Backend</p>
+              <h3 class="font-display font-bold text-cream text-xl">MatchMetric-AI</h3>
+            </div>
+            <a href="https://github.com/engrmarkk/MatchMetric-AI" target="_blank"
+               class="text-cream-dim hover:text-gold transition-colors text-lg flex-shrink-0 mt-1">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <div class="gold-rule w-12"></div>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight: 300;">
+            MatchMetric-AI is a backend infrastructure that analyzes resumes against job descriptions in real-time using a streaming Large Language Model pipeline.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Django Restframework</span>
+            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">Gemini LLM</span>
+          </div>
+        </div>
+
+        <!-- Project 2: DjangGuard -->
+        <div class="project-card p-5 flex flex-col gap-4">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-1">API / Backend</p>
+              <h3 class="font-display font-bold text-cream text-xl">DjangGuard</h3>
+            </div>
+            <a href="https://github.com/engrmarkk/DjangGuard" target="_blank"
+               class="text-cream-dim hover:text-gold transition-colors text-lg flex-shrink-0 mt-1">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <div class="gold-rule w-12"></div>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight: 300;">
+            A security-focused Django REST API boilerplate with built-in authentication, rate limiting, JWT token management, and Redis-backed caching.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">Flask-Smorest</span>
+            <span class="skill-tag">PostgreSQL</span>
+          </div>
+        </div>
+
+        <!-- Project 3: EasyTransact -->
+        <div class="project-card p-5 flex flex-col gap-4">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-1">Full-Stack</p>
+              <h3 class="font-display font-bold text-cream text-xl">EasyTransact</h3>
+            </div>
+            <div class="flex items-center gap-3">
+              <a href="https://easytrans.onrender.com" target="_blank" class="text-cream-dim hover:text-gold transition-colors text-sm flex-shrink-0 mt-1">
+                <i class="fa-sharp fa-solid fa-globe"></i>
+              </a>
+              <a href="https://github.com/engrmarkk/wallet_platform" target="_blank"
+                 class="text-cream-dim hover:text-gold transition-colors text-lg flex-shrink-0 mt-1">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <div class="gold-rule w-12"></div>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight: 300;">
+            A secure digital wallet that simplifies money management with a referral scheme for earning rewards.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">JavaScript</span>
+          </div>
+        </div>
+
+        <!-- Project 4: Blog Platform -->
+        <div class="project-card p-5 flex flex-col gap-4">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-1">Full-Stack</p>
+              <h3 class="font-display font-bold text-cream text-xl">Blog Platform</h3>
+            </div>
+            <a href="https://github.com/engrmarkk/My_Blog_Project" target="_blank"
+               class="text-cream-dim hover:text-gold transition-colors text-lg flex-shrink-0 mt-1">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <div class="gold-rule w-12"></div>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight: 300;">
+            A blog platform with full CRUD capability, authentication, and authorization for data protection.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">SQLite</span>
+            <span class="skill-tag">JavaScript</span>
+          </div>
+        </div>
+
+        <!-- Project 5: Quiz Platform -->
+        <div class="project-card p-5 flex flex-col gap-4">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-1">Frontend</p>
+              <h3 class="font-display font-bold text-cream text-xl">Quiz Platform</h3>
+            </div>
+            <div class="flex items-center gap-3">
+              <a href="https://quiz-1.engrmark.repl.co" target="_blank" class="text-cream-dim hover:text-gold transition-colors text-sm flex-shrink-0 mt-1">
+                <i class="fa-sharp fa-solid fa-globe"></i>
+              </a>
+              <a href="https://github.com/engrmarkk/QUIZ_PLATFORM" target="_blank"
+                 class="text-cream-dim hover:text-gold transition-colors text-lg flex-shrink-0 mt-1">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <div class="gold-rule w-12"></div>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight: 300;">
+            Challenges users to answer 10 questions in 60 seconds. Timed gameplay keeps the pressure on!
+          </p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">JavaScript</span>
+          </div>
+        </div>
+
+        <!-- Project 6: Country Info -->
+        <div class="project-card p-5 flex flex-col gap-4">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-1">Full-Stack</p>
+              <h3 class="font-display font-bold text-cream text-xl">Country Info</h3>
+            </div>
+            <a href="https://github.com/engrmarkk/country-Info" target="_blank"
+               class="text-cream-dim hover:text-gold transition-colors text-lg flex-shrink-0 mt-1">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <div class="gold-rule w-12"></div>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight: 300;">
+            Provides detailed information about any country in the world. Search, explore, discover.
+          </p>
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BLOG ===================== -->
+  <section id="blog" class="py-28 reveal" style="background: #0d0d14;">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-end gap-6 mb-16">
+        <div>
+          <p class="font-mono text-xs tracking-widest text-gold uppercase mb-2">04 — Writing</p>
+          <h2 class="font-display font-bold text-5xl text-cream">Blog Posts</h2>
+        </div>
+        <div class="gold-rule flex-1 mb-3"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <a href="https://dev.to/engrmark/running-a-cron-job-in-django-using-celery-and-docker-238d" target="_blank" class="blog-card p-6 flex flex-col gap-4 no-underline group">
+          <p class="font-mono text-xs text-gold-dim tracking-wider uppercase">Django · Docker</p>
+          <h3 class="font-display font-bold text-cream text-xl group-hover:text-gold transition-colors leading-snug">Running Cron Jobs in Django with Celery</h3>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight: 300;">Setting up cron jobs in Django using Celery, and Dockerizing the application for seamless deployment.</p>
+          <div class="flex items-center gap-2 text-gold font-mono text-xs tracking-wider mt-auto">
+            Read Article <i class="fas fa-arrow-right text-xs"></i>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/pulse/understanding-database-relationships-flask-sqlalchemy-adeniyi-5i38f" target="_blank" class="blog-card p-6 flex flex-col gap-4 no-underline group">
+          <p class="font-mono text-xs text-gold-dim tracking-wider uppercase">Database · SQLAlchemy</p>
+          <h3 class="font-display font-bold text-cream text-xl group-hover:text-gold transition-colors leading-snug">Database Relationships in Flask</h3>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight: 300;">Explaining how to define and manage database relationships in Flask with SQLAlchemy effectively.</p>
+          <div class="flex items-center gap-2 text-gold font-mono text-xs tracking-wider mt-auto">
+            Read Article <i class="fas fa-arrow-right text-xs"></i>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/pulse/understanding-http-status-codes-olanrewaju-adeniyi-qamif" target="_blank" class="blog-card p-6 flex flex-col gap-4 no-underline group">
+          <p class="font-mono text-xs text-gold-dim tracking-wider uppercase">Web Dev · HTTP</p>
+          <h3 class="font-display font-bold text-cream text-xl group-hover:text-gold transition-colors leading-snug">HTTP Status Codes Demystified</h3>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight: 300;">A clear guide to HTTP status codes, their meanings and how to use them correctly in web development.</p>
+          <div class="flex items-center gap-2 text-gold font-mono text-xs tracking-wider mt-auto">
+            Read Article <i class="fas fa-arrow-right text-xs"></i>
+          </div>
+        </a>
+
+        <a href="https://engrmark.hashnode.dev/decision-making-in-python" target="_blank" class="blog-card p-6 flex flex-col gap-4 no-underline group">
+          <p class="font-mono text-xs text-gold-dim tracking-wider uppercase">Python · Beginners</p>
+          <h3 class="font-display font-bold text-cream text-xl group-hover:text-gold transition-colors leading-snug">Decision Making in Python</h3>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight: 300;">An overview of how to utilize IF, ELIF, and ELSE statements effectively in Python programming.</p>
+          <div class="flex items-center gap-2 text-gold font-mono text-xs tracking-wider mt-auto">
+            Read Article <i class="fas fa-arrow-right text-xs"></i>
+          </div>
+        </a>
+
+        <a href="https://engrmark.hashnode.dev/a-simple-flask-blog" target="_blank" class="blog-card p-6 flex flex-col gap-4 no-underline group">
+          <p class="font-mono text-xs text-gold-dim tracking-wider uppercase">Flask · Tutorial</p>
+          <h3 class="font-display font-bold text-cream text-xl group-hover:text-gold transition-colors leading-snug">A Simple Flask Blog</h3>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight: 300;">A step-by-step walkthrough of building a Flask blog with full CRUD operations.</p>
+          <div class="flex items-center gap-2 text-gold font-mono text-xs tracking-wider mt-auto">
+            Read Article <i class="fas fa-arrow-right text-xs"></i>
+          </div>
+        </a>
+
+        <a href="https://engrmark.hashnode.dev/python-cheat-sheet" target="_blank" class="blog-card p-6 flex flex-col gap-4 no-underline group">
+          <p class="font-mono text-xs text-gold-dim tracking-wider uppercase">Python · Reference</p>
+          <h3 class="font-display font-bold text-cream text-xl group-hover:text-gold transition-colors leading-snug">Python Cheat Sheet</h3>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight: 300;">A comprehensive Python cheat sheet outlining essential syntax for efficient, day-to-day programming.</p>
+          <div class="flex items-center gap-2 text-gold font-mono text-xs tracking-wider mt-auto">
+            Read Article <i class="fas fa-arrow-right text-xs"></i>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" class="py-28 reveal">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-end gap-6 mb-16">
+        <div>
+          <p class="font-mono text-xs tracking-widest text-gold uppercase mb-2">05 — Contact</p>
+          <h2 class="font-display font-bold text-5xl text-cream">Get In Touch</h2>
+        </div>
+        <div class="gold-rule flex-1 mb-3"></div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <!-- Left: Info -->
+        <div>
+          <p class="text-cream-dim leading-relaxed mb-10 text-lg" style="font-weight: 300;">
+            I'm open to new opportunities, collaborations, and interesting conversations. Whether you have a project in mind or just want to say hi - my inbox is always open.
+          </p>
+
+          <div class="space-y-6">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 border border-gold-dim flex items-center justify-center flex-shrink-0">
+                <i class="far fa-envelope text-gold text-sm"></i>
+              </div>
+              <div>
+                <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-1">Email</p>
+                <a href="mailto:adeniyiboladale@yahoo.com" class="text-cream hover:text-gold transition-colors text-sm">adeniyiboladale@yahoo.com</a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 border border-gold-dim flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-phone text-gold text-sm"></i>
+              </div>
+              <div>
+                <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-1">Phone</p>
+                <span class="text-cream text-sm">+234 814 891 8156</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 border border-gold-dim flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-location-dot text-gold text-sm"></i>
+              </div>
+              <div>
+                <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-1">Location</p>
+                <span class="text-cream text-sm">Lagos State, Nigeria</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-5 mt-12">
+            <a href="https://github.com/engrmarkk" target="_blank" class="text-cream-dim hover:text-gold transition-colors text-xl"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com/iamengrmark" target="_blank" class="text-cream-dim hover:text-gold transition-colors text-xl"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com/in/iamengrmark" target="_blank" class="text-cream-dim hover:text-gold transition-colors text-xl"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.link/v67k3y" target="_blank" class="text-cream-dim hover:text-gold transition-colors text-xl"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://hashnode.com/@engrmark" target="_blank" class="text-cream-dim hover:text-gold transition-colors text-xl"><i class="fa-brands fa-hashnode"></i></a>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="bg-ink-2 border border-mist p-8">
+          <form id="contactForm" class="space-y-5" novalidate>
+            <div>
+              <label for="contactName" class="font-mono text-xs text-gold-dim tracking-widest uppercase block mb-2">Your Name</label>
+              <input type="text" id="contactName" name="name" placeholder="John Doe" class="form-input" autocomplete="name" />
+              <p class="field-error font-mono text-xs mt-1 hidden" style="color:#e05c5c;" id="nameError">Name is required.</p>
+            </div>
+            <div>
+              <label for="contactEmail" class="font-mono text-xs text-gold-dim tracking-widest uppercase block mb-2">Email Address</label>
+              <input type="email" id="contactEmail" name="email" placeholder="john@example.com" class="form-input" autocomplete="email" />
+              <p class="field-error font-mono text-xs mt-1 hidden" style="color:#e05c5c;" id="emailError">A valid email is required.</p>
+            </div>
+            <div>
+              <label for="contactMessage" class="font-mono text-xs text-gold-dim tracking-widest uppercase block mb-2">Message</label>
+              <textarea id="contactMessage" name="message" placeholder="Tell me about your project..." class="form-input"></textarea>
+              <p class="field-error font-mono text-xs mt-1 hidden" style="color:#e05c5c;" id="messageError">Message cannot be empty.</p>
+            </div>
+            <button type="submit" id="contactSubmit"
+                    class="w-full bg-gold text-ink font-mono text-xs tracking-widest uppercase py-4 hover:bg-gold-light transition-all duration-300 font-bold flex items-center justify-center gap-2"
+                    style="min-height:52px;">
+              <span id="submitText">Send Message</span>
+              <i class="fas fa-paper-plane" id="submitIcon"></i>
+              <svg id="submitSpinner" class="hidden animate-spin w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer style="border-top: 1px solid #1a1a24;" class="py-8">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <span class="font-display font-bold text-xl gold-text">OA</span>
+      <p class="font-mono text-xs text-cream-dim tracking-wider text-center">
+        Designed & Built by Adeniyi Olanrewaju &copy; <span id="year"></span>
+      </p>
+      <div class="flex items-center gap-4">
+        <a href="https://github.com/engrmarkk" target="_blank" class="text-cream-dim hover:text-gold transition-colors text-sm"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/iamengrmark" target="_blank" class="text-cream-dim hover:text-gold transition-colors text-sm"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://twitter.com/iamengrmark" target="_blank" class="text-cream-dim hover:text-gold transition-colors text-sm"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ===================== TOAST ===================== -->
+  <div id="toast"
+       class="fixed bottom-8 right-8 z-50 flex items-center gap-3 px-5 py-4 border font-mono text-xs tracking-wider uppercase"
+       style="min-width:300px; transform:translateY(80px); opacity:0; pointer-events:none; transition: transform 0.45s cubic-bezier(.22,.68,0,1.2), opacity 0.4s ease;">
+    <i id="toastIcon" class="text-base flex-shrink-0"></i>
+    <span id="toastMsg"></span>
+  </div>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script>
+    // ── Year ──────────────────────────────────────────────
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ── Mobile menu ───────────────────────────────────────
+    const toggle = document.getElementById('mobileToggle');
+    const menu   = document.getElementById('mobileMenu');
+    toggle.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+    // ── Tab switching ─────────────────────────────────────
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.tab-content').forEach(tc => {
+          tc.id === `tab-${target}` ? tc.classList.remove('hidden') : tc.classList.add('hidden');
+        });
+      });
+    });
+
+    // ── Scroll reveal ─────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── Active nav on scroll ──────────────────────────────
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY + 110;
+      sections.forEach(section => {
+        if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+          navLinks.forEach(link => {
+            link.style.color = link.getAttribute('href') === `#${section.id}` ? '#c9a84c' : '';
+          });
+        }
+      });
+    });
+
+    // ── Toast helper ──────────────────────────────────────
+    let toastTimer = null;
+    function showToast(message, type) {
+      const toast     = document.getElementById('toast');
+      const toastMsg  = document.getElementById('toastMsg');
+      const toastIcon = document.getElementById('toastIcon');
+
+      if (toastTimer) clearTimeout(toastTimer);
+
+      if (type === 'success') {
+        toast.style.background  = '#0b1a0c';
+        toast.style.borderColor = '#3a8a3a';
+        toast.style.color       = '#72d672';
+        toastIcon.className     = 'fas fa-circle-check text-base flex-shrink-0';
+        toastIcon.style.color   = '#72d672';
+      } else {
+        toast.style.background  = '#1a0c0c';
+        toast.style.borderColor = '#8a3a3a';
+        toast.style.color       = '#e06060';
+        toastIcon.className     = 'fas fa-circle-xmark text-base flex-shrink-0';
+        toastIcon.style.color   = '#e06060';
+      }
+
+      toastMsg.textContent       = message;
+      toast.style.transform      = 'translateY(0)';
+      toast.style.opacity        = '1';
+      toast.style.pointerEvents  = 'auto';
+
+      toastTimer = setTimeout(() => {
+        toast.style.transform     = 'translateY(80px)';
+        toast.style.opacity       = '0';
+        toast.style.pointerEvents = 'none';
+      }, 4500);
+    }
+
+    // ── Contact form fetch submit ─────────────────────────
+    const contactForm   = document.getElementById('contactForm');
+    const submitBtn     = document.getElementById('contactSubmit');
+    const submitText    = document.getElementById('submitText');
+    const submitIcon    = document.getElementById('submitIcon');
+    const submitSpinner = document.getElementById('submitSpinner');
+
+    function setLoading(on) {
+      submitBtn.disabled           = on;
+      submitText.textContent       = on ? 'Sending…' : 'Send Message';
+      submitIcon.classList.toggle('hidden', on);
+      submitSpinner.classList.toggle('hidden', !on);
+    }
+
+    function clearErrors() {
+      document.getElementById('nameError').classList.add('hidden');
+      document.getElementById('emailError').classList.add('hidden');
+      document.getElementById('messageError').classList.add('hidden');
+      document.getElementById('contactName').style.borderColor    = '';
+      document.getElementById('contactEmail').style.borderColor   = '';
+      document.getElementById('contactMessage').style.borderColor = '';
+    }
+
+    function showFieldError(fieldId, errorId) {
+      document.getElementById(errorId).classList.remove('hidden');
+      document.getElementById(fieldId).style.borderColor = '#e06060';
+    }
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearErrors();
+
+      const name    = document.getElementById('contactName').value.trim();
+      const email   = document.getElementById('contactEmail').value.trim();
+      const message = document.getElementById('contactMessage').value.trim();
+
+      // Client-side validation
+      let valid = true;
+      if (!name)    { showFieldError('contactName',    'nameError');    valid = false; }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                      showFieldError('contactEmail',   'emailError');   valid = false; }
+      if (!message) { showFieldError('contactMessage', 'messageError'); valid = false; }
+      if (!valid) return;
+
+      setLoading(true);
+
+      try {
+        const res = await fetch('/send', {
+          method:  'POST',
+          headers: {
+            'Content-Type':     'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+          body: JSON.stringify({ name, email, message })
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          showToast("Message sent! I'll get back to you soon.", 'success');
+          contactForm.reset();
+          clearErrors();
+        } else {
+          showToast(data.message || 'Something went wrong. Please try again.', 'error');
+        }
+      } catch (err) {
+        showToast('Network error. Please check your connection.', 'error');
+      } finally {
+        setLoading(false);
+      }
+    });
+  </script>
+</body>
+</html>
