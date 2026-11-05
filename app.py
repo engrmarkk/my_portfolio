@@ -24,7 +24,7 @@ RECIPIENT_EMAIL = 'atmme1992@gmail.com'
 
 @app.route("/")
 def portfolio():
-    return render_template('index.html', date=datetime.now())
+    return render_template('indexx.html', date=datetime.now())
 
 
 @app.route('/send', methods=["POST"])
