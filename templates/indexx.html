@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adeniyi Olanrewaju — Backend Software Engineer</title>
+  <meta name="description" content="Portfolio of Adeniyi Olanrewaju, a backend software engineer in Lagos, Nigeria, building scalable APIs with Python, Django, Flask, FastAPI and Node.js." />
+  <meta name="theme-color" content="#0a0a0f" />
+  <meta property="og:title" content="Adeniyi Olanrewaju — Backend Software Engineer" />
+  <meta property="og:description" content="Scalable backend systems with Python, Django, Flask, FastAPI and Node.js." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://res.cloudinary.com/duwyopabr/image/upload/v1725114291/markk_pkfcix.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['DM Sans', 'sans-serif'],
+            mono: ['DM Mono', 'monospace'],
+          },
+          colors: {
+            ink: '#0a0a0f', 'ink-2': '#111118', 'ink-3': '#1a1a24',
+            gold: '#c9a84c', 'gold-light': '#e8c96a', 'gold-dim': '#7a6030',
+            cream: '#f0e8d5', 'cream-dim': '#a89878', mist: '#2a2a38',
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8c96a;
+      --ease: cubic-bezier(.22,.68,0,1);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      background: #0a0a0f;
+      color: #f0e8d5;
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: #c9a84c; color: #0a0a0f; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0a0f; }
+    ::-webkit-scrollbar-thumb { background: #3a3220; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #c9a84c; }
+
+    /* Film grain */
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9998; opacity: .35;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    }
+
+    /* Page loader */
+    #loader {
+      position: fixed; inset: 0; z-index: 10000; background: #0a0a0f;
+      display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 18px;
+      transition: opacity .7s var(--ease), visibility .7s;
+    }
+    #loader.done { opacity: 0; visibility: hidden; }
+    #loader .mark { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 2.6rem; }
+    #loader .bar { width: 120px; height: 1px; background: #1a1a24; overflow: hidden; }
+    #loader .bar span { display: block; height: 100%; width: 40%; background: var(--gold); animation: slide 1s infinite var(--ease); }
+    @keyframes slide { from { transform: translateX(-100%); } to { transform: translateX(300%); } }
+
+    /* Scroll progress */
+    #progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; z-index: 10001;
+      background: linear-gradient(90deg, #7a6030, #c9a84c, #e8c96a); }
+
+    .gold-text {
+      background: linear-gradient(135deg, #c9a84c 0%, #f1d98a 50%, #c9a84c 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      animation: shimmer 6s linear infinite;
+    }
+    @keyframes shimmer { to { background-position: 200% center; } }
+
+    .gold-rule { height: 1px; background: linear-gradient(90deg, #c9a84c, transparent); }
+
+    /* Nav */
+    #nav { transition: background .4s, border-color .4s, padding .4s; border-bottom: 1px solid transparent; }
+    #nav.scrolled { background: rgba(10,10,15,.88); backdrop-filter: blur(14px); border-bottom-color: #1a1a24; }
+    .nav-link {
+      position: relative; font-family: 'DM Mono', monospace; font-size: .72rem; letter-spacing: .15em;
+      text-transform: uppercase; color: #a89878; transition: color .3s;
+    }
+    .nav-link::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width .35s var(--ease); }
+    .nav-link:hover, .nav-link.active { color: var(--gold); }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+    /* Reveal animations */
+    .reveal { opacity: 0; transform: translateY(36px); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: var(--d, 0s); }
+    .reveal-left { opacity: 0; transform: translateX(-36px); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: var(--d, 0s); }
+    .reveal-scale { opacity: 0; transform: scale(.94); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: var(--d, 0s); }
+    .reveal.visible, .reveal-left.visible, .reveal-scale.visible { opacity: 1; transform: none; }
+
+    /* Defer rendering of offscreen sections */
+    .lazy-section { content-visibility: auto; contain-intrinsic-size: 1px 800px; }
+
+    /* Lazy image with blur-up + skeleton */
+    .img-wrap { position: relative; overflow: hidden; background: #111118; }
+    .img-wrap::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(100deg, transparent 20%, rgba(201,168,76,.08) 50%, transparent 80%);
+      background-size: 200% 100%; animation: skeleton 1.4s infinite linear;
+    }
+    .img-wrap.loaded::before { display: none; }
+    .lazy-img { opacity: 0; filter: blur(14px); transform: scale(1.04); transition: opacity 1s var(--ease), filter 1s var(--ease), transform 1.2s var(--ease); }
+    .lazy-img.loaded { opacity: 1; filter: grayscale(15%) contrast(1.05); transform: scale(1); }
+    @keyframes skeleton { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+
+    /* Hero decorative */
+    .hero-blob { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; animation: float 14s ease-in-out infinite; }
+    @keyframes float { 0%,100% { transform: translate(0,0); } 50% { transform: translate(30px,-30px); } }
+    .grid-bg {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(#1a1a2455 1px, transparent 1px), linear-gradient(90deg, #1a1a2455 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse at 60% 40%, #000 10%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at 60% 40%, #000 10%, transparent 70%);
+    }
+    .glow-dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; display: inline-block; box-shadow: 0 0 10px var(--gold); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(201,168,76,.6); } 50% { box-shadow: 0 0 0 8px rgba(201,168,76,0); } }
+
+    .cursor { display: inline-block; width: 2px; height: 1em; background: var(--gold); margin-left: 3px; vertical-align: -2px; animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* Buttons */
+    .btn-primary, .btn-ghost {
+      display: inline-flex; align-items: center; gap: .6rem; font-family: 'DM Mono', monospace; font-size: .74rem;
+      letter-spacing: .14em; text-transform: uppercase; padding: .95rem 1.8rem; transition: all .35s var(--ease); position: relative; overflow: hidden;
+    }
+    .btn-primary { background: var(--gold); color: #0a0a0f; font-weight: 500; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,168,76,.25); }
+    .btn-ghost { border: 1px solid #2a2a38; color: #a89878; }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+    .btn-primary i, .btn-ghost i { transition: transform .35s var(--ease); }
+    .btn-primary:hover i, .btn-ghost:hover i { transform: translateX(4px); }
+
+    .social a { width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #1f1f2b; color: #a89878; transition: all .3s var(--ease); }
+    .social a:hover { color: var(--gold); border-color: var(--gold); transform: translateY(-3px); background: rgba(201,168,76,.06); }
+
+    /* Section headings */
+    .section-label { font-family: 'DM Mono', monospace; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+
+    /* Stat */
+    .stat { background: linear-gradient(180deg, #13131b, #0e0e15); border: 1px solid #1f1f2b; transition: border-color .4s, transform .4s var(--ease); }
+    .stat:hover { border-color: #7a6030; transform: translateY(-4px); }
+
+    /* Cards */
+    .card { background: #111118; border: 1px solid #1a1a24; position: relative; overflow: hidden; transition: all .45s var(--ease); }
+    .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0; transition: opacity .4s; }
+    .card::after { content: ''; position: absolute; inset: 0; background: radial-gradient(500px circle at var(--mx, 50%) var(--my, 0%), rgba(201,168,76,.07), transparent 40%); opacity: 0; transition: opacity .4s; pointer-events: none; }
+    .card:hover { border-color: #7a6030; transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,.55); }
+    .card:hover::before, .card:hover::after { opacity: 1; }
+
+    .tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: .66rem; letter-spacing: .06em; padding: 4px 11px; border: 1px solid #3a3220; color: #c9a84c; border-radius: 2px; transition: all .25s; }
+    .tag:hover { background: rgba(201,168,76,.12); border-color: var(--gold); }
+
+    /* Skills */
+    .skill-group { background: #111118; border: 1px solid #1a1a24; padding: 1.75rem; transition: border-color .4s, transform .4s var(--ease); }
+    .skill-group:hover { border-color: #7a6030; transform: translateY(-4px); }
+    .chip {
+      display: inline-flex; align-items: center; gap: .55rem; padding: .55rem .9rem; background: #0d0d14; border: 1px solid #1f1f2b;
+      font-family: 'DM Mono', monospace; font-size: .72rem; color: #cfc4aa; transition: all .3s var(--ease);
+    }
+    .chip i { color: var(--gold-dim); font-size: .95rem; transition: color .3s; width: 1rem; text-align: center; }
+    .chip:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-2px); background: rgba(201,168,76,.06); }
+    .chip:hover i { color: var(--gold); }
+    .chip.new { border-color: #7a6030; }
+
+    /* Tabs + timeline */
+    .tab-btn { font-family: 'DM Mono', monospace; font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; padding: .6rem 1.6rem; border: 1px solid #1f1f2b; color: #a89878; cursor: pointer; transition: all .3s; }
+    .tab-btn.active { background: var(--gold); color: #0a0a0f; border-color: var(--gold); }
+    .tab-btn:hover:not(.active) { border-color: #7a6030; color: var(--gold); }
+    .tab-content { animation: tabIn .6s var(--ease); }
+    @keyframes tabIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before { content: ''; position: absolute; left: 4px; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(#c9a84c, #2a2a38 70%, transparent); }
+    .t-item { position: relative; }
+    .t-item::before { content: ''; position: absolute; left: -28px; top: 26px; width: 9px; height: 9px; border-radius: 50%; background: #0a0a0f; border: 2px solid var(--gold); transition: background .3s, box-shadow .3s; }
+    .t-item:hover::before { background: var(--gold); box-shadow: 0 0 14px var(--gold); }
+
+    /* Blog */
+    .blog-card { background: #111118; border: 1px solid #1a1a24; transition: all .4s var(--ease); }
+    .blog-card:hover { border-color: #7a6030; background: #15151e; transform: translateY(-5px); }
+
+    /* Form */
+    .form-input { background: #0d0d14; border: 1px solid #1f1f2b; color: #f0e8d5; outline: none; transition: border-color .3s, box-shadow .3s; width: 100%; padding: .85rem 1rem; font-size: .92rem; }
+    .form-input::placeholder { color: #4a4a5a; }
+    .form-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,.1); }
+    textarea.form-input { resize: vertical; min-height: 140px; }
+
+    .contact-icon { width: 44px; height: 44px; border: 1px solid #3a3220; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all .3s; }
+    .contact-row:hover .contact-icon { background: rgba(201,168,76,.1); border-color: var(--gold); }
+
+    #toTop { position: fixed; right: 24px; bottom: 24px; width: 46px; height: 46px; z-index: 60; background: #111118; border: 1px solid #3a3220; color: var(--gold); opacity: 0; transform: translateY(20px); pointer-events: none; transition: all .4s var(--ease); }
+    #toTop.show { opacity: 1; transform: none; pointer-events: auto; }
+    #toTop:hover { background: var(--gold); color: #0a0a0f; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+      .reveal, .reveal-left, .reveal-scale, .lazy-img { opacity: 1 !important; transform: none !important; filter: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="progress"></div>
+
+  <!-- Loader -->
+  <div id="loader" aria-hidden="true">
+    <div class="mark gold-text">OA</div>
+    <div class="bar"><span></span></div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="nav" class="fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+      <a href="#hero" class="font-display font-black text-xl tracking-tight gold-text" aria-label="Home">OA</a>
+      <ul class="hidden md:flex items-center gap-9">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#blog" class="nav-link">Blog</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="https://drive.google.com/drive/folders/1vf5Ihmh4_yvz_H4XIiedoEOw42xOM8ar" target="_blank" rel="noopener"
+         class="hidden md:inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase border border-gold-dim text-gold px-5 py-2.5 hover:bg-gold hover:text-ink transition-all duration-300">
+        Resume <i class="fas fa-arrow-down text-xs"></i>
+      </a>
+      <button id="mobileToggle" class="md:hidden text-cream-dim hover:text-gold transition-colors text-lg" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden px-6 py-5 flex flex-col gap-5" style="background: rgba(10,10,15,.97); border-top:1px solid #1a1a24;">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#blog" class="nav-link">Blog</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="https://drive.google.com/drive/folders/1vf5Ihmh4_yvz_H4XIiedoEOw42xOM8ar" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase border border-gold-dim text-gold px-4 py-2 w-fit">Resume <i class="fas fa-arrow-down text-xs"></i></a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="min-h-screen flex items-center relative overflow-hidden pt-24">
+    <div class="grid-bg"></div>
+    <div class="hero-blob w-96 h-96 opacity-10" style="background:#c9a84c; top:8%; right:4%;"></div>
+    <div class="hero-blob w-72 h-72 opacity-[.07]" style="background:#4c6ec9; bottom:10%; left:-4%; animation-delay:-6s;"></div>
+
+    <div class="max-w-6xl mx-auto px-6 w-full py-16 relative">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="reveal font-mono text-xs tracking-widest text-gold uppercase mb-7 flex items-center gap-3" style="--d:.1s">
+            <span class="glow-dot"></span> Available for opportunities
+          </p>
+          <h1 class="reveal font-display font-black leading-[1.05] mb-5" style="font-size: clamp(3rem, 6.5vw, 5.6rem); --d:.2s">
+            <span class="text-cream">Hello,</span><br />
+            <span class="text-cream">I'm </span><span class="gold-text">Olanrewaju</span>
+          </h1>
+          <p class="reveal font-mono text-sm md:text-base text-cream mb-6 h-6" style="--d:.3s">
+            <span id="typed"></span><span class="cursor"></span>
+          </p>
+          <div class="reveal gold-rule w-24 mb-6" style="--d:.35s"></div>
+          <p class="reveal text-cream-dim text-lg leading-relaxed mb-10 max-w-xl" style="font-weight:300; --d:.4s">
+            Behind every great product is great architecture. I build it, crafting scalable backend systems with
+            <span class="text-cream font-normal">Python, Django, Flask and FastAPI</span> that grow as fast as your ideas.
+          </p>
+          <div class="reveal flex flex-wrap items-center gap-4 mb-10" style="--d:.5s">
+            <a href="#projects" class="btn-primary">View Work <i class="fas fa-arrow-right text-xs"></i></a>
+            <a href="#contact" class="btn-ghost">Get in Touch <i class="fas fa-arrow-right text-xs"></i></a>
+          </div>
+          <div class="reveal social flex items-center gap-3" style="--d:.6s">
+            <a href="https://github.com/engrmarkk" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/iamengrmark" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://twitter.com/iamengrmark" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://hashnode.com/@engrmark" target="_blank" rel="noopener" aria-label="Hashnode"><i class="fas fa-pen-nib"></i></a>
+            <a href="mailto:adeniyiboladale@yahoo.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <div class="reveal-scale flex flex-col gap-6" style="--d:.35s">
+          <div class="relative">
+            <div class="absolute inset-0 translate-x-3 translate-y-3 border border-gold-dim"></div>
+            <div class="img-wrap relative z-10" style="aspect-ratio: 4/4.6; max-height:500px; width:100%;">
+              <img src="https://res.cloudinary.com/duwyopabr/image/upload/f_auto,q_auto,w_900/v1725114291/markk_pkfcix.jpg"
+                   alt="Portrait of Olanrewaju Adeniyi" width="900" height="1035" decoding="async" fetchpriority="high"
+                   class="lazy-img w-full h-full object-cover object-top" />
+            </div>
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="stat p-4 text-center"><p class="font-display font-bold text-3xl gold-text"><span data-count="4">0</span>+</p><p class="font-mono text-[.65rem] text-cream-dim tracking-wider mt-1 uppercase">Years Exp.</p></div>
+            <div class="stat p-4 text-center"><p class="font-display font-bold text-3xl gold-text"><span data-count="20">0</span>+</p><p class="font-mono text-[.65rem] text-cream-dim tracking-wider mt-1 uppercase">Technologies</p></div>
+            <div class="stat p-4 text-center"><p class="font-display font-bold text-3xl gold-text"><span data-count="6">0</span></p><p class="font-mono text-[.65rem] text-cream-dim tracking-wider mt-1 uppercase">Featured Projects</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40 hidden md:flex">
+      <span class="font-mono text-[.65rem] text-cream-dim tracking-widest uppercase">scroll</span>
+      <div style="width:1px; height:40px; background: linear-gradient(to bottom, #c9a84c, transparent);"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-28 lazy-section">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="reveal flex items-end gap-6 mb-16">
+        <div>
+          <p class="section-label mb-2">01 — About</p>
+          <h2 class="font-display font-bold text-4xl md:text-5xl text-cream">Who I Am</h2>
+        </div>
+        <div class="gold-rule flex-1 mb-3"></div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal-left">
+          <h3 class="font-display text-2xl mb-6 font-bold"><span class="text-cream-dim">ADENIYI</span> <span class="gold-text">OLANREWAJU</span></h3>
+          <p class="text-cream-dim leading-relaxed mb-5" style="font-weight:300;">
+            I'm a motivated software engineer who follows the DRY (Don't Repeat Yourself) principle, writing clean, reusable code with a focus on simplicity and functionality to deliver high-quality end products.
+          </p>
+          <p class="text-cream-dim leading-relaxed mb-9" style="font-weight:300;">
+            With a background in Mechanical Engineering from Ekiti State University, I transitioned into software development, bringing an engineer's mindset for precision, problem-solving and systems thinking to every project.
+          </p>
+          <h4 class="section-label mb-5">My Goals</h4>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3"><i class="fas fa-check text-gold text-xs mt-1.5"></i><span class="text-cream-dim" style="font-weight:300;">Continuously develop my software development skills</span></li>
+            <li class="flex items-start gap-3"><i class="fas fa-check text-gold text-xs mt-1.5"></i><span class="text-cream-dim" style="font-weight:300;">Solve complex problems with elegant solutions</span></li>
+            <li class="flex items-start gap-3"><i class="fas fa-check text-gold text-xs mt-1.5"></i><span class="text-cream-dim" style="font-weight:300;">Build projects that are genuinely beneficial to the public</span></li>
+            <li class="flex items-start gap-3"><i class="fas fa-check text-gold text-xs mt-1.5"></i><span class="text-cream-dim" style="font-weight:300;">Sharpen my ability to think and respond quickly to any challenge</span></li>
+            <li class="flex items-start gap-3"><i class="fas fa-check text-gold text-xs mt-1.5"></i><span class="text-cream-dim" style="font-weight:300;">Keep up with the latest tech developments and best practices</span></li>
+          </ul>
+        </div>
+
+        <div class="reveal" style="--d:.15s">
+          <div class="flex mb-8" role="tablist">
+            <button class="tab-btn active" data-tab="experience" role="tab">Experience</button>
+            <button class="tab-btn" data-tab="education" role="tab">Education</button>
+          </div>
+
+          <div id="tab-experience" class="tab-content timeline space-y-5">
+            <div class="t-item bg-ink-2 border border-mist p-6">
+              <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
+                <h4 class="font-display font-bold text-cream text-lg">Backend Developer</h4>
+                <span class="font-mono text-xs text-gold border border-gold-dim px-2 py-1">2023 – Present</span>
+              </div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-3">Speedpay Finance Limited</p>
+              <ul class="space-y-2">
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight:300;"><span class="text-gold flex-shrink-0">—</span>Developed and enhanced APIs using Flask and Django REST Framework; integrated Docker for containerization.</li>
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight:300;"><span class="text-gold flex-shrink-0">—</span>Built APIs using AWS Serverless Lambda architecture for scalable microservices.</li>
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight:300;"><span class="text-gold flex-shrink-0">—</span>Conducted thorough testing and documentation using Postman.</li>
+              </ul>
+            </div>
+            <div class="t-item bg-ink-2 border border-mist p-6">
+              <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
+                <h4 class="font-display font-bold text-cream text-lg">Software Developer</h4>
+                <span class="font-mono text-xs text-gold border border-gold-dim px-2 py-1">2021 – 2022</span>
+              </div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-3">Codewave</p>
+              <ul class="space-y-2">
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight:300;"><span class="text-gold flex-shrink-0">—</span>Built and maintained web applications using Django and Django REST Framework.</li>
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight:300;"><span class="text-gold flex-shrink-0">—</span>Designed databases and integrated them with Django's ORM.</li>
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight:300;"><span class="text-gold flex-shrink-0">—</span>Collaborated with cross-functional teams to meet project deadlines.</li>
+              </ul>
+            </div>
+            <div class="t-item bg-ink-2 border border-mist p-6">
+              <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
+                <h4 class="font-display font-bold text-cream text-lg">Desktop Support Technician</h4>
+                <span class="font-mono text-xs text-gold border border-gold-dim px-2 py-1">2020 – 2021</span>
+              </div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-3">J-Tech Innovations</p>
+              <ul class="space-y-2">
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight:300;"><span class="text-gold flex-shrink-0">—</span>Configured and maintained desktop and laptop computers for optimal performance.</li>
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight:300;"><span class="text-gold flex-shrink-0">—</span>Troubleshot technical issues related to OS, software and hardware.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div id="tab-education" class="tab-content timeline space-y-5 hidden">
+            <div class="t-item bg-ink-2 border border-mist p-6">
+              <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
+                <h4 class="font-display font-bold text-cream text-lg">Software Development</h4>
+                <span class="font-mono text-xs text-gold border border-gold-dim px-2 py-1">2022 – 2023</span>
+              </div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-3">AltSchool Africa, School of Engineering</p>
+              <ul class="space-y-2">
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight:300;"><span class="text-gold flex-shrink-0">—</span>Completed coursework in algorithms, Flask, APIs and front-end development.</li>
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight:300;"><span class="text-gold flex-shrink-0">—</span>Participated in group projects to build and deploy web applications collaboratively.</li>
+              </ul>
+            </div>
+            <div class="t-item bg-ink-2 border border-mist p-6">
+              <div class="flex items-start justify-between gap-4 flex-wrap mb-2">
+                <h4 class="font-display font-bold text-cream text-lg">B.Eng. Mechanical Engineering</h4>
+                <span class="font-mono text-xs text-gold border border-gold-dim px-2 py-1">2011 – 2018</span>
+              </div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-3">Ekiti State University, Ado Ekiti</p>
+              <ul class="space-y-2">
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight:300;"><span class="text-gold flex-shrink-0">—</span>Bachelor's degree in Mechanical Engineering.</li>
+                <li class="text-cream-dim text-sm leading-relaxed flex gap-2" style="font-weight:300;"><span class="text-gold flex-shrink-0">—</span>Final year project: designing and developing a hydropower turbine.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="py-28 lazy-section" style="background:#0d0d14;">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="reveal flex items-end gap-6 mb-16">
+        <div>
+          <p class="section-label mb-2">02 — Stack</p>
+          <h2 class="font-display font-bold text-4xl md:text-5xl text-cream">Technologies</h2>
+        </div>
+        <div class="gold-rule flex-1 mb-3"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="reveal skill-group" style="--d:.05s">
+          <p class="section-label mb-5"><i class="fas fa-code mr-2"></i>Languages</p>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="chip"><i class="fab fa-python"></i>Python</span>
+            <span class="chip"><i class="fab fa-js"></i>JavaScript</span>
+            <span class="chip"><i class="fas fa-file-code"></i>TypeScript</span>
+            <span class="chip"><i class="fab fa-html5"></i>HTML5</span>
+            <span class="chip"><i class="fab fa-css3-alt"></i>CSS3</span>
+          </div>
+        </div>
+        <div class="reveal skill-group" style="--d:.12s">
+          <p class="section-label mb-5"><i class="fas fa-gears mr-2"></i>Backend</p>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="chip"><i class="fas fa-bolt"></i>Django</span>
+            <span class="chip"><i class="fas fa-rocket"></i>FastAPI</span>
+            <span class="chip"><i class="fas fa-flask"></i>Flask</span>
+            <span class="chip"><i class="fab fa-node-js"></i>Node.js</span>
+            <span class="chip"><i class="fas fa-train"></i>Express.js</span>
+            <span class="chip"><i class="fas fa-diagram-project"></i>Prisma</span>
+            <span class="chip"><i class="fas fa-plug"></i>REST APIs</span>
+          </div>
+        </div>
+        <div class="reveal skill-group" style="--d:.19s">
+          <p class="section-label mb-5"><i class="fas fa-palette mr-2"></i>Frontend</p>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="chip"><i class="fab fa-react"></i>React</span>
+            <span class="chip"><i class="fas fa-wind"></i>Tailwind</span>
+            <span class="chip"><i class="fab fa-bootstrap"></i>Bootstrap</span>
+          </div>
+        </div>
+        <div class="reveal skill-group" style="--d:.26s">
+          <p class="section-label mb-5"><i class="fas fa-database mr-2"></i>Databases</p>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="chip"><i class="fas fa-database"></i>PostgreSQL</span>
+            <span class="chip"><i class="fas fa-table"></i>MySQL</span>
+            <span class="chip"><i class="fas fa-leaf"></i>MongoDB</span>
+            <span class="chip"><i class="fas fa-server"></i>Redis</span>
+          </div>
+        </div>
+        <div class="reveal skill-group lg:col-span-2" style="--d:.33s">
+          <p class="section-label mb-5"><i class="fas fa-cloud mr-2"></i>DevOps &amp; Cloud</p>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="chip"><i class="fab fa-docker"></i>Docker</span>
+            <span class="chip"><i class="fas fa-dharmachakra"></i>Kubernetes</span>
+            <span class="chip new"><i class="fab fa-jenkins"></i>Jenkins</span>
+            <span class="chip"><i class="fab fa-aws"></i>AWS Lambda</span>
+            <span class="chip"><i class="fab fa-git-alt"></i>Git</span>
+            <span class="chip"><i class="fab fa-github"></i>GitHub</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-28 lazy-section">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="reveal flex items-end gap-6 mb-16">
+        <div>
+          <p class="section-label mb-2">03 — Projects</p>
+          <h2 class="font-display font-bold text-4xl md:text-5xl text-cream">Selected Work</h2>
+        </div>
+        <div class="gold-rule flex-1 mb-3"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <article class="reveal card p-6 flex flex-col gap-4" style="--d:.05s">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-1">API / Backend · AI</p>
+              <h3 class="font-display font-bold text-cream text-xl">MatchMetric-AI</h3>
+            </div>
+            <a href="https://github.com/engrmarkk/MatchMetric-AI" target="_blank" rel="noopener" class="text-cream-dim hover:text-gold transition-colors text-lg mt-1" aria-label="MatchMetric-AI on GitHub"><i class="fab fa-github"></i></a>
+          </div>
+          <div class="gold-rule w-12"></div>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight:300;">Backend infrastructure that analyzes resumes against job descriptions in real time using a streaming Large Language Model pipeline.</p>
+          <div class="flex flex-wrap gap-2 mt-auto"><span class="tag">Python</span><span class="tag">Django REST</span><span class="tag">Redis</span><span class="tag">Gemini LLM</span></div>
+        </article>
+
+        <article class="reveal card p-6 flex flex-col gap-4" style="--d:.12s">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-1">API / Backend · Security</p>
+              <h3 class="font-display font-bold text-cream text-xl">DjangGuard</h3>
+            </div>
+            <a href="https://github.com/engrmarkk/DjangGuard" target="_blank" rel="noopener" class="text-cream-dim hover:text-gold transition-colors text-lg mt-1" aria-label="DjangGuard on GitHub"><i class="fab fa-github"></i></a>
+          </div>
+          <div class="gold-rule w-12"></div>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight:300;">A security-focused Django REST API boilerplate with built-in authentication, rate limiting, JWT token management and Redis-backed caching.</p>
+          <div class="flex flex-wrap gap-2 mt-auto"><span class="tag">Python</span><span class="tag">Django REST</span><span class="tag">JWT</span><span class="tag">Redis</span></div>
+        </article>
+
+        <article class="reveal card p-6 flex flex-col gap-4" style="--d:.19s">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-1">Full-Stack · Fintech</p>
+              <h3 class="font-display font-bold text-cream text-xl">EasyTransact</h3>
+            </div>
+            <div class="flex items-center gap-3 mt-1">
+              <a href="http://209.74.88.203:4000/" target="_blank" rel="noopener" class="text-cream-dim hover:text-gold transition-colors" aria-label="EasyTransact live demo"><i class="fas fa-globe"></i></a>
+              <a href="https://github.com/engrmarkk/wallet_platform" target="_blank" rel="noopener" class="text-cream-dim hover:text-gold transition-colors text-lg" aria-label="EasyTransact on GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="gold-rule w-12"></div>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight:300;">A secure digital wallet that simplifies money management, with a referral scheme for earning rewards.</p>
+          <div class="flex flex-wrap gap-2 mt-auto"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">PostgreSQL</span><span class="tag">JavaScript</span></div>
+        </article>
+
+        <article class="reveal card p-6 flex flex-col gap-4" style="--d:.05s">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-1">Full-Stack</p>
+              <h3 class="font-display font-bold text-cream text-xl">Blog Platform</h3>
+            </div>
+            <a href="https://github.com/engrmarkk/My_Blog_Project" target="_blank" rel="noopener" class="text-cream-dim hover:text-gold transition-colors text-lg mt-1" aria-label="Blog Platform on GitHub"><i class="fab fa-github"></i></a>
+          </div>
+          <div class="gold-rule w-12"></div>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight:300;">A blog platform with full CRUD capability, authentication and authorization for data protection.</p>
+          <div class="flex flex-wrap gap-2 mt-auto"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLite</span><span class="tag">JavaScript</span></div>
+        </article>
+
+        <article class="reveal card p-6 flex flex-col gap-4" style="--d:.12s">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-1">Frontend</p>
+              <h3 class="font-display font-bold text-cream text-xl">Quiz Platform</h3>
+            </div>
+            <div class="flex items-center gap-3 mt-1">
+              <a href="https://quiz-1.engrmark.repl.co" target="_blank" rel="noopener" class="text-cream-dim hover:text-gold transition-colors" aria-label="Quiz Platform live demo"><i class="fas fa-globe"></i></a>
+              <a href="https://github.com/engrmarkk/QUIZ_PLATFORM" target="_blank" rel="noopener" class="text-cream-dim hover:text-gold transition-colors text-lg" aria-label="Quiz Platform on GitHub"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="gold-rule w-12"></div>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight:300;">Challenges users to answer 10 questions in 60 seconds. Timed gameplay keeps the pressure on.</p>
+          <div class="flex flex-wrap gap-2 mt-auto"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+        </article>
+
+        <article class="reveal card p-6 flex flex-col gap-4" style="--d:.19s">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-1">Full-Stack</p>
+              <h3 class="font-display font-bold text-cream text-xl">Country Info</h3>
+            </div>
+            <a href="https://github.com/engrmarkk/country-Info" target="_blank" rel="noopener" class="text-cream-dim hover:text-gold transition-colors text-lg mt-1" aria-label="Country Info on GitHub"><i class="fab fa-github"></i></a>
+          </div>
+          <div class="gold-rule w-12"></div>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight:300;">Detailed information about any country in the world. Search, explore, discover.</p>
+          <div class="flex flex-wrap gap-2 mt-auto"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">HTML</span><span class="tag">CSS</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog" class="py-28 lazy-section" style="background:#0d0d14;">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="reveal flex items-end gap-6 mb-16">
+        <div>
+          <p class="section-label mb-2">04 — Writing</p>
+          <h2 class="font-display font-bold text-4xl md:text-5xl text-cream">Blog Posts</h2>
+        </div>
+        <div class="gold-rule flex-1 mb-3"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <a href="https://dev.to/engrmark/running-a-cron-job-in-django-using-celery-and-docker-238d" target="_blank" rel="noopener" class="reveal blog-card p-6 flex flex-col gap-4 group" style="--d:.05s">
+          <p class="font-mono text-xs text-gold-dim tracking-wider uppercase">Django · Docker</p>
+          <h3 class="font-display font-bold text-cream text-xl group-hover:text-gold transition-colors leading-snug">Running Cron Jobs in Django with Celery</h3>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight:300;">Setting up cron jobs in Django using Celery, and Dockerizing the application for seamless deployment.</p>
+          <div class="flex items-center gap-2 text-gold font-mono text-xs tracking-wider mt-auto">Read Article <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i></div>
+        </a>
+        <a href="https://www.linkedin.com/pulse/understanding-database-relationships-flask-sqlalchemy-adeniyi-5i38f" target="_blank" rel="noopener" class="reveal blog-card p-6 flex flex-col gap-4 group" style="--d:.12s">
+          <p class="font-mono text-xs text-gold-dim tracking-wider uppercase">Database · SQLAlchemy</p>
+          <h3 class="font-display font-bold text-cream text-xl group-hover:text-gold transition-colors leading-snug">Database Relationships in Flask</h3>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight:300;">How to define and manage database relationships in Flask with SQLAlchemy effectively.</p>
+          <div class="flex items-center gap-2 text-gold font-mono text-xs tracking-wider mt-auto">Read Article <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i></div>
+        </a>
+        <a href="https://www.linkedin.com/pulse/understanding-http-status-codes-olanrewaju-adeniyi-qamif" target="_blank" rel="noopener" class="reveal blog-card p-6 flex flex-col gap-4 group" style="--d:.19s">
+          <p class="font-mono text-xs text-gold-dim tracking-wider uppercase">Web Dev · HTTP</p>
+          <h3 class="font-display font-bold text-cream text-xl group-hover:text-gold transition-colors leading-snug">HTTP Status Codes Demystified</h3>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight:300;">A clear guide to HTTP status codes, their meanings and how to use them correctly.</p>
+          <div class="flex items-center gap-2 text-gold font-mono text-xs tracking-wider mt-auto">Read Article <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i></div>
+        </a>
+        <a href="https://engrmark.hashnode.dev/decision-making-in-python" target="_blank" rel="noopener" class="reveal blog-card p-6 flex flex-col gap-4 group" style="--d:.05s">
+          <p class="font-mono text-xs text-gold-dim tracking-wider uppercase">Python · Beginners</p>
+          <h3 class="font-display font-bold text-cream text-xl group-hover:text-gold transition-colors leading-snug">Decision Making in Python</h3>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight:300;">An overview of using IF, ELIF and ELSE statements effectively in Python.</p>
+          <div class="flex items-center gap-2 text-gold font-mono text-xs tracking-wider mt-auto">Read Article <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i></div>
+        </a>
+        <a href="https://engrmark.hashnode.dev/a-simple-flask-blog" target="_blank" rel="noopener" class="reveal blog-card p-6 flex flex-col gap-4 group" style="--d:.12s">
+          <p class="font-mono text-xs text-gold-dim tracking-wider uppercase">Flask · Tutorial</p>
+          <h3 class="font-display font-bold text-cream text-xl group-hover:text-gold transition-colors leading-snug">A Simple Flask Blog</h3>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight:300;">A step-by-step walkthrough of building a Flask blog with full CRUD operations.</p>
+          <div class="flex items-center gap-2 text-gold font-mono text-xs tracking-wider mt-auto">Read Article <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i></div>
+        </a>
+        <a href="https://engrmark.hashnode.dev/python-cheat-sheet" target="_blank" rel="noopener" class="reveal blog-card p-6 flex flex-col gap-4 group" style="--d:.19s">
+          <p class="font-mono text-xs text-gold-dim tracking-wider uppercase">Python · Reference</p>
+          <h3 class="font-display font-bold text-cream text-xl group-hover:text-gold transition-colors leading-snug">Python Cheat Sheet</h3>
+          <p class="text-cream-dim text-sm leading-relaxed flex-1" style="font-weight:300;">A comprehensive cheat sheet of essential Python syntax for day-to-day programming.</p>
+          <div class="flex items-center gap-2 text-gold font-mono text-xs tracking-wider mt-auto">Read Article <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-28 lazy-section">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="reveal flex items-end gap-6 mb-16">
+        <div>
+          <p class="section-label mb-2">05 — Contact</p>
+          <h2 class="font-display font-bold text-4xl md:text-5xl text-cream">Get In Touch</h2>
+        </div>
+        <div class="gold-rule flex-1 mb-3"></div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal-left">
+          <p class="text-cream-dim leading-relaxed mb-10 text-lg" style="font-weight:300;">
+            I'm open to new opportunities, collaborations and interesting conversations. Whether you have a role, a project in mind, or just want to say hi, my inbox is always open.
+          </p>
+          <div class="space-y-6">
+            <div class="contact-row flex items-center gap-4">
+              <div class="contact-icon"><i class="far fa-envelope text-gold text-sm"></i></div>
+              <div><p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-1">Email</p><a href="mailto:adeniyiboladale@yahoo.com" class="text-cream hover:text-gold transition-colors text-sm">adeniyiboladale@yahoo.com</a></div>
+            </div>
+            <div class="contact-row flex items-center gap-4">
+              <div class="contact-icon"><i class="fas fa-phone text-gold text-sm"></i></div>
+              <div><p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-1">Phone</p><a href="tel:+2348148918156" class="text-cream hover:text-gold transition-colors text-sm">+234 814 891 8156</a></div>
+            </div>
+            <div class="contact-row flex items-center gap-4">
+              <div class="contact-icon"><i class="fas fa-location-dot text-gold text-sm"></i></div>
+              <div><p class="font-mono text-xs text-gold-dim tracking-wider uppercase mb-1">Location</p><span class="text-cream text-sm">Lagos State, Nigeria</span></div>
+            </div>
+          </div>
+          <div class="social flex items-center gap-3 mt-12">
+            <a href="https://github.com/engrmarkk" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/iamengrmark" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://twitter.com/iamengrmark" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://wa.link/v67k3y" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://hashnode.com/@engrmark" target="_blank" rel="noopener" aria-label="Hashnode"><i class="fas fa-pen-nib"></i></a>
+          </div>
+        </div>
+
+        <div class="reveal bg-ink-2 border border-mist p-8" style="--d:.15s">
+          <form id="contactForm" class="space-y-5" novalidate>
+            <div>
+              <label for="contactName" class="font-mono text-xs text-gold-dim tracking-widest uppercase block mb-2">Your Name</label>
+              <input type="text" id="contactName" name="name" placeholder="John Doe" class="form-input" autocomplete="name" />
+              <p class="font-mono text-xs mt-1 hidden" style="color:#e05c5c;" id="nameError">Name is required.</p>
+            </div>
+            <div>
+              <label for="contactEmail" class="font-mono text-xs text-gold-dim tracking-widest uppercase block mb-2">Email Address</label>
+              <input type="email" id="contactEmail" name="email" placeholder="john@example.com" class="form-input" autocomplete="email" />
+              <p class="font-mono text-xs mt-1 hidden" style="color:#e05c5c;" id="emailError">A valid email is required.</p>
+            </div>
+            <div>
+              <label for="contactMessage" class="font-mono text-xs text-gold-dim tracking-widest uppercase block mb-2">Message</label>
+              <textarea id="contactMessage" name="message" placeholder="Tell me about your project or role..." class="form-input"></textarea>
+              <p class="font-mono text-xs mt-1 hidden" style="color:#e05c5c;" id="messageError">Message cannot be empty.</p>
+            </div>
+            <button type="submit" id="contactSubmit" class="btn-primary w-full justify-center" style="min-height:54px;">
+              <span id="submitText">Send Message</span>
+              <i class="fas fa-paper-plane" id="submitIcon"></i>
+              <svg id="submitSpinner" class="hidden animate-spin w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="border-top:1px solid #1a1a24;" class="py-8">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <span class="font-display font-black text-xl gold-text">OA</span>
+      <p class="font-mono text-xs text-cream-dim tracking-wider text-center">Designed &amp; Built by Adeniyi Olanrewaju &copy; <span id="year"></span></p>
+      <div class="flex items-center gap-4">
+        <a href="https://github.com/engrmarkk" target="_blank" rel="noopener" class="text-cream-dim hover:text-gold transition-colors text-sm" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/iamengrmark" target="_blank" rel="noopener" class="text-cream-dim hover:text-gold transition-colors text-sm" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://twitter.com/iamengrmark" target="_blank" rel="noopener" class="text-cream-dim hover:text-gold transition-colors text-sm" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="toTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- TOAST -->
+  <div id="toast" class="fixed bottom-8 left-1/2 z-50 flex items-center gap-3 px-5 py-4 border font-mono text-xs tracking-wider uppercase"
+       style="min-width:300px; transform:translate(-50%,80px); opacity:0; pointer-events:none; transition: transform .45s cubic-bezier(.22,.68,0,1.2), opacity .4s ease;">
+    <i id="toastIcon" class="text-base flex-shrink-0"></i><span id="toastMsg"></span>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Loader
+    window.addEventListener('load', () => setTimeout(() => document.getElementById('loader').classList.add('done'), 350));
+
+    // Mobile menu
+    const menu = document.getElementById('mobileMenu');
+    document.getElementById('mobileToggle').addEventListener('click', () => menu.classList.toggle('hidden'));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
+
+    // Tabs
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.tab-content').forEach(tc => tc.classList.toggle('hidden', tc.id !== `tab-${btn.dataset.tab}`));
+      });
+    });
+
+    // Reveal on scroll (lazy animations)
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-scale').forEach(el => io.observe(el));
+
+    // Lazy image blur-up
+    document.querySelectorAll('.lazy-img').forEach(img => {
+      const done = () => { img.classList.add('loaded'); img.parentElement.classList.add('loaded'); };
+      img.complete && img.naturalWidth ? done() : img.addEventListener('load', done);
+      img.addEventListener('error', () => img.parentElement.classList.add('loaded'));
+    });
+
+    // Counters
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target, target = +el.dataset.count; let n = 0;
+        const step = () => { n += Math.max(1, Math.ceil(target / 24)); if (n >= target) { el.textContent = target; return; } el.textContent = n; requestAnimationFrame(step); };
+        step(); cio.unobserve(el);
+      });
+    });
+    document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+
+    // Typed roles
+    const roles = ['Backend Software Engineer', 'API & Systems Architect', 'Python · Node.js · Django · FastAPI'];
+    const typed = document.getElementById('typed');
+    let ri = 0, ci = 0, del = false;
+    (function type() {
+      const word = roles[ri];
+      typed.textContent = word.slice(0, ci);
+      if (!del && ci === word.length) { del = true; return setTimeout(type, 1800); }
+      if (del && ci === 0) { del = false; ri = (ri + 1) % roles.length; }
+      ci += del ? -1 : 1;
+      setTimeout(type, del ? 28 : 55);
+    })();
+
+    // Nav state, progress bar, active link, back-to-top
+    const nav = document.getElementById('nav'), progress = document.getElementById('progress'), toTop = document.getElementById('toTop');
+    const sections = document.querySelectorAll('section[id]'), links = document.querySelectorAll('.nav-link');
+    function onScroll() {
+      const y = window.scrollY, h = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+      nav.classList.toggle('scrolled', y > 30);
+      toTop.classList.toggle('show', y > 600);
+      let current = '';
+      sections.forEach(s => { if (y + 130 >= s.offsetTop) current = s.id; });
+      links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+    }
+    window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Card spotlight
+    document.querySelectorAll('.card').forEach(c => c.addEventListener('mousemove', e => {
+      const r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    }));
+
+    // Toast
+    let toastTimer;
+    function showToast(message, type) {
+      const t = document.getElementById('toast'), icon = document.getElementById('toastIcon');
+      clearTimeout(toastTimer);
+      const ok = type === 'success';
+      t.style.background = ok ? '#0b1a0c' : '#1a0c0c';
+      t.style.borderColor = ok ? '#3a8a3a' : '#8a3a3a';
+      t.style.color = ok ? '#72d672' : '#e06060';
+      icon.className = (ok ? 'fas fa-circle-check' : 'fas fa-circle-xmark') + ' text-base flex-shrink-0';
+      document.getElementById('toastMsg').textContent = message;
+      t.style.transform = 'translate(-50%,0)'; t.style.opacity = '1'; t.style.pointerEvents = 'auto';
+      toastTimer = setTimeout(() => { t.style.transform = 'translate(-50%,80px)'; t.style.opacity = '0'; t.style.pointerEvents = 'none'; }, 4500);
+    }
+
+    // Contact form
+    const form = document.getElementById('contactForm'), btn = document.getElementById('contactSubmit');
+    const setLoading = on => {
+      btn.disabled = on;
+      document.getElementById('submitText').textContent = on ? 'Sending…' : 'Send Message';
+      document.getElementById('submitIcon').classList.toggle('hidden', on);
+      document.getElementById('submitSpinner').classList.toggle('hidden', !on);
+    };
+    const clearErrors = () => ['name','email','message'].forEach(k => {
+      document.getElementById(k + 'Error').classList.add('hidden');
+      document.getElementById('contact' + k[0].toUpperCase() + k.slice(1)).style.borderColor = '';
+    });
+    const fieldError = (id, err) => { document.getElementById(err).classList.remove('hidden'); document.getElementById(id).style.borderColor = '#e06060'; };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); clearErrors();
+      const name = document.getElementById('contactName').value.trim();
+      const email = document.getElementById('contactEmail').value.trim();
+      const message = document.getElementById('contactMessage').value.trim();
+      let valid = true;
+      if (!name) { fieldError('contactName', 'nameError'); valid = false; }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { fieldError('contactEmail', 'emailError'); valid = false; }
+      if (!message) { fieldError('contactMessage', 'messageError'); valid = false; }
+      if (!valid) return;
+      setLoading(true);
+      try {
+        const res = await fetch('/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+          body: JSON.stringify({ name, email, message })
+        });
+        const data = await res.json();
+        if (res.ok && data.success) { showToast("Message sent! I'll get back to you soon.", 'success'); form.reset(); clearErrors(); }
+        else showToast(data.message || 'Something went wrong. Please try again.', 'error');
+      } catch (err) { showToast('Network error. Please check your connection.', 'error'); }
+      finally { setLoading(false); }
+    });
+  </script>
+</body>
+</html>
